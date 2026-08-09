@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDFTrail — Privacy Policy</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+
+  body {
+    --paper: #eef2f6;
+    --line: #b9c9dc;
+    --line-strong: #4f7096;
+    --ink: #1c3a5e;
+    --ink-dim: #5c7a9c;
+    --accent: #c9852b;
+    background: var(--paper);
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: var(--ink);
+    padding: 2.5rem 1.25rem 4rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      --paper: #10203a;
+      --line: rgba(160, 190, 220, 0.09);
+      --line-strong: #6f96c2;
+      --ink: #cfe0f2;
+      --ink-dim: #8fb0d2;
+      --accent: #f2c464;
+    }
+  }
+
+  .sheet { max-width: 42rem; margin: 0 auto; }
+
+  .titleblock { border: 1.5px solid var(--line-strong); padding: 0.9rem 1.1rem; margin-bottom: 2rem; position: relative; }
+  .titleblock::before { content: ""; position: absolute; top: 6px; left: 6px; right: 6px; bottom: 6px; border: 1px dashed var(--line); pointer-events: none; }
+  .tb-row { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
+  .tb-row + .tb-row { margin-top: 0.5rem; border-top: 1px solid var(--line); padding-top: 0.5rem; }
+  .tb-label { font: 600 10px/1.2 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-dim); }
+  .tb-value { font: 11px ui-monospace, "SF Mono", Menlo, monospace; color: var(--ink); }
+  h1 { font-size: 1.7rem; margin: 0 0 0.15rem; letter-spacing: -0.01em; }
+  .meta { color: var(--ink-dim); margin: 0; font-size: 0.95rem; }
+
+  .dim { display: flex; align-items: center; gap: 0.5rem; margin: 2.1rem 0 0.6rem; }
+  .dim::before, .dim::after { content: ""; flex: 1; height: 1px; background: var(--line-strong); }
+  .dim span { font: 600 11px ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
+
+  p, li { line-height: 1.65; max-width: 65ch; }
+  ul { padding-left: 1.3rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: var(--line-strong); }
+  @media (prefers-color-scheme: dark) { a { color: #9fc2e2; } }
+  strong { color: var(--accent); }
+
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line-strong);
+    font: 10.5px ui-monospace, "SF Mono", Menlo, monospace; color: var(--ink-dim);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="titleblock">
+    <div class="tb-row"><h1>PDFTrail Privacy Policy</h1></div>
+    <div class="tb-row">
+      <span class="tb-label">Sheet</span><span class="tb-value">PRIVACY · 02/02</span>
+      <span class="tb-label">Effective</span><span class="tb-value">9 Aug 2026</span>
+    </div>
+  </div>
+
+  <div class="dim"><span>Summary (plain English)</span></div>
+  <p>PDFTrail does not collect any data. The app works fully offline. Your PDFs,
+  your converted files, and your app settings stay on your Mac. PDFTrail does
+  not send your documents, your data, or any usage information to us or to
+  anyone else. We built PDFTrail this way on purpose, for financial analysts
+  and other professionals who handle sensitive documents.</p>
+
+  <div class="dim"><span>What we collect</span></div>
+  <p>Nothing. PDFTrail collects no personal data, no document content, and no
+  usage analytics. We have no server, no account system, and no database of
+  users. We cannot see your documents, your exports, or how you use the app,
+  because the app never sends that information anywhere.</p>
+
+  <div class="dim"><span>What stays on your device</span></div>
+  <p>Everything stays on your device. This includes:</p>
+  <ul>
+    <li>The PDF files you open.</li>
+    <li>The Excel, Word, Markdown, and text files PDFTrail creates.</li>
+    <li>Your app settings and preferences.</li>
+    <li>The export-quota counter that tracks your one-time free Markdown export
+        and one-time free DOCX export.</li>
+    <li>The on-screen table preview.</li>
+  </ul>
+  <p>PDFTrail reads and writes these items using normal file and settings storage
+  on your Mac. None of it leaves your device through PDFTrail.</p>
+
+  <div class="dim"><span>How text extraction and OCR work</span></div>
+  <p>PDFTrail extracts text from born-digital PDFs directly. For scanned pages,
+  PDFTrail uses Apple's Vision framework, which runs on-device. Recognizing
+  text in a scanned page happens on your Mac; PDFTrail does not send page
+  images or recognized text to any server to do this.</p>
+  <p><strong>A note on verification.</strong> We checked the app's source code for
+  network calls and found none. We also inspected the shipped conversion engine
+  binary and confirmed it links no networking library — only Apple system
+  frameworks and compression libraries. No feature in PDFTrail requires internet
+  access. We will update this policy at once if that ever changes.</p>
+
+  <div class="dim"><span>Apple's role</span></div>
+  <p>You download PDFTrail and buy the "Unlock Full Version" in-app purchase
+  through the Mac App Store. Apple, not PDFTrail, handles your payment,
+  receipt, and account details for that purchase. We never see your payment
+  information. Apple's own privacy policy covers what Apple collects for App
+  Store purchases:
+  <a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a>.</p>
+
+  <div class="dim"><span>Crash reports</span></div>
+  <p>If your Mac is set up to share crash reports with Apple, and PDFTrail
+  crashes, macOS may send a crash report through Apple's own mechanism. This
+  happens through the operating system, not through PDFTrail, and you control
+  it in System Settings. We do not run our own crash-reporting or analytics
+  service, and we do not receive these reports.</p>
+
+  <div class="dim"><span>Children's privacy</span></div>
+  <p>PDFTrail does not collect data from anyone, including children.</p>
+
+  <div class="dim"><span>Changes to this policy</span></div>
+  <p>If we ever change what PDFTrail collects or how it works, we will update
+  this policy and change the effective date above.</p>
+
+  <div class="dim"><span>Contact</span></div>
+  <p>Questions about this policy: <a href="mailto:ghosharkya90@gmail.com">ghosharkya90@gmail.com</a></p>
+
+  <footer>
+    <span>PDFTrail — offline PDF table extraction for Mac.</span>
+    <span><a href="index.html">Support</a></span>
+  </footer>
+</div>
+</body>
+</html>
