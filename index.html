@@ -1,149 +1,666 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PDFTrail — Support</title>
+<title>PDFTrail — PDF tables, text, and OCR for Mac</title>
+<meta name="description" content="PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown, or plain text — with row and column structure intact and labels next to their numbers. On-device OCR. No uploads, ever.">
+<link rel="canonical" href="https://pdftrail.app/">
+<meta name="theme-color" content="#262626">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PDFTrail">
+<meta property="og:title" content="PDFTrail — PDF tables, text, and OCR for Mac">
+<meta property="og:description" content="PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown, or plain text — with row and column structure intact and labels next to their numbers. On-device OCR. No uploads, ever.">
+<meta property="og:url" content="https://pdftrail.app/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PDFTrail — PDF tables, text, and OCR for Mac">
+<meta name="twitter:description" content="PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown, or plain text — with row and column structure intact and labels next to their numbers. On-device OCR. No uploads, ever.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2026%2026'%3E%3Crect%20width='26'%20height='26'%20fill='%23262626'/%3E%3Crect%20x='2.25'%20y='2.25'%20width='21.5'%20height='21.5'%20fill='none'%20stroke='%23F2C464'%20stroke-width='2.5'/%3E%3Cpath%20d='M7%209.5h12M7%2013.5h12M7%2017.5h7'%20stroke='%23CCCCCC'%20stroke-width='2'%20stroke-linecap='square'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;900&amp;family=Martian+Mono:wght@400;700&amp;display=swap">
 <style>
-  :root { color-scheme: light dark; }
-
   * { box-sizing: border-box; }
+  html { background: #282B33; }
+  body { margin: 0; background: #262626; }
+  a { color: #999999; text-decoration: none; transition: color 0.5s ease-out; }
+  a:hover { color: #FFFFFF; }
 
-  html, body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  }
-
-  body {
-    --paper: #eef2f6;
-    --line: #b9c9dc;
-    --line-strong: #4f7096;
-    --ink: #1c3a5e;
-    --ink-dim: #5c7a9c;
-    --accent: #c9852b;
-    background: var(--paper);
+  .page {
+    font-family: 'Archivo', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: #CCCCCC;
+    /* baked default tint: color-mix(in srgb, #4466CC 8%, #262626) */
+    background-color: #282B33;
     background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size: 24px 24px;
-    color: var(--ink);
-    padding: 2.5rem 1.25rem 4rem;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      --paper: #10203a;
-      --line: rgba(160, 190, 220, 0.09);
-      --line-strong: #6f96c2;
-      --ink: #cfe0f2;
-      --ink-dim: #8fb0d2;
-      --accent: #f2c464;
-      background: var(--paper);
-      background-image:
-        linear-gradient(var(--line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--line) 1px, transparent 1px);
-      background-size: 24px 24px;
-    }
-  }
-
-  .sheet {
-    max-width: 42rem;
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.022) 0px, rgba(255,255,255,0.022) 1px, transparent 1px, transparent 3px),
+      linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+    background-size: auto, 120px 120px, 120px 120px;
+    overflow: hidden;
+    max-width: 1280px;
     margin: 0 auto;
-    background: color-mix(in srgb, var(--paper) 80%, transparent);
   }
+  .mono { font-family: 'Martian Mono', 'SF Mono', Menlo, monospace; }
 
-  .titleblock {
-    border: 1.5px solid var(--line-strong);
-    padding: 0.9rem 1.1rem;
-    margin-bottom: 2rem;
-    position: relative;
+  /* ---- title block header: a hung steel plate ---- */
+  .head-pad { padding: 36px 64px 0 64px; }
+  .tb {
+    display: flex; justify-content: space-between; align-items: stretch;
+    border: 1.5px solid #5a5a5a; position: relative;
+    background: linear-gradient(180deg, #454545, #363636);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 10px 26px rgba(0,0,0,0.5);
   }
-  .titleblock::before {
-    content: "";
-    position: absolute; top: 6px; left: 6px; right: 6px; bottom: 6px;
-    border: 1px dashed var(--line);
-    pointer-events: none;
+  .tb::after {
+    content: ""; position: absolute; inset: 5px;
+    border: 1px dashed rgba(255,255,255,0.16); pointer-events: none;
   }
-  .tb-row { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
-  .tb-row + .tb-row { margin-top: 0.5rem; border-top: 1px solid var(--line); padding-top: 0.5rem; }
-  .tb-label { font: 600 10px/1.2 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-dim); }
-  .tb-value { font: 11px ui-monospace, "SF Mono", Menlo, monospace; color: var(--ink); }
-  h1 { font-size: 1.9rem; margin: 0 0 0.15rem; letter-spacing: -0.01em; }
-  .tag { color: var(--ink-dim); margin: 0; font-size: 0.98rem; }
+  .tb-brand { padding: 14px 20px; display: flex; align-items: center; gap: 14px; }
+  .tb-wordmark { font-size: 17px; font-weight: 700; letter-spacing: 0.22em; color: #FFFFFF; }
+  .tb-meta { display: flex; }
+  .tb-cell { padding: 14px 20px; border-left: 1px solid rgba(255,255,255,0.14); }
+  .tb-label {
+    font-family: 'Martian Mono', Menlo, monospace; font-size: 9px; font-weight: 700;
+    letter-spacing: 0.14em; color: #999999; text-transform: uppercase; margin: 0 0 4px 0;
+  }
+  .tb-value { font-family: 'Martian Mono', Menlo, monospace; font-size: 11px; color: #FFFFFF; margin: 0; }
 
-  .dim {
-    display: flex; align-items: center; gap: 0.5rem;
-    margin: 2.2rem 0 0.6rem;
-  }
-  .dim::before, .dim::after { content: ""; flex: 1; height: 1px; background: var(--line-strong); }
+  /* ---- dimension-line divider ---- */
+  .dim { display: flex; align-items: center; gap: 12px; }
+  .dim::before, .dim::after { content: ""; flex: 1; height: 1px; background: #5a5a5a; }
   .dim span {
-    font: 600 11px ui-monospace, "SF Mono", Menlo, monospace;
-    letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
-    white-space: nowrap;
+    font-family: 'Martian Mono', Menlo, monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.16em; color: #999999; text-transform: uppercase;
   }
 
-  p, li { line-height: 1.65; max-width: 65ch; }
-  ul { padding-left: 1.3rem; }
-  li { margin-bottom: 0.4rem; }
+  /* ---- hero drop-in (the plate drops down its chain) ---- */
+  @keyframes dropin {
+    from { opacity: 0; transform: translateY(-46px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .drop-1 { animation: dropin 0.9s cubic-bezier(0.2, 0.9, 0.3, 1) both; }
+  .drop-2 { animation: dropin 0.9s 0.15s cubic-bezier(0.2, 0.9, 0.3, 1) both; }
+  .drop-3 { animation: dropin 0.9s 0.3s cubic-bezier(0.2, 0.9, 0.3, 1) both; }
 
-  a { color: var(--line-strong); text-decoration-color: var(--line); }
-  @media (prefers-color-scheme: dark) { a { color: #9fc2e2; } }
+  /* ---- CTA: Steel's white plate with black text; hover sweeps to black ---- */
+  .cta {
+    display: inline-block; position: relative; overflow: hidden;
+    border: 1.5px solid #FFFFFF; padding: 15px 26px; border-radius: 2px;
+    font-family: 'Martian Mono', Menlo, monospace; font-size: 13px; font-weight: 700;
+    letter-spacing: 0.06em; color: #000000; background: #FFFFFF;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.5);
+  }
+  .cta:hover { color: #000000; }
+  .cta::before {
+    content: ""; position: absolute; inset: 0; background: #111111;
+    transform: translateX(-101%); transition: transform 0.45s ease-out;
+  }
+  .cta:hover::before, .cta:focus-visible::before { transform: translateX(0); }
+  .cta em { position: relative; z-index: 1; font-style: normal; transition: color 0.45s ease-out; }
+  .cta:hover em, .cta:focus-visible em { color: #FFFFFF; }
 
-  code { background: color-mix(in srgb, var(--line) 40%, transparent); padding: 0.1em 0.3em; border-radius: 2px; font-size: 0.9em; }
+  /* ---- hero layout ---- */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    grid-template-areas: "copy stage" "cta stage";
+    column-gap: 48px; row-gap: 0;
+    align-items: center;
+    padding: 72px 64px 64px 64px;
+  }
+  .hero-copy { grid-area: copy; }
+  .hero-cta { grid-area: cta; }
+  .stage { grid-area: stage; display: flex; gap: 22px; align-items: stretch; }
+  .eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #999999;
+    text-transform: uppercase; margin: 0 0 18px 0;
+  }
+  .hero h1 {
+    font-family: 'Archivo', sans-serif; font-weight: 900; font-size: 58px; line-height: 1.02;
+    letter-spacing: 0.005em; text-transform: uppercase; color: #FFFFFF; margin: 0 0 22px 0;
+  }
+  .hero-sub { font-size: 17px; line-height: 1.6; color: #ADADAD; margin: 0 0 30px 0; max-width: 480px; }
+  .fineprint { font-size: 11px; color: #999999; margin: 14px 0 0 2px; }
 
-  footer {
-    margin-top: 3rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--line-strong);
-    font: 10.5px ui-monospace, "SF Mono", Menlo, monospace;
-    color: var(--ink-dim);
-    letter-spacing: 0.03em;
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+  /* ---- the extraction stage: brushed-steel plates ---- */
+  .stage-plate {
+    background: linear-gradient(180deg, #414141, #343434);
+    border: 1.5px solid #5a5a5a; position: relative;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 18px 40px rgba(0,0,0,0.55);
+  }
+  .stage-plate::after { content: ""; position: absolute; inset: 5px; border: 1px dashed rgba(255,255,255,0.14); pointer-events: none; }
+  .scan-plate { flex: 1; }
+  .xls-plate { flex: 1.12; }
+  .plate-head {
+    font-family: 'Martian Mono', Menlo, monospace; font-size: 9px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase; color: #999999;
+    padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,0.14); margin: 0;
+  }
+  .head-mobile { display: none; }
+  .plate-body { position: relative; padding: 6px 0 14px 0; }
+  .plate-body.out { padding: 6px 0 40px 0; }
+  .scanrow, .xlsrow {
+    display: flex; justify-content: space-between; gap: 12px;
+    font-family: 'Martian Mono', Menlo, monospace; font-size: 11px; line-height: 1;
+    padding: 10px 16px; margin: 0;
+  }
+  .scanrow { color: #8a8a8a; }
+  .scanrow.hdr { color: #a0a0a0; }
+  .scanrow b, .xlsrow b { font-weight: 400; }
+  .xlsrow { border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .xlsrow .num { text-align: right; min-width: 76px; }
+  .arrow { align-self: center; flex-shrink: 0; }
+
+  /* scan light: amber overlay, riding the rows */
+  @keyframes scanhl-1 {
+    0%, 3%   { background-color: transparent; box-shadow: none; color: #8a8a8a; }
+    5%       { background-color: rgba(242,196,100,0.22); box-shadow: inset 2.5px 0 0 #F2C464; color: #FFFFFF; }
+    13%      { background-color: rgba(242,196,100,0.22); box-shadow: inset 2.5px 0 0 #F2C464; color: #FFFFFF; }
+    17%, 100% { background-color: transparent; box-shadow: none; color: #8a8a8a; }
+  }
+  @keyframes scanhl-2 {
+    0%, 19%  { background-color: transparent; box-shadow: none; color: #8a8a8a; }
+    21%      { background-color: rgba(242,196,100,0.22); box-shadow: inset 2.5px 0 0 #F2C464; color: #FFFFFF; }
+    29%      { background-color: rgba(242,196,100,0.22); box-shadow: inset 2.5px 0 0 #F2C464; color: #FFFFFF; }
+    33%, 100% { background-color: transparent; box-shadow: none; color: #8a8a8a; }
+  }
+  @keyframes scanhl-3 {
+    0%, 35%  { background-color: transparent; box-shadow: none; color: #8a8a8a; }
+    37%      { background-color: rgba(242,196,100,0.22); box-shadow: inset 2.5px 0 0 #F2C464; color: #FFFFFF; }
+    45%      { background-color: rgba(242,196,100,0.22); box-shadow: inset 2.5px 0 0 #F2C464; color: #FFFFFF; }
+    49%, 100% { background-color: transparent; box-shadow: none; color: #8a8a8a; }
+  }
+  @keyframes scanhl-4 {
+    0%, 51%  { background-color: transparent; box-shadow: none; color: #8a8a8a; }
+    53%      { background-color: rgba(242,196,100,0.22); box-shadow: inset 2.5px 0 0 #F2C464; color: #FFFFFF; }
+    61%      { background-color: rgba(242,196,100,0.22); box-shadow: inset 2.5px 0 0 #F2C464; color: #FFFFFF; }
+    65%, 100% { background-color: transparent; box-shadow: none; color: #8a8a8a; }
+  }
+  .s1 { animation: scanhl-1 14s infinite linear; }
+  .s2 { animation: scanhl-2 14s infinite linear; }
+  .s3 { animation: scanhl-3 14s infinite linear; }
+  .s4 { animation: scanhl-4 14s infinite linear; }
+
+  @keyframes rowin-1 {
+    0%, 8%  { opacity: 0; transform: translateX(-16px); color: #F2C464; }
+    11%     { opacity: 1; transform: translateX(0); color: #F2C464; }
+    19%     { color: #CCCCCC; }
+    95%     { opacity: 1; }
+    98%, 100% { opacity: 0; }
+  }
+  @keyframes rowin-2 {
+    0%, 24% { opacity: 0; transform: translateX(-16px); color: #F2C464; }
+    27%     { opacity: 1; transform: translateX(0); color: #F2C464; }
+    35%     { color: #CCCCCC; }
+    95%     { opacity: 1; }
+    98%, 100% { opacity: 0; }
+  }
+  @keyframes rowin-3 {
+    0%, 40% { opacity: 0; transform: translateX(-16px); color: #F2C464; }
+    43%     { opacity: 1; transform: translateX(0); color: #F2C464; }
+    51%     { color: #CCCCCC; }
+    95%     { opacity: 1; }
+    98%, 100% { opacity: 0; }
+  }
+  @keyframes rowin-4 {
+    0%, 56% { opacity: 0; transform: translateX(-16px); color: #F2C464; }
+    59%     { opacity: 1; transform: translateX(0); color: #F2C464; }
+    67%     { color: #CCCCCC; }
+    95%     { opacity: 1; }
+    98%, 100% { opacity: 0; }
+  }
+  .r1 { animation: rowin-1 14s infinite linear; }
+  .r2 { animation: rowin-2 14s infinite linear; }
+  .r3 { animation: rowin-3 14s infinite linear; }
+  .r4 { animation: rowin-4 14s infinite linear; }
+
+  @keyframes stamp {
+    0%, 70% { opacity: 0; transform: scale(1.7) rotate(-7deg); }
+    74%     { opacity: 1; transform: scale(1) rotate(-7deg); }
+    94%     { opacity: 1; }
+    97%, 100% { opacity: 0; }
+  }
+  .stamp {
+    position: absolute; right: 14px; bottom: 12px;
+    font-family: 'Martian Mono', Menlo, monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.12em; color: #000000; background: #F2C464; border: 1.5px solid #F2C464;
+    border-radius: 2px; padding: 5px 9px; transform-origin: center;
+    animation: stamp 14s infinite linear;
+  }
+
+  /* ---- marquee: Steel's hard-stop slot, white plates for the formats ---- */
+  .mq {
+    border-top: 1.5px solid #5a5a5a; border-bottom: 1.5px solid #5a5a5a;
+    background: linear-gradient(to bottom, #111111 45%, #111111 50%, transparent 50%, transparent 55%, #111111 55%, #111111 100%), #222222;
+    overflow: hidden; padding: 14px 0;
+  }
+  @keyframes slide {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .mq-row {
+    display: flex; width: max-content; margin: 0;
+    animation: slide 34s infinite linear;
+  }
+  .mq-row + .mq-row { margin-top: 10px; }
+  .mq:hover .mq-row { animation-play-state: paused; }
+  .mq-seg {
+    white-space: nowrap; padding-right: 56px; display: inline-flex; align-items: center;
+    font-family: 'Martian Mono', Menlo, monospace; font-size: 12px;
+    color: rgba(255,255,255,0.95); text-shadow: 0 0 4px #000000;
+  }
+  .mw {
+    border-radius: 2px; padding: 1px 6px;
+    transition: background-color 0.6s ease-out, color 0.6s ease-out, text-shadow 0.6s ease-out;
+  }
+  .mw.chip { font-weight: 700; color: #000000; background: #FFFFFF; text-shadow: none; }
+  .mw.lit { background: #F2C464; color: #000000; text-shadow: none; }
+  .sep { color: #6a6a6a; padding: 0 8px; text-shadow: none; }
+
+  /* ---- riveted steel sheets: dim at rest, flashlight reveals ---- */
+  .sheets-pad { padding: 64px 64px 20px 64px; }
+  .sheets-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px; }
+  .sheet {
+    position: relative; border: 1.5px solid #5a5a5a;
+    background: linear-gradient(180deg, #434343, #353535);
+    padding: 26px 24px 24px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 14px 34px rgba(0,0,0,0.5);
+    opacity: 0.82; transform: rotate(var(--tilt)) scale(0.98);
+    transition: transform 0.7s ease-out, opacity 0.7s ease-out, box-shadow 0.7s 0.25s ease-out;
+  }
+  .sheet:hover {
+    opacity: 1; transform: rotate(0deg) scale(1);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 24px 54px rgba(0,0,0,0.65);
+  }
+  .sheet::before {
+    content: ""; position: absolute; top: -7px; left: 50%; margin-left: -7px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--pin) 55%, #FFFFFF), color-mix(in srgb, var(--pin) 80%, #000000) 80%);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.6), inset 0 -2px 3px rgba(0,0,0,0.4);
+  }
+  .sheet::after { content: ""; position: absolute; inset: 6px; border: 1px dashed rgba(255,255,255,0.16); pointer-events: none; }
+  .sheet h3 {
+    margin: 0 0 12px 0; font-family: 'Archivo', sans-serif; font-weight: 900;
+    font-size: 19px; line-height: 1.15; letter-spacing: 0.015em; text-transform: uppercase;
+    color: var(--pin); opacity: 0.85; transition: opacity 1s ease-out;
+  }
+  .sheet:hover h3 { opacity: 1; }
+  .sheet .ref {
+    font-family: 'Martian Mono', Menlo, monospace; font-size: 9px; letter-spacing: 0.14em;
+    color: #8a8a8a; text-transform: uppercase; margin: 0 0 10px 0;
+  }
+  .bodywrap { position: relative; }
+  .bodywrap p { margin: 0; font-size: 14px; line-height: 1.55; color: #ADADAD; }
+  .haze {
+    filter: blur(4.5px); opacity: 0.4; user-select: none;
+    transition: opacity 0.4s ease-out;
+  }
+  .sheet:hover .haze { opacity: 0.26; }
+  .sharp {
+    position: absolute; inset: 0; color: #EDEDED;
+    -webkit-mask-image: radial-gradient(circle at var(--mx, -400px) var(--my, -400px), #000 0px, #000 64px, transparent 128px);
+    mask-image: radial-gradient(circle at var(--mx, -400px) var(--my, -400px), #000 0px, #000 64px, transparent 128px);
+  }
+
+  /* ---- pricing plate: dimmed at rest, brightens on approach (Steel signature) ---- */
+  .price-pad { padding: 44px 64px 24px 64px; }
+  .price-plate { display: flex; gap: 0; }
+  .price-col { transition: opacity 1s ease-out; opacity: 0.75; }
+  .price-col:hover { opacity: 1; }
+  .price-col.free { flex: 1.2; padding: 30px 34px; }
+  .price-col.unlock { flex: 1; padding: 30px 34px; border-left: 1px solid rgba(255,255,255,0.14); }
+  .price-col h4 {
+    margin: 0 0 14px 0; font-family: 'Martian Mono', Menlo, monospace; font-weight: 700;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #999999;
+  }
+  .price-col ul { margin: 0; padding: 0; list-style: none; }
+  .price-col li {
+    font-size: 13.5px; line-height: 1.45; color: #ADADAD;
+    padding: 7px 0 7px 20px; position: relative; border-bottom: 1px dashed rgba(255,255,255,0.14);
+  }
+  .price-col li::before {
+    content: ""; position: absolute; left: 2px; top: 14px; width: 8px; height: 8px;
+    border: 1.5px solid #8a8a8a;
+  }
+  .price-col.unlock li::before { border-color: #FFFFFF; background: rgba(255,255,255,0.3); }
+  .bigprice {
+    font-family: 'Archivo', sans-serif; font-weight: 900; font-size: 54px; line-height: 1;
+    color: #FFFFFF; margin: 0;
+  }
+  .price-note { font-size: 10px; letter-spacing: 0.14em; color: #999999; text-transform: uppercase; margin: 6px 0 18px 0; }
+  .price-cta { margin-top: 26px; }
+
+  /* ---- footer ---- */
+  .foot-pad { padding: 40px 64px 44px 64px; }
+  .foot-row { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; }
+  .foot-copy { font-size: 11px; color: #999999; margin: 0; }
+  .foot-links { font-size: 11px; margin: 0; display: flex; gap: 26px; flex-wrap: wrap; }
+
+  /* ---- mid range: keep the desktop layout, tighten the gutters ---- */
+  @media (max-width: 1080px) and (min-width: 761px) {
+    .head-pad { padding: 28px 36px 0 36px; }
+    .hero { padding: 52px 36px 48px 36px; column-gap: 32px; }
+    .hero h1 { font-size: 44px; }
+    .hero-sub { font-size: 15.5px; }
+    .sheets-pad { padding: 48px 36px 20px 36px; }
+    .sheets-grid { gap: 22px; }
+    .price-pad { padding: 36px 36px 24px 36px; }
+    .foot-pad { padding: 36px 36px 40px 36px; }
+    .tb-cell { padding: 14px 12px; }
+  }
+
+  /* ---- mobile: the SteelMobile layout ---- */
+  @media (max-width: 760px) {
+    .page { background-size: auto, 96px 96px, 96px 96px; }
+
+    .head-pad { padding: 20px 20px 0 20px; }
+    .tb { border: 0; background: none; box-shadow: none; }
+    .tb::after { display: none; }
+    .tb-brand { padding: 0; gap: 10px; }
+    .tb-brand svg { width: 20px; height: 20px; }
+    .tb-wordmark { font-size: 14px; letter-spacing: 0.2em; }
+    .tb-meta { display: none; }
+
+    .hero {
+      grid-template-columns: 1fr;
+      grid-template-areas: "copy" "stage" "cta";
+      padding: 30px 20px 28px 20px;
+    }
+    .eyebrow { font-size: 9.5px; letter-spacing: 0.18em; margin: 0 0 12px 0; }
+    .hero h1 { font-size: 34px; line-height: 1.04; margin: 0 0 14px 0; }
+    .hero-sub { font-size: 14.5px; line-height: 1.55; margin: 0 0 22px 0; max-width: none; }
+    .stage { display: block; margin-bottom: 22px; }
+    .scan-plate, .arrow { display: none; }
+    .xls-plate { box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 14px 30px rgba(0,0,0,0.55); }
+    .head-mobile { display: inline; }
+    .plate-head { font-size: 9px; letter-spacing: 0.13em; padding: 9px 14px; }
+    .plate-body.out { padding: 4px 0 36px 0; }
+    .xlsrow { font-size: 10.5px; padding: 10px 14px; gap: 10px; }
+    .xlsrow .num { min-width: 0; }
+    .stamp { right: 12px; bottom: 10px; font-size: 9px; letter-spacing: 0.11em; padding: 4px 7px; }
+    .cta { display: block; text-align: center; padding: 15px 18px; font-size: 12px; letter-spacing: 0.05em; }
+    .fineprint { font-size: 10px; margin: 10px 0 0 0; text-align: center; }
+
+    .mq { padding: 11px 0; background: linear-gradient(to bottom, #111111 40%, #111111 46%, transparent 46%, transparent 58%, #111111 58%, #111111 100%), #222222; }
+    .mq-row { animation-duration: 26s; }
+    .mq-row-2 { display: none; }
+    .mq-seg { padding-right: 44px; font-size: 11px; }
+    .mw { padding: 1px 5px; }
+    .sep { padding: 0 6px; }
+
+    .sheets-pad { padding: 30px 20px 6px 20px; }
+    .sheets-grid { grid-template-columns: 1fr; gap: 26px; }
+    .sheet {
+      padding: 22px 18px 20px; opacity: 0.95; transform: none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 10px 26px rgba(0,0,0,0.5);
+    }
+    .sheet:hover { transform: none; }
+    .sheet h3 { font-size: 16px; margin: 0 0 9px 0; opacity: 1; }
+    .sheet .ref { margin: 0 0 8px 0; }
+    .bodywrap p { font-size: 13px; line-height: 1.5; }
+    /* no flashlight on touch: show the text plainly */
+    .haze { filter: none; opacity: 1; }
+    .sheet:hover .haze { opacity: 1; }
+    .sharp { display: none; }
+
+    .price-pad { padding: 28px 20px 24px 20px; }
+    .price-plate { display: block; }
+    .price-col { opacity: 1; }
+    .price-col.free, .price-col.unlock { padding: 24px 20px; }
+    .price-col.unlock { border-left: 0; border-top: 1px solid rgba(255,255,255,0.14); }
+    .bigprice { font-size: 44px; }
+    .dim span { font-size: 9px; letter-spacing: 0.14em; }
+
+    .foot-pad { padding: 30px 20px 30px 20px; }
+    .foot-row { display: block; text-align: center; }
+    .foot-copy { font-size: 10px; margin: 0 0 12px 0; }
+    .foot-links { font-size: 10px; justify-content: center; gap: 18px; }
+  }
+
+  /* ---- reduced motion: hold every moving part still ---- */
+  @media (prefers-reduced-motion: reduce) {
+    .drop-1, .drop-2, .drop-3 { animation: none; opacity: 1; transform: none; }
+    .s1, .s2, .s3, .s4 { animation: none; }
+    .r1, .r2, .r3, .r4 { animation: none; opacity: 1; transform: none; color: #CCCCCC; }
+    .stamp { animation: none; opacity: 1; transform: rotate(-7deg); }
+    .mq-row { animation: none; }
+    .mw { transition: none; }
+    .sheet, .haze, .sheet h3, .price-col, a, .cta em, .cta::before { transition: none; }
   }
 </style>
 </head>
 <body>
-<div class="sheet">
 
-  <div class="titleblock">
-    <div class="tb-row">
-      <div><h1>PDFTrail</h1><p class="tag">Offline PDF table extraction for Mac.</p></div>
+<div class="page">
+
+  <!-- header title block -->
+  <header class="head-pad drop-1">
+    <div class="tb">
+      <div class="tb-brand">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <rect x="1" y="1" width="24" height="24" stroke="#FFFFFF" stroke-width="2"></rect>
+          <path d="M6 8h14M6 13h14M6 18h8" stroke="#999999" stroke-width="2" stroke-linecap="square"></path>
+        </svg>
+        <span class="mono tb-wordmark">PDFTRAIL</span>
+      </div>
+      <div class="tb-meta">
+        <div class="tb-cell"><p class="tb-label">Dwg No</p><p class="tb-value">PT-1.0.1</p></div>
+        <div class="tb-cell"><p class="tb-label">Rev</p><p class="tb-value">STEEL</p></div>
+        <div class="tb-cell"><p class="tb-label">Scale</p><p class="tb-value">1:1</p></div>
+        <div class="tb-cell"><p class="tb-label">Date</p><p class="tb-value">2026-08-22</p></div>
+      </div>
     </div>
-    <div class="tb-row">
-      <span class="tb-label">Sheet</span><span class="tb-value">SUPPORT · 01/02</span>
-      <span class="tb-label">Scale</span><span class="tb-value">1 : 1 (offline)</span>
+  </header>
+
+  <main>
+
+    <!-- hero -->
+    <div class="hero">
+      <div class="hero-copy drop-2">
+        <p class="mono eyebrow">For macOS &#183; Apple Silicon &#183; Works offline</p>
+        <h1>The tables come out as tables.</h1>
+        <p class="hero-sub">PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown, or plain text &#8212; with row and column structure intact and labels next to their numbers. On-device OCR. No uploads, ever.</p>
+      </div>
+
+      <div class="hero-cta drop-2">
+        <a class="cta" href="https://apps.apple.com/app/id6799649606"><em>Download on the Mac App Store</em></a>
+        <p class="mono fineprint">Free to try &#183; $24 one-time unlock &#183; No subscription</p>
+      </div>
+
+      <!-- extraction stage -->
+      <div class="stage drop-3">
+        <div class="stage-plate scan-plate">
+          <p class="plate-head">Scanned page &#183; 61</p>
+          <div class="plate-body">
+            <p class="scanrow hdr"><b>Particulars</b><b>FY24&#160;&#160;&#160;FY23</b></p>
+            <p class="scanrow s1"><b>Revenue from operations</b><b>4,120.6</b></p>
+            <p class="scanrow s2"><b>Cost of materials</b><b>(2,310.2)</b></p>
+            <p class="scanrow s3"><b>Employee benefits</b><b>(486.9)</b></p>
+            <p class="scanrow s4"><b>Profit before tax</b><b>512.4</b></p>
+          </div>
+        </div>
+        <svg class="arrow" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M3 13h17M14 6l7 7-7 7" stroke="#F2C464" stroke-width="2.5" stroke-linecap="square"></path>
+        </svg>
+        <div class="stage-plate xls-plate">
+          <p class="plate-head"><span class="head-mobile">Scanned page &#8594; </span>statements.xlsx</p>
+          <div class="plate-body out">
+            <p class="xlsrow r1"><b>Revenue from operations</b><b class="num">4,120.6</b></p>
+            <p class="xlsrow r2"><b>Cost of materials</b><b class="num">(2,310.2)</b></p>
+            <p class="xlsrow r3"><b>Employee benefits</b><b class="num">(486.9)</b></p>
+            <p class="xlsrow r4"><b>Profit before tax</b><b class="num">512.4</b></p>
+            <span class="stamp">TABLE REBUILT</span>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <p>PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown,
-  or plain text on your Mac. Table extraction is built for financial analysts:
-  annual reports in, clean spreadsheets out. Everything runs offline and
-  on-device — see the <a href="privacy.html">privacy policy</a>.</p>
+    <!-- marquee strip: seamless conveyor; a random capability word lights up every 4s -->
+    <div class="mq" aria-hidden="true">
+      <div class="mq-row" id="mqRow1"></div>
+      <div class="mq-row mq-row-2" id="mqRow2"></div>
+    </div>
 
-  <div class="dim"><span>Free tier &amp; unlock</span></div>
-  <ul>
-    <li>Free: unlimited conversions, full on-screen table preview, on-device OCR.</li>
-    <li>Free exports: unlimited plain text, one full Markdown export, one full
-        Word export, and Excel exports of the first 15 rows of each table.</li>
-    <li>The bundled sample annual report exports fully in every format.</li>
-    <li>One in-app purchase, "Unlock Full Version", removes every limit.
-        One payment. No subscription.</li>
-  </ul>
+    <!-- riveted sheets: cursor-flashlight reveal -->
+    <div class="sheets-pad">
+      <div class="dim" style="margin-bottom: 44px;"><span>Detail views &#183; A&#8211;A &#183; move your cursor to read</span></div>
+      <div class="sheets-grid">
 
-  <div class="dim"><span>Support</span></div>
-  <p>Questions, bug reports, or feature requests:
-  <a href="mailto:ghosharkya90@gmail.com">ghosharkya90@gmail.com</a>.
-  We answer as fast as we can.</p>
+        <div class="sheet" style="--tilt: -1.6deg; --pin: #F2C464;">
+          <p class="ref">Detail 01</p>
+          <h3>Tables hold their shape</h3>
+          <div class="bodywrap">
+            <p class="haze">Balance sheets, P&amp;L, cash flow, notes to accounts &#8212; rebuilt as clean rows and columns. Scanned pages included: on-device OCR reads the page and rebuilds the table.</p>
+            <p class="sharp" aria-hidden="true">Balance sheets, P&amp;L, cash flow, notes to accounts &#8212; rebuilt as clean rows and columns. Scanned pages included: on-device OCR reads the page and rebuilds the table.</p>
+          </div>
+        </div>
 
-  <div class="dim"><span>Restore purchase</span></div>
-  <p>Bought the unlock on another Mac, or reinstalled the app? Open the unlock
-  dialog in PDFTrail and click "Restore Purchase". The App Store restores the
-  unlock for the Apple ID that bought it.</p>
+        <div class="sheet" style="--tilt: 1.2deg; --pin: #74D2BE;">
+          <p class="ref">Detail 02</p>
+          <h3>Fully offline, by design</h3>
+          <div class="bodywrap">
+            <p class="haze">No network calls to process your files. No account, no analytics, no data collection of any kind. A client&#8217;s annual report or a draft filing stays on your Mac.</p>
+            <p class="sharp" aria-hidden="true">No network calls to process your files. No account, no analytics, no data collection of any kind. A client&#8217;s annual report or a draft filing stays on your Mac.</p>
+          </div>
+        </div>
 
-  <footer>
-    <span>PDFTrail rev. 2026-08</span>
-    <span><a href="privacy.html">Privacy policy</a></span>
+        <div class="sheet" style="--tilt: -1deg; --pin: #E88888;">
+          <p class="ref">Detail 03</p>
+          <h3>Ready for your LLM</h3>
+          <div class="bodywrap">
+            <p class="haze">Clean Markdown your model ingests without cleanup, Excel your analysis can trust, structured JSON blocks. Preview every table on screen before you export anything.</p>
+            <p class="sharp" aria-hidden="true">Clean Markdown your model ingests without cleanup, Excel your analysis can trust, structured JSON blocks. Preview every table on screen before you export anything.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- pricing -->
+    <div class="price-pad">
+      <div class="dim" style="margin-bottom: 44px;"><span>Bill of materials</span></div>
+      <div class="stage-plate price-plate">
+        <div class="price-col free">
+          <h4>Free &#183; forever</h4>
+          <ul>
+            <li>Unlimited conversions and on-screen table preview</li>
+            <li>Unlimited OCR on scanned pages</li>
+            <li>Unlimited plain text (.txt) export</li>
+            <li>One lifetime Markdown export &#183; one lifetime Word export</li>
+            <li>Excel export of the first 15 rows of every table</li>
+            <li>Bundled sample annual report with no limits at all</li>
+          </ul>
+        </div>
+        <div class="price-col unlock">
+          <h4>Unlock full version</h4>
+          <p class="bigprice">$24</p>
+          <p class="mono price-note">One payment &#183; no subscription</p>
+          <ul>
+            <li>Full Excel export, no row limit, every table</li>
+            <li>Unlimited Markdown and Word exports</li>
+          </ul>
+          <div class="price-cta">
+            <a class="cta" href="https://apps.apple.com/app/id6799649606"><em>Get PDFTrail</em></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="foot-pad">
+    <div class="dim" style="margin-bottom: 26px;"><span>No account &#183; no analytics &#183; no uploads</span></div>
+    <div class="foot-row">
+      <p class="mono foot-copy">&#169; 2026 Arkya Ghosh &#183; PDFTrail for macOS</p>
+      <p class="mono foot-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/support.html">Support</a>
+        <a href="https://apps.apple.com/app/id6799649606">Mac App Store</a>
+      </p>
+    </div>
   </footer>
+
 </div>
+
+<script>
+(function () {
+  'use strict';
+
+  var ROW1 = [
+    { text: 'BALANCE SHEET' }, { text: '→ XLSX', chip: true },
+    { text: 'PROFIT & LOSS' }, { text: '→ XLSX', chip: true },
+    { text: 'CASH FLOW' }, { text: '→ XLSX', chip: true },
+    { text: 'NOTES TO ACCOUNTS' }, { text: '→ DOCX', chip: true },
+    { text: 'ANNUAL REPORT' }, { text: '→ MD', chip: true },
+    { text: 'SCANNED EXHIBIT' }, { text: '→ TXT', chip: true }
+  ];
+  var ROW2 = [
+    { text: 'ON-DEVICE OCR' }, { text: 'NO UPLOADS' }, { text: 'NO ACCOUNT' },
+    { text: 'NO SUBSCRIPTION' }, { text: 'STRUCTURED JSON' }, { text: '→ LLM', chip: true },
+    { text: 'PREVIEW BEFORE EXPORT' }
+  ];
+
+  /* Each row renders its word list twice, so the -50% translateX loop is seamless. */
+  function buildRow(rowEl, words) {
+    if (!rowEl) { return; }
+    for (var s = 0; s < 2; s++) {
+      var seg = document.createElement('span');
+      seg.className = 'mq-seg';
+      for (var i = 0; i < words.length; i++) {
+        var word = document.createElement('span');
+        word.className = words[i].chip ? 'mw chip' : 'mw';
+        word.setAttribute('data-i', String(i));
+        word.textContent = words[i].text;
+        seg.appendChild(word);
+        var sep = document.createElement('span');
+        sep.className = 'sep';
+        sep.textContent = '···';
+        seg.appendChild(sep);
+      }
+      rowEl.appendChild(seg);
+    }
+  }
+
+  /* .lit changes colours only — never font-weight, which would jitter the conveyor width. */
+  function light(rowEl, index) {
+    if (!rowEl) { return; }
+    var old = rowEl.querySelectorAll('.mw.lit');
+    for (var i = 0; i < old.length; i++) { old[i].classList.remove('lit'); }
+    var next = rowEl.querySelectorAll('.mw[data-i="' + index + '"]');
+    for (var j = 0; j < next.length; j++) { next[j].classList.add('lit'); }
+  }
+
+  var row1El = document.getElementById('mqRow1');
+  var row2El = document.getElementById('mqRow2');
+  buildRow(row1El, ROW1);
+  buildRow(row2El, ROW2);
+  light(row1El, 0);
+  light(row2El, 1);
+
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!calm) {
+    setInterval(function () {
+      light(row1El, Math.floor(Math.random() * ROW1.length));
+      light(row2El, Math.floor(Math.random() * ROW2.length));
+    }, 4000);
+  }
+
+  /* Flashlight reveal. The mobile media query hides .sharp, so these listeners idle there. */
+  var wraps = document.querySelectorAll('.bodywrap');
+  for (var w = 0; w < wraps.length; w++) {
+    (function (wrap) {
+      wrap.addEventListener('mousemove', function (e) {
+        var r = wrap.getBoundingClientRect();
+        wrap.style.setProperty('--mx', Math.round(e.clientX - r.left) + 'px');
+        wrap.style.setProperty('--my', Math.round(e.clientY - r.top) + 'px');
+      });
+      wrap.addEventListener('mouseleave', function () {
+        wrap.style.setProperty('--mx', '-400px');
+        wrap.style.setProperty('--my', '-400px');
+      });
+    })(wraps[w]);
+  }
+})();
+</script>
 </body>
 </html>

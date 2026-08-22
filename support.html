@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDFTrail — Support</title>
+<style>
+  :root { color-scheme: light dark; }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  body {
+    --paper: #eef2f6;
+    --line: #b9c9dc;
+    --line-strong: #4f7096;
+    --ink: #1c3a5e;
+    --ink-dim: #5c7a9c;
+    --accent: #c9852b;
+    background: var(--paper);
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: var(--ink);
+    padding: 2.5rem 1.25rem 4rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      --paper: #10203a;
+      --line: rgba(160, 190, 220, 0.09);
+      --line-strong: #6f96c2;
+      --ink: #cfe0f2;
+      --ink-dim: #8fb0d2;
+      --accent: #f2c464;
+      background: var(--paper);
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+  }
+
+  .sheet {
+    max-width: 42rem;
+    margin: 0 auto;
+    background: color-mix(in srgb, var(--paper) 80%, transparent);
+  }
+
+  .titleblock {
+    border: 1.5px solid var(--line-strong);
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  .titleblock::before {
+    content: "";
+    position: absolute; top: 6px; left: 6px; right: 6px; bottom: 6px;
+    border: 1px dashed var(--line);
+    pointer-events: none;
+  }
+  .tb-row { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
+  .tb-row + .tb-row { margin-top: 0.5rem; border-top: 1px solid var(--line); padding-top: 0.5rem; }
+  .tb-label { font: 600 10px/1.2 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-dim); }
+  .tb-value { font: 11px ui-monospace, "SF Mono", Menlo, monospace; color: var(--ink); }
+  h1 { font-size: 1.9rem; margin: 0 0 0.15rem; letter-spacing: -0.01em; }
+  .tag { color: var(--ink-dim); margin: 0; font-size: 0.98rem; }
+
+  .dim {
+    display: flex; align-items: center; gap: 0.5rem;
+    margin: 2.2rem 0 0.6rem;
+  }
+  .dim::before, .dim::after { content: ""; flex: 1; height: 1px; background: var(--line-strong); }
+  .dim span {
+    font: 600 11px ui-monospace, "SF Mono", Menlo, monospace;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
+    white-space: nowrap;
+  }
+
+  p, li { line-height: 1.65; max-width: 65ch; }
+  ul { padding-left: 1.3rem; }
+  li { margin-bottom: 0.4rem; }
+
+  a { color: var(--line-strong); text-decoration-color: var(--line); }
+  @media (prefers-color-scheme: dark) { a { color: #9fc2e2; } }
+
+  code { background: color-mix(in srgb, var(--line) 40%, transparent); padding: 0.1em 0.3em; border-radius: 2px; font-size: 0.9em; }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line-strong);
+    font: 10.5px ui-monospace, "SF Mono", Menlo, monospace;
+    color: var(--ink-dim);
+    letter-spacing: 0.03em;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="titleblock">
+    <div class="tb-row">
+      <div><h1>PDFTrail</h1><p class="tag">Offline PDF table extraction for Mac.</p></div>
+    </div>
+    <div class="tb-row">
+      <span class="tb-label">Sheet</span><span class="tb-value">SUPPORT · 01/02</span>
+      <span class="tb-label">Scale</span><span class="tb-value">1 : 1 (offline)</span>
+    </div>
+  </div>
+
+  <p>PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown,
+  or plain text on your Mac. Table extraction is built for financial analysts:
+  annual reports in, clean spreadsheets out. Everything runs offline and
+  on-device — see the <a href="/privacy">privacy policy</a>.</p>
+
+  <div class="dim"><span>Free tier &amp; unlock</span></div>
+  <ul>
+    <li>Free: unlimited conversions, full on-screen table preview, on-device OCR.</li>
+    <li>Free exports: unlimited plain text, one full Markdown export, one full
+        Word export, and Excel exports of the first 15 rows of each table.</li>
+    <li>The bundled sample annual report exports fully in every format.</li>
+    <li>One in-app purchase, "Unlock Full Version", removes every limit.
+        One payment. No subscription.</li>
+  </ul>
+
+  <div class="dim"><span>Support</span></div>
+  <p>Questions, bug reports, or feature requests:
+  <a href="mailto:ghosharkya90@gmail.com">ghosharkya90@gmail.com</a>.
+  We answer as fast as we can.</p>
+
+  <div class="dim"><span>Restore purchase</span></div>
+  <p>Bought the unlock on another Mac, or reinstalled the app? Open the unlock
+  dialog in PDFTrail and click "Restore Purchase". The App Store restores the
+  unlock for the Apple ID that bought it.</p>
+
+  <footer>
+    <span>PDFTrail rev. 2026-08</span>
+    <span><a href="/">&#8592; pdftrail.app</a> &#183; <a href="/privacy">Privacy policy</a></span>
+  </footer>
+</div>
+</body>
+</html>
