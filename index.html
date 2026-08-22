@@ -238,13 +238,13 @@
     to   { transform: translateX(-50%); }
   }
   .mq-row {
-    display: flex; width: max-content; margin: 0;
+    display: flex; width: max-content; min-width: 200%; margin: 0;
     animation: slide 34s infinite linear;
   }
   .mq-row + .mq-row { margin-top: 10px; }
   .mq:hover .mq-row { animation-play-state: paused; }
   .mq-seg {
-    white-space: nowrap; padding-right: 56px; display: inline-flex; align-items: center;
+    white-space: nowrap; padding-right: 56px; display: inline-flex; align-items: center; flex: 1 0 auto;
     font-family: 'Martian Mono', Menlo, monospace; font-size: 12px;
     color: rgba(255,255,255,0.95); text-shadow: 0 0 4px #000000;
   }
@@ -414,6 +414,116 @@
     .foot-row { display: block; text-align: center; }
     .foot-copy { font-size: 10px; margin: 0 0 12px 0; }
     .foot-links { font-size: 10px; justify-content: center; gap: 18px; }
+  }
+
+  /* ---- wide desktop: let the sheet grow into the window ----
+     The container stops pinning at 1280 and grows with the viewport.
+     Type and padding scale with clamp(), so the range 1440 -> 2560 is
+     one continuous ramp instead of a stack of steps. Every width value
+     is a min()/clamp() bounded by vw, so nothing can exceed the window. */
+  @media (min-width: 1440px) {
+    .page {
+      --gut: clamp(72px, 4.6vw, 96px);
+      max-width: min(1680px, 93vw);
+    }
+
+    /* title block */
+    .head-pad { padding: 44px var(--gut) 0 var(--gut); }
+    .tb::after { inset: 7px; }
+    .tb-brand { padding: 18px 26px; gap: 16px; }
+    .tb-brand svg { width: 30px; height: 30px; }
+    .tb-wordmark { font-size: 20px; }
+    .tb-cell { padding: 18px 26px; }
+    .tb-label { font-size: 10px; margin: 0 0 5px 0; }
+    .tb-value { font-size: 12.5px; }
+
+    /* hero: even halves at wide, so the stage grows with the headline
+       instead of staying a thumbnail beside it */
+    .hero {
+      grid-template-columns: 1fr 1fr;
+      padding: 88px var(--gut) 80px var(--gut);
+      column-gap: clamp(48px, 3.4vw, 68px);
+    }
+    .eyebrow { font-size: 12.5px; margin: 0 0 22px 0; }
+    .hero h1 { font-size: clamp(60px, 4.2vw, 82px); margin: 0 0 26px 0; }
+    .hero-sub {
+      font-size: clamp(18px, 1.05vw, 21px); line-height: 1.6;
+      margin: 0 0 34px 0; max-width: clamp(560px, 36vw, 680px);
+    }
+    .cta { font-size: 15px; padding: 18px 32px; }
+    .fineprint { font-size: 12.5px; margin: 18px 0 0 2px; }
+
+    /* extraction stage */
+    .stage { gap: clamp(20px, 1.6vw, 32px); }
+    .arrow { width: 32px; height: 32px; }
+    .stage-plate::after { inset: 7px; }
+    .plate-head {
+      font-size: clamp(9.5px, 0.6vw, 11px); padding: 12px clamp(16px, 1.15vw, 22px);
+    }
+    .plate-body { padding: 8px 0 18px 0; }
+    .plate-body.out { padding: 8px 0 48px 0; }
+    .scanrow, .xlsrow {
+      font-size: clamp(11.5px, 0.72vw, 13.5px);
+      padding: 13px clamp(16px, 1.15vw, 22px);
+      gap: clamp(10px, 0.75vw, 14px);
+    }
+    .xlsrow .num { min-width: clamp(76px, 4.9vw, 92px); }
+    .stamp { right: 18px; bottom: 16px; font-size: 11.5px; padding: 6px 11px; }
+
+    /* ticker: same conveyor, one type step up. min-width:200% + growable
+       segments keep the two halves exactly equal, so the -50% loop stays
+       seamless while each half always covers the strip (no dead gap). */
+    .mq { padding: 18px 0; }
+    .mq-row { min-width: 200%; }
+    .mq-row + .mq-row { margin-top: 13px; }
+    .mq-seg { flex: 1 0 auto; font-size: 13.5px; padding-right: 70px; }
+    .mw { padding: 2px 7px; }
+    .sep { padding: 0 10px; }
+
+    /* dimension-line dividers */
+    .dim { gap: 16px; }
+    .dim span { font-size: 11.5px; }
+
+    /* detail sheets */
+    .sheets-pad { padding: 80px var(--gut) 24px var(--gut); }
+    .sheets-grid { gap: clamp(34px, 2.4vw, 48px); }
+    .sheet {
+      padding: clamp(30px, 2vw, 38px) clamp(28px, 1.9vw, 36px) clamp(28px, 1.8vw, 34px);
+    }
+    .sheet::before { top: -9px; margin-left: -9px; width: 18px; height: 18px; }
+    .sheet::after { inset: 8px; }
+    .sheet h3 { font-size: clamp(21px, 1.25vw, 26px); margin: 0 0 15px 0; }
+    .sheet .ref { font-size: 10px; margin: 0 0 13px 0; }
+    .bodywrap p { font-size: clamp(15px, 0.92vw, 17px); line-height: 1.6; }
+    /* flashlight aperture grows with the card; --mx/--my stay as the JS sets them */
+    .sharp {
+      -webkit-mask-image: radial-gradient(circle at var(--mx, -400px) var(--my, -400px), #000 0px, #000 82px, transparent 164px);
+      mask-image: radial-gradient(circle at var(--mx, -400px) var(--my, -400px), #000 0px, #000 82px, transparent 164px);
+    }
+
+    /* pricing plate */
+    .price-pad { padding: 56px var(--gut) 28px var(--gut); }
+    .price-col.free, .price-col.unlock {
+      padding: clamp(34px, 2.2vw, 42px) clamp(38px, 2.6vw, 50px);
+    }
+    .price-col h4 { font-size: 12.5px; margin: 0 0 18px 0; }
+    .price-col li {
+      font-size: clamp(14.5px, 0.88vw, 16px); line-height: 1.5; padding: 9px 0 9px 24px;
+    }
+    .price-col li::before { top: 17px; width: 9px; height: 9px; }
+    .bigprice { font-size: clamp(60px, 3.4vw, 72px); }
+    .price-note { font-size: 11px; margin: 8px 0 22px 0; }
+    .price-cta { margin-top: 32px; }
+
+    /* footer */
+    .foot-pad { padding: 52px var(--gut) 56px var(--gut); }
+    .foot-copy { font-size: 12.5px; }
+    .foot-links { font-size: 12.5px; gap: 34px; }
+  }
+
+  /* ---- ultra-wide: one more step of container, type keeps ramping on its clamps ---- */
+  @media (min-width: 1920px) {
+    .page { max-width: min(1880px, 93vw); }
   }
 
   /* ---- reduced motion: hold every moving part still ---- */
