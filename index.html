@@ -456,6 +456,87 @@
   @media (prefers-reduced-motion: reduce) {
     .sheet, .haze, .sheet h3 { transition: none; }
   }
+
+  /* ---- hero conversion sequence: scan -> DOCX (pop) -> MD/XLSX/JSON/TXT ---- */
+  .anim-stage {
+    position: relative; aspect-ratio: 16 / 9; margin: 10px;
+    border: 1px solid rgba(255,255,255,0.1); overflow: hidden;
+    background:
+      repeating-linear-gradient(0deg, rgba(200,217,236,0.05) 0 1px, transparent 1px 48px),
+      repeating-linear-gradient(90deg, rgba(200,217,236,0.05) 0 1px, transparent 1px 48px),
+      #23303f;
+  }
+  .anim-doc {
+    position: absolute; left: 50%; top: 50%; width: 34%; aspect-ratio: 3 / 4;
+    transform: translate(-50%, -50%);
+    background: #F7F6F2; border: 1.5px solid #111;
+    box-shadow: 6px 8px 0 rgba(0,0,0,0.35);
+  }
+  .anim-doc .fold {
+    position: absolute; top: 0; right: 0; width: 18%; aspect-ratio: 1;
+    background: linear-gradient(225deg, #23303f 0 50%, #d9d6cd 50% 100%);
+  }
+  .anim-doc .dl { position: absolute; left: 12%; right: 14%; height: 4.5%; background: #b9b6ad; }
+  .anim-doc .dl.t { background: #8a8778; }
+  .anim-doc .badge {
+    position: absolute; left: 10%; bottom: 8%; padding: 3% 9%;
+    background: #E8501F; color: #fff; font-family: 'Martian Mono', Menlo, monospace;
+    font-weight: 700; font-size: clamp(11px, 1.05vw, 16px); letter-spacing: 0.08em;
+  }
+  .scanbeam {
+    position: absolute; left: -4%; right: -4%; top: 0; height: 6px;
+    background: #F2C464; box-shadow: 0 0 14px 3px rgba(242,196,100,0.75);
+    opacity: 0; 
+  }
+  .anim-stage.scanning .scanbeam { opacity: 1; animation: beam-sweep 1.2s ease-in-out 2; }
+  .anim-stage.scanning .anim-doc { animation: doc-flash 2.4s step-end; }
+  @keyframes beam-sweep { 0% { top: 2%; } 50% { top: 94%; } 100% { top: 2%; } }
+  @keyframes doc-flash { 0%, 100% { filter: none; } }
+  .anim-fmt {
+    position: absolute; left: 50%; top: 50%; width: 30%; aspect-ratio: 3 / 4;
+    transform: translate(-50%, -50%) scale(0.2); opacity: 0;
+    background: #F7F6F2; border: 1.5px solid #111;
+    box-shadow: 6px 8px 0 rgba(0,0,0,0.35);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .anim-fmt .fold {
+    position: absolute; top: 0; right: 0; width: 18%; aspect-ratio: 1;
+    background: linear-gradient(225deg, #23303f 0 50%, #d9d6cd 50% 100%);
+  }
+  .anim-fmt .fmt-label {
+    font-family: 'Martian Mono', Menlo, monospace; font-weight: 700;
+    font-size: clamp(20px, 2.2vw, 34px); letter-spacing: 0.06em; color: #111;
+    padding: 6px 12px; border: 2.5px solid #111; background: #F2C464;
+  }
+  .anim-fmt.in { animation: fmt-pop-in 0.35s cubic-bezier(0.2, 1.6, 0.4, 1) forwards; }
+  .anim-fmt.out { animation: fmt-pop-out 0.38s ease-in forwards; }
+  @keyframes fmt-pop-in { from { transform: translate(-50%, -50%) scale(0.2); opacity: 0; }
+                          to   { transform: translate(-50%, -50%) scale(1); opacity: 1; } }
+  @keyframes fmt-pop-out { 0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+                           45% { transform: translate(-50%, -50%) scale(1.18); opacity: 1; }
+                           100% { transform: translate(-50%, -50%) scale(0.05); opacity: 0; } }
+  .anim-smoke { position: absolute; left: 50%; top: 50%; width: 0; height: 0; pointer-events: none; }
+  .anim-smoke i {
+    position: absolute; left: 0; top: 0; width: 26px; height: 26px; border-radius: 50%;
+    background: #e6ebf0; opacity: 0; border: 2.5px solid #aab4bf;
+  }
+  .anim-smoke.burst i { animation: puff 0.8s cubic-bezier(0.2, 0.7, 0.4, 1) forwards; }
+  .anim-smoke i:nth-child(1) { --dx: -74px; --dy: -48px; width: 32px; height: 32px; }
+  .anim-smoke i:nth-child(2) { --dx: 66px; --dy: -60px; animation-delay: 0.03s; }
+  .anim-smoke i:nth-child(3) { --dx: -58px; --dy: 44px; width: 20px; height: 20px; animation-delay: 0.06s; }
+  .anim-smoke i:nth-child(4) { --dx: 78px; --dy: 34px; width: 24px; height: 24px; animation-delay: 0.04s; }
+  .anim-smoke i:nth-child(5) { --dx: 0px; --dy: -84px; width: 18px; height: 18px; animation-delay: 0.08s; }
+  .anim-smoke i:nth-child(6) { --dx: -6px; --dy: 70px; width: 22px; height: 22px; animation-delay: 0.05s; }
+  @keyframes puff {
+    0% { transform: translate(-50%, -50%) scale(0.35); opacity: 1; }
+    55% { transform: translate(calc(-50% + var(--dx) * 0.8), calc(-50% + var(--dy) * 0.8)) scale(1.25); opacity: 0.95; }
+    100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.6); opacity: 0; }
+  }
+  .anim-fallback { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .anim-stage { display: none; }
+    .anim-fallback { display: block; }
+  }
 </style>
 </head>
 <body>
@@ -495,9 +576,24 @@
 
       <div class="stage drop-3">
         <div class="stage-plate">
-          <p class="plate-head">No accounts, anywhere in PDFTrail</p>
-          <div class="plate-img">
-            <img src="/assets/screenshots/web/07_no_signup_collage_web.jpg" width="2400" height="1350" alt="A grid of typical sign-up and login screens from other apps, with a PDFTrail card on top reading: No sign-up, no login. Your data is yours, shared with no one except you.">
+          <p class="plate-head">One PDF in &#183; five formats out</p>
+          <div class="anim-stage" id="animStage" aria-label="Animation: a PDF is scanned, then becomes a DOCX file, then Markdown, Excel, JSON, and plain-text files.">
+            <div class="anim-doc" id="animDoc">
+              <span class="fold"></span>
+              <span class="dl t" style="top:14%"></span>
+              <span class="dl" style="top:24%"></span>
+              <span class="dl" style="top:32%"></span>
+              <span class="dl" style="top:40%; right:30%"></span>
+              <span class="dl" style="top:52%"></span>
+              <span class="dl" style="top:60%; right:22%"></span>
+              <span class="badge">PDF</span>
+              <span class="scanbeam"></span>
+            </div>
+            <div class="anim-fmt" id="animFmt"><span class="fold"></span><span class="fmt-label" id="animFmtLabel">DOCX</span></div>
+            <div class="anim-smoke" id="animSmoke"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="plate-img anim-fallback">
+            <img src="/assets/screenshots/web/07_no_signup_collage_web.jpg" width="2400" height="1350" alt="A grid of typical sign-up and login screens from other apps, with a PDFTrail card on top reading: No sign-up, no login. Your data is yours, shared with no one except you." loading="lazy">
           </div>
         </div>
       </div>
@@ -744,6 +840,46 @@
       });
     })(wraps[w]);
   }
+
+  /* Hero conversion sequence. Idles under prefers-reduced-motion (stage is display:none). */
+  (function () {
+    var stage = document.getElementById('animStage');
+    if (!stage || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var doc = document.getElementById('animDoc');
+    var fmt = document.getElementById('animFmt');
+    var label = document.getElementById('animFmtLabel');
+    var smoke = document.getElementById('animSmoke');
+    var FORMATS = [
+      { name: 'DOCX', hold: 2000 },
+      { name: 'MD', hold: 1400 },
+      { name: 'XLSX', hold: 1400 },
+      { name: 'JSON', hold: 1400 },
+      { name: 'TXT', hold: 1400 }
+    ];
+    function scan(next) {
+      doc.style.display = 'block';
+      stage.classList.add('scanning');
+      setTimeout(function () {
+        stage.classList.remove('scanning');
+        doc.style.display = 'none';
+        next();
+      }, 2450);
+    }
+    function showFormat(i) {
+      if (i >= FORMATS.length) { scan(function () { showFormat(0); }); return; }
+      label.textContent = FORMATS[i].name;
+      fmt.classList.remove('out');
+      fmt.classList.add('in');
+      setTimeout(function () {
+        fmt.classList.remove('in');
+        fmt.classList.add('out');
+        smoke.classList.add('burst');
+        setTimeout(function () { smoke.classList.remove('burst'); }, 700);
+        setTimeout(function () { showFormat(i + 1); }, 420);
+      }, FORMATS[i].hold);
+    }
+    scan(function () { showFormat(0); });
+  })();
 })();
 </script>
 </body>
