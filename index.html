@@ -3,19 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PDFTrail — PDF tables, text, and OCR for Mac</title>
-<meta name="description" content="PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown, or plain text — with row and column structure intact and labels next to their numbers. On-device OCR. No uploads, ever.">
+<title>PDFTrail — No sign-up. Tables extracted, structure intact. For Mac.</title>
+<meta name="description" content="PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown, JSON, or plain text on your Mac. No sign-up, no account, no cloud uploads. Batch convert, review every table before export. $24 one-time unlock.">
 <link rel="canonical" href="https://pdftrail.app/">
 <meta name="theme-color" content="#262626">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PDFTrail">
-<meta property="og:title" content="PDFTrail — PDF tables, text, and OCR for Mac">
-<meta property="og:description" content="PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown, or plain text — with row and column structure intact and labels next to their numbers. On-device OCR. No uploads, ever.">
+<meta property="og:title" content="PDFTrail — No sign-up. Tables extracted, structure intact.">
+<meta property="og:description" content="PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown, JSON, or plain text on your Mac. No sign-up, no account, no cloud uploads. $24 one-time unlock, no subscription.">
 <meta property="og:url" content="https://pdftrail.app/">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PDFTrail — PDF tables, text, and OCR for Mac">
-<meta name="twitter:description" content="PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown, or plain text — with row and column structure intact and labels next to their numbers. On-device OCR. No uploads, ever.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2026%2026'%3E%3Crect%20width='26'%20height='26'%20fill='%23262626'/%3E%3Crect%20x='2.25'%20y='2.25'%20width='21.5'%20height='21.5'%20fill='none'%20stroke='%23F2C464'%20stroke-width='2.5'/%3E%3Cpath%20d='M7%209.5h12M7%2013.5h12M7%2017.5h7'%20stroke='%23CCCCCC'%20stroke-width='2'%20stroke-linecap='square'/%3E%3C/svg%3E">
+<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1350">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PDFTrail — No sign-up. Tables extracted, structure intact.">
+<meta name="twitter:description" content="PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown, JSON, or plain text on your Mac. No sign-up, no account, no cloud uploads.">
+<meta name="twitter:image" content="https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png">
+<link rel="icon" type="image/svg+xml" href="/assets/icons/signet.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/icons/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;900&amp;family=Martian+Mono:wght@400;700&amp;display=swap">
@@ -25,11 +33,11 @@
   body { margin: 0; background: #262626; }
   a { color: #999999; text-decoration: none; transition: color 0.5s ease-out; }
   a:hover { color: #FFFFFF; }
+  img { display: block; max-width: 100%; height: auto; }
 
   .page {
     font-family: 'Archivo', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
     color: #CCCCCC;
-    /* baked default tint: color-mix(in srgb, #4466CC 8%, #262626) */
     background-color: #282B33;
     background-image:
       repeating-linear-gradient(90deg, rgba(255,255,255,0.022) 0px, rgba(255,255,255,0.022) 1px, transparent 1px, transparent 3px),
@@ -55,6 +63,7 @@
     border: 1px dashed rgba(255,255,255,0.16); pointer-events: none;
   }
   .tb-brand { padding: 14px 20px; display: flex; align-items: center; gap: 14px; }
+  .tb-brand img { width: 26px; height: 26px; border-radius: 3px; }
   .tb-wordmark { font-size: 17px; font-weight: 700; letter-spacing: 0.22em; color: #FFFFFF; }
   .tb-meta { display: flex; }
   .tb-cell { padding: 14px 20px; border-left: 1px solid rgba(255,255,255,0.14); }
@@ -101,15 +110,15 @@
   /* ---- hero layout ---- */
   .hero {
     display: grid;
-    grid-template-columns: 1.05fr 1fr;
+    grid-template-columns: 1fr 1.05fr;
     grid-template-areas: "copy stage" "cta stage";
     column-gap: 48px; row-gap: 0;
     align-items: center;
     padding: 72px 64px 64px 64px;
   }
-  .hero-copy { grid-area: copy; }
-  .hero-cta { grid-area: cta; }
-  .stage { grid-area: stage; display: flex; gap: 22px; align-items: stretch; }
+  .hero-copy { grid-area: copy; min-width: 0; }
+  .hero-cta { grid-area: cta; min-width: 0; }
+  .stage { grid-area: stage; min-width: 0; }
   .eyebrow {
     font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: #999999;
     text-transform: uppercase; margin: 0 0 18px 0;
@@ -121,111 +130,20 @@
   .hero-sub { font-size: 17px; line-height: 1.6; color: #ADADAD; margin: 0 0 30px 0; max-width: 480px; }
   .fineprint { font-size: 11px; color: #999999; margin: 14px 0 0 2px; }
 
-  /* ---- the extraction stage: brushed-steel plates ---- */
+  /* ---- hero visual: the no-signup proof, in a steel frame ---- */
   .stage-plate {
     background: linear-gradient(180deg, #414141, #343434);
     border: 1.5px solid #5a5a5a; position: relative;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 18px 40px rgba(0,0,0,0.55);
   }
   .stage-plate::after { content: ""; position: absolute; inset: 5px; border: 1px dashed rgba(255,255,255,0.14); pointer-events: none; }
-  .scan-plate { flex: 1; }
-  .xls-plate { flex: 1.12; }
   .plate-head {
     font-family: 'Martian Mono', Menlo, monospace; font-size: 9px; font-weight: 700;
     letter-spacing: 0.14em; text-transform: uppercase; color: #999999;
     padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,0.14); margin: 0;
   }
-  .head-mobile { display: none; }
-  .plate-body { position: relative; padding: 6px 0 14px 0; }
-  .plate-body.out { padding: 6px 0 40px 0; }
-  .scanrow, .xlsrow {
-    display: flex; justify-content: space-between; gap: 12px;
-    font-family: 'Martian Mono', Menlo, monospace; font-size: 11px; line-height: 1;
-    padding: 10px 16px; margin: 0;
-  }
-  .scanrow { color: #8a8a8a; }
-  .scanrow.hdr { color: #a0a0a0; }
-  .scanrow b, .xlsrow b { font-weight: 400; }
-  .xlsrow { border-bottom: 1px solid rgba(255,255,255,0.12); }
-  .xlsrow .num { text-align: right; min-width: 76px; }
-  .arrow { align-self: center; flex-shrink: 0; }
-
-  /* scan light: amber overlay, riding the rows */
-  @keyframes scanhl-1 {
-    0%, 3%   { background-color: transparent; box-shadow: none; color: #8a8a8a; }
-    5%       { background-color: rgba(242,196,100,0.22); box-shadow: inset 2.5px 0 0 #F2C464; color: #FFFFFF; }
-    13%      { background-color: rgba(242,196,100,0.22); box-shadow: inset 2.5px 0 0 #F2C464; color: #FFFFFF; }
-    17%, 100% { background-color: transparent; box-shadow: none; color: #8a8a8a; }
-  }
-  @keyframes scanhl-2 {
-    0%, 19%  { background-color: transparent; box-shadow: none; color: #8a8a8a; }
-    21%      { background-color: rgba(242,196,100,0.22); box-shadow: inset 2.5px 0 0 #F2C464; color: #FFFFFF; }
-    29%      { background-color: rgba(242,196,100,0.22); box-shadow: inset 2.5px 0 0 #F2C464; color: #FFFFFF; }
-    33%, 100% { background-color: transparent; box-shadow: none; color: #8a8a8a; }
-  }
-  @keyframes scanhl-3 {
-    0%, 35%  { background-color: transparent; box-shadow: none; color: #8a8a8a; }
-    37%      { background-color: rgba(242,196,100,0.22); box-shadow: inset 2.5px 0 0 #F2C464; color: #FFFFFF; }
-    45%      { background-color: rgba(242,196,100,0.22); box-shadow: inset 2.5px 0 0 #F2C464; color: #FFFFFF; }
-    49%, 100% { background-color: transparent; box-shadow: none; color: #8a8a8a; }
-  }
-  @keyframes scanhl-4 {
-    0%, 51%  { background-color: transparent; box-shadow: none; color: #8a8a8a; }
-    53%      { background-color: rgba(242,196,100,0.22); box-shadow: inset 2.5px 0 0 #F2C464; color: #FFFFFF; }
-    61%      { background-color: rgba(242,196,100,0.22); box-shadow: inset 2.5px 0 0 #F2C464; color: #FFFFFF; }
-    65%, 100% { background-color: transparent; box-shadow: none; color: #8a8a8a; }
-  }
-  .s1 { animation: scanhl-1 14s infinite linear; }
-  .s2 { animation: scanhl-2 14s infinite linear; }
-  .s3 { animation: scanhl-3 14s infinite linear; }
-  .s4 { animation: scanhl-4 14s infinite linear; }
-
-  @keyframes rowin-1 {
-    0%, 8%  { opacity: 0; transform: translateX(-16px); color: #F2C464; }
-    11%     { opacity: 1; transform: translateX(0); color: #F2C464; }
-    19%     { color: #CCCCCC; }
-    95%     { opacity: 1; }
-    98%, 100% { opacity: 0; }
-  }
-  @keyframes rowin-2 {
-    0%, 24% { opacity: 0; transform: translateX(-16px); color: #F2C464; }
-    27%     { opacity: 1; transform: translateX(0); color: #F2C464; }
-    35%     { color: #CCCCCC; }
-    95%     { opacity: 1; }
-    98%, 100% { opacity: 0; }
-  }
-  @keyframes rowin-3 {
-    0%, 40% { opacity: 0; transform: translateX(-16px); color: #F2C464; }
-    43%     { opacity: 1; transform: translateX(0); color: #F2C464; }
-    51%     { color: #CCCCCC; }
-    95%     { opacity: 1; }
-    98%, 100% { opacity: 0; }
-  }
-  @keyframes rowin-4 {
-    0%, 56% { opacity: 0; transform: translateX(-16px); color: #F2C464; }
-    59%     { opacity: 1; transform: translateX(0); color: #F2C464; }
-    67%     { color: #CCCCCC; }
-    95%     { opacity: 1; }
-    98%, 100% { opacity: 0; }
-  }
-  .r1 { animation: rowin-1 14s infinite linear; }
-  .r2 { animation: rowin-2 14s infinite linear; }
-  .r3 { animation: rowin-3 14s infinite linear; }
-  .r4 { animation: rowin-4 14s infinite linear; }
-
-  @keyframes stamp {
-    0%, 70% { opacity: 0; transform: scale(1.7) rotate(-7deg); }
-    74%     { opacity: 1; transform: scale(1) rotate(-7deg); }
-    94%     { opacity: 1; }
-    97%, 100% { opacity: 0; }
-  }
-  .stamp {
-    position: absolute; right: 14px; bottom: 12px;
-    font-family: 'Martian Mono', Menlo, monospace; font-size: 10px; font-weight: 700;
-    letter-spacing: 0.12em; color: #000000; background: #F2C464; border: 1.5px solid #F2C464;
-    border-radius: 2px; padding: 5px 9px; transform-origin: center;
-    animation: stamp 14s infinite linear;
-  }
+  .plate-img { padding: 10px; }
+  .plate-img img { border: 1px solid rgba(255,255,255,0.1); }
 
   /* ---- marquee: Steel's hard-stop slot, white plates for the formats ---- */
   .mq {
@@ -256,50 +174,38 @@
   .mw.lit { background: #F2C464; color: #000000; text-shadow: none; }
   .sep { color: #6a6a6a; padding: 0 8px; text-shadow: none; }
 
-  /* ---- riveted steel sheets: dim at rest, flashlight reveals ---- */
-  .sheets-pad { padding: 64px 64px 20px 64px; }
-  .sheets-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px; }
-  .sheet {
-    position: relative; border: 1.5px solid #5a5a5a;
+  /* ---- what's new strip ---- */
+  .whatsnew-pad { padding: 44px 64px 8px 64px; }
+  .whatsnew-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .whatsnew-item {
+    border: 1.5px solid #5a5a5a; background: linear-gradient(180deg, #3a3a3a, #303030);
+    padding: 18px 20px; position: relative;
+  }
+  .whatsnew-item .tag {
+    font-family: 'Martian Mono', Menlo, monospace; font-size: 9px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase; color: #F2C464; margin: 0 0 8px 0;
+  }
+  .whatsnew-item p.body { margin: 0; font-size: 13.5px; line-height: 1.5; color: #ADADAD; }
+
+  /* ---- feature grid: real screenshots in steel frames ---- */
+  .feature-pad { padding: 64px 64px 20px 64px; }
+  .feature-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px; }
+  .feature-card {
+    border: 1.5px solid #5a5a5a; position: relative;
     background: linear-gradient(180deg, #434343, #353535);
-    padding: 26px 24px 24px;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 14px 34px rgba(0,0,0,0.5);
-    opacity: 0.82; transform: rotate(var(--tilt)) scale(0.98);
-    transition: transform 0.7s ease-out, opacity 0.7s ease-out, box-shadow 0.7s 0.25s ease-out;
   }
-  .sheet:hover {
-    opacity: 1; transform: rotate(0deg) scale(1);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 24px 54px rgba(0,0,0,0.65);
+  .feature-card .plate-head { display: flex; justify-content: space-between; gap: 10px; }
+  .feature-card .plate-img { padding: 0; }
+  .feature-card .plate-img img { border: 0; display: block; width: 100%; }
+  .feature-card .cap {
+    padding: 16px 18px 20px 18px; margin: 0; font-size: 13.5px; line-height: 1.55; color: #ADADAD;
   }
-  .sheet::before {
-    content: ""; position: absolute; top: -7px; left: 50%; margin-left: -7px;
-    width: 14px; height: 14px; border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--pin) 55%, #FFFFFF), color-mix(in srgb, var(--pin) 80%, #000000) 80%);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.6), inset 0 -2px 3px rgba(0,0,0,0.4);
+  .feature-card .full-link {
+    font-family: 'Martian Mono', Menlo, monospace; font-size: 9px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #999999;
   }
-  .sheet::after { content: ""; position: absolute; inset: 6px; border: 1px dashed rgba(255,255,255,0.16); pointer-events: none; }
-  .sheet h3 {
-    margin: 0 0 12px 0; font-family: 'Archivo', sans-serif; font-weight: 900;
-    font-size: 19px; line-height: 1.15; letter-spacing: 0.015em; text-transform: uppercase;
-    color: var(--pin); opacity: 0.85; transition: opacity 1s ease-out;
-  }
-  .sheet:hover h3 { opacity: 1; }
-  .sheet .ref {
-    font-family: 'Martian Mono', Menlo, monospace; font-size: 9px; letter-spacing: 0.14em;
-    color: #8a8a8a; text-transform: uppercase; margin: 0 0 10px 0;
-  }
-  .bodywrap { position: relative; }
-  .bodywrap p { margin: 0; font-size: 14px; line-height: 1.55; color: #ADADAD; }
-  .haze {
-    filter: blur(4.5px); opacity: 0.4; user-select: none;
-    transition: opacity 0.4s ease-out;
-  }
-  .sheet:hover .haze { opacity: 0.26; }
-  .sharp {
-    position: absolute; inset: 0; color: #EDEDED;
-    -webkit-mask-image: radial-gradient(circle at var(--mx, -400px) var(--my, -400px), #000 0px, #000 64px, transparent 128px);
-    mask-image: radial-gradient(circle at var(--mx, -400px) var(--my, -400px), #000 0px, #000 64px, transparent 128px);
-  }
+  .feature-card .full-link:hover { color: #FFFFFF; }
 
   /* ---- pricing plate: dimmed at rest, brightens on approach (Steel signature) ---- */
   .price-pad { padding: 44px 64px 24px 64px; }
@@ -341,8 +247,9 @@
     .hero { padding: 52px 36px 48px 36px; column-gap: 32px; }
     .hero h1 { font-size: 44px; }
     .hero-sub { font-size: 15.5px; }
-    .sheets-pad { padding: 48px 36px 20px 36px; }
-    .sheets-grid { gap: 22px; }
+    .whatsnew-pad { padding: 36px 36px 8px 36px; }
+    .feature-pad { padding: 48px 36px 20px 36px; }
+    .feature-grid { gap: 22px; }
     .price-pad { padding: 36px 36px 24px 36px; }
     .foot-pad { padding: 36px 36px 40px 36px; }
     .tb-cell { padding: 14px 12px; }
@@ -356,27 +263,19 @@
     .tb { border: 0; background: none; box-shadow: none; }
     .tb::after { display: none; }
     .tb-brand { padding: 0; gap: 10px; }
-    .tb-brand svg { width: 20px; height: 20px; }
+    .tb-brand img { width: 20px; height: 20px; }
     .tb-wordmark { font-size: 14px; letter-spacing: 0.2em; }
     .tb-meta { display: none; }
 
     .hero {
-      grid-template-columns: 1fr;
-      grid-template-areas: "copy" "stage" "cta";
+      display: block;
       padding: 30px 20px 28px 20px;
     }
+    .hero-copy, .hero-cta, .stage { width: 100%; }
     .eyebrow { font-size: 9.5px; letter-spacing: 0.18em; margin: 0 0 12px 0; }
     .hero h1 { font-size: 34px; line-height: 1.04; margin: 0 0 14px 0; }
     .hero-sub { font-size: 14.5px; line-height: 1.55; margin: 0 0 22px 0; max-width: none; }
-    .stage { display: block; margin-bottom: 22px; }
-    .scan-plate, .arrow { display: none; }
-    .xls-plate { box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 14px 30px rgba(0,0,0,0.55); }
-    .head-mobile { display: inline; }
-    .plate-head { font-size: 9px; letter-spacing: 0.13em; padding: 9px 14px; }
-    .plate-body.out { padding: 4px 0 36px 0; }
-    .xlsrow { font-size: 10.5px; padding: 10px 14px; gap: 10px; }
-    .xlsrow .num { min-width: 0; }
-    .stamp { right: 12px; bottom: 10px; font-size: 9px; letter-spacing: 0.11em; padding: 4px 7px; }
+    .stage { margin-bottom: 22px; }
     .cta { display: block; text-align: center; padding: 15px 18px; font-size: 12px; letter-spacing: 0.05em; }
     .fineprint { font-size: 10px; margin: 10px 0 0 0; text-align: center; }
 
@@ -387,20 +286,12 @@
     .mw { padding: 1px 5px; }
     .sep { padding: 0 6px; }
 
-    .sheets-pad { padding: 30px 20px 6px 20px; }
-    .sheets-grid { grid-template-columns: 1fr; gap: 26px; }
-    .sheet {
-      padding: 22px 18px 20px; opacity: 0.95; transform: none;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 10px 26px rgba(0,0,0,0.5);
-    }
-    .sheet:hover { transform: none; }
-    .sheet h3 { font-size: 16px; margin: 0 0 9px 0; opacity: 1; }
-    .sheet .ref { margin: 0 0 8px 0; }
-    .bodywrap p { font-size: 13px; line-height: 1.5; }
-    /* no flashlight on touch: show the text plainly */
-    .haze { filter: none; opacity: 1; }
-    .sheet:hover .haze { opacity: 1; }
-    .sharp { display: none; }
+    .whatsnew-pad { padding: 26px 20px 4px 20px; }
+    .whatsnew-grid { grid-template-columns: 1fr; gap: 14px; }
+
+    .feature-pad { padding: 30px 20px 6px 20px; }
+    .feature-grid { grid-template-columns: 1fr; gap: 26px; }
+    .feature-card .cap { font-size: 13px; padding: 14px 16px 18px 16px; }
 
     .price-pad { padding: 28px 20px 24px 20px; }
     .price-plate { display: block; }
@@ -416,31 +307,23 @@
     .foot-links { font-size: 10px; justify-content: center; gap: 18px; }
   }
 
-  /* ---- wide desktop: let the sheet grow into the window ----
-     The container stops pinning at 1280 and grows with the viewport.
-     Type and padding scale with clamp(), so the range 1440 -> 2560 is
-     one continuous ramp instead of a stack of steps. Every width value
-     is a min()/clamp() bounded by vw, so nothing can exceed the window. */
+  /* ---- wide desktop: let the sheet grow into the window ---- */
   @media (min-width: 1440px) {
     .page {
       --gut: clamp(72px, 4.6vw, 96px);
       max-width: min(1680px, 93vw);
     }
 
-    /* title block */
     .head-pad { padding: 44px var(--gut) 0 var(--gut); }
     .tb::after { inset: 7px; }
     .tb-brand { padding: 18px 26px; gap: 16px; }
-    .tb-brand svg { width: 30px; height: 30px; }
+    .tb-brand img { width: 30px; height: 30px; }
     .tb-wordmark { font-size: 20px; }
     .tb-cell { padding: 18px 26px; }
     .tb-label { font-size: 10px; margin: 0 0 5px 0; }
     .tb-value { font-size: 12.5px; }
 
-    /* hero: even halves at wide, so the stage grows with the headline
-       instead of staying a thumbnail beside it */
     .hero {
-      grid-template-columns: 1fr 1fr;
       padding: 88px var(--gut) 80px var(--gut);
       column-gap: clamp(48px, 3.4vw, 68px);
     }
@@ -448,31 +331,14 @@
     .hero h1 { font-size: clamp(60px, 4.2vw, 82px); margin: 0 0 26px 0; }
     .hero-sub {
       font-size: clamp(18px, 1.05vw, 21px); line-height: 1.6;
-      margin: 0 0 34px 0; max-width: clamp(560px, 36vw, 680px);
+      margin: 0 0 34px 0; max-width: clamp(480px, 32vw, 580px);
     }
     .cta { font-size: 15px; padding: 18px 32px; }
     .fineprint { font-size: 12.5px; margin: 18px 0 0 2px; }
 
-    /* extraction stage */
-    .stage { gap: clamp(20px, 1.6vw, 32px); }
-    .arrow { width: 32px; height: 32px; }
     .stage-plate::after { inset: 7px; }
-    .plate-head {
-      font-size: clamp(9.5px, 0.6vw, 11px); padding: 12px clamp(16px, 1.15vw, 22px);
-    }
-    .plate-body { padding: 8px 0 18px 0; }
-    .plate-body.out { padding: 8px 0 48px 0; }
-    .scanrow, .xlsrow {
-      font-size: clamp(11.5px, 0.72vw, 13.5px);
-      padding: 13px clamp(16px, 1.15vw, 22px);
-      gap: clamp(10px, 0.75vw, 14px);
-    }
-    .xlsrow .num { min-width: clamp(76px, 4.9vw, 92px); }
-    .stamp { right: 18px; bottom: 16px; font-size: 11.5px; padding: 6px 11px; }
+    .plate-head { font-size: clamp(9.5px, 0.6vw, 11px); padding: 12px clamp(16px, 1.15vw, 22px); }
 
-    /* ticker: same conveyor, one type step up. min-width:200% + growable
-       segments keep the two halves exactly equal, so the -50% loop stays
-       seamless while each half always covers the strip (no dead gap). */
     .mq { padding: 18px 0; }
     .mq-row { min-width: 200%; }
     .mq-row + .mq-row { margin-top: 13px; }
@@ -480,28 +346,19 @@
     .mw { padding: 2px 7px; }
     .sep { padding: 0 10px; }
 
-    /* dimension-line dividers */
     .dim { gap: 16px; }
     .dim span { font-size: 11.5px; }
 
-    /* detail sheets */
-    .sheets-pad { padding: 80px var(--gut) 24px var(--gut); }
-    .sheets-grid { gap: clamp(34px, 2.4vw, 48px); }
-    .sheet {
-      padding: clamp(30px, 2vw, 38px) clamp(28px, 1.9vw, 36px) clamp(28px, 1.8vw, 34px);
-    }
-    .sheet::before { top: -9px; margin-left: -9px; width: 18px; height: 18px; }
-    .sheet::after { inset: 8px; }
-    .sheet h3 { font-size: clamp(21px, 1.25vw, 26px); margin: 0 0 15px 0; }
-    .sheet .ref { font-size: 10px; margin: 0 0 13px 0; }
-    .bodywrap p { font-size: clamp(15px, 0.92vw, 17px); line-height: 1.6; }
-    /* flashlight aperture grows with the card; --mx/--my stay as the JS sets them */
-    .sharp {
-      -webkit-mask-image: radial-gradient(circle at var(--mx, -400px) var(--my, -400px), #000 0px, #000 82px, transparent 164px);
-      mask-image: radial-gradient(circle at var(--mx, -400px) var(--my, -400px), #000 0px, #000 82px, transparent 164px);
-    }
+    .whatsnew-pad { padding: 64px var(--gut) 12px var(--gut); }
+    .whatsnew-grid { gap: clamp(24px, 1.8vw, 34px); }
+    .whatsnew-item { padding: clamp(20px, 1.4vw, 26px) clamp(22px, 1.5vw, 28px); }
+    .whatsnew-item .tag { font-size: 10px; }
+    .whatsnew-item p.body { font-size: clamp(14px, 0.85vw, 15.5px); }
 
-    /* pricing plate */
+    .feature-pad { padding: 80px var(--gut) 24px var(--gut); }
+    .feature-grid { gap: clamp(34px, 2.4vw, 48px); }
+    .feature-card .cap { font-size: clamp(14px, 0.85vw, 15.5px); padding: clamp(18px, 1.2vw, 22px) clamp(20px, 1.3vw, 24px) clamp(22px, 1.4vw, 26px); }
+
     .price-pad { padding: 56px var(--gut) 28px var(--gut); }
     .price-col.free, .price-col.unlock {
       padding: clamp(34px, 2.2vw, 42px) clamp(38px, 2.6vw, 50px);
@@ -515,13 +372,11 @@
     .price-note { font-size: 11px; margin: 8px 0 22px 0; }
     .price-cta { margin-top: 32px; }
 
-    /* footer */
     .foot-pad { padding: 52px var(--gut) 56px var(--gut); }
     .foot-copy { font-size: 12.5px; }
     .foot-links { font-size: 12.5px; gap: 34px; }
   }
 
-  /* ---- ultra-wide: one more step of container, type keeps ramping on its clamps ---- */
   @media (min-width: 1920px) {
     .page { max-width: min(1880px, 93vw); }
   }
@@ -529,12 +384,9 @@
   /* ---- reduced motion: hold every moving part still ---- */
   @media (prefers-reduced-motion: reduce) {
     .drop-1, .drop-2, .drop-3 { animation: none; opacity: 1; transform: none; }
-    .s1, .s2, .s3, .s4 { animation: none; }
-    .r1, .r2, .r3, .r4 { animation: none; opacity: 1; transform: none; color: #CCCCCC; }
-    .stamp { animation: none; opacity: 1; transform: rotate(-7deg); }
     .mq-row { animation: none; }
     .mw { transition: none; }
-    .sheet, .haze, .sheet h3, .price-col, a, .cta em, .cta::before { transition: none; }
+    .price-col, a, .cta em, .cta::before { transition: none; }
   }
 </style>
 </head>
@@ -546,29 +398,26 @@
   <header class="head-pad drop-1">
     <div class="tb">
       <div class="tb-brand">
-        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-          <rect x="1" y="1" width="24" height="24" stroke="#FFFFFF" stroke-width="2"></rect>
-          <path d="M6 8h14M6 13h14M6 18h8" stroke="#999999" stroke-width="2" stroke-linecap="square"></path>
-        </svg>
+        <img src="/assets/icons/signet.svg" width="26" height="26" alt="PDFTrail signet mark">
         <span class="mono tb-wordmark">PDFTRAIL</span>
       </div>
       <div class="tb-meta">
-        <div class="tb-cell"><p class="tb-label">Dwg No</p><p class="tb-value">PT-1.0.1</p></div>
+        <div class="tb-cell"><p class="tb-label">Dwg No</p><p class="tb-value">PT-1.2.0</p></div>
         <div class="tb-cell"><p class="tb-label">Rev</p><p class="tb-value">STEEL</p></div>
         <div class="tb-cell"><p class="tb-label">Scale</p><p class="tb-value">1:1</p></div>
-        <div class="tb-cell"><p class="tb-label">Date</p><p class="tb-value">2026-08-22</p></div>
+        <div class="tb-cell"><p class="tb-label">Date</p><p class="tb-value">2026-08-24</p></div>
       </div>
     </div>
   </header>
 
   <main>
 
-    <!-- hero -->
+    <!-- hero: the no-signup message -->
     <div class="hero">
       <div class="hero-copy drop-2">
         <p class="mono eyebrow">For macOS &#183; Apple Silicon &#183; Works offline</p>
-        <h1>The tables come out as tables.</h1>
-        <p class="hero-sub">PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown, or plain text &#8212; with row and column structure intact and labels next to their numbers. On-device OCR. No uploads, ever.</p>
+        <h1>No sign-up. No login.</h1>
+        <p class="hero-sub">PDFTrail runs on your Mac, start to finish. Your PDFs and your data never leave the device &#8212; no account, no cloud upload, no server in between. Buy once for $24. No subscription, ever.</p>
       </div>
 
       <div class="hero-cta drop-2">
@@ -576,29 +425,11 @@
         <p class="mono fineprint">Free to try &#183; $24 one-time unlock &#183; No subscription</p>
       </div>
 
-      <!-- extraction stage -->
       <div class="stage drop-3">
-        <div class="stage-plate scan-plate">
-          <p class="plate-head">Scanned page &#183; 61</p>
-          <div class="plate-body">
-            <p class="scanrow hdr"><b>Particulars</b><b>FY24&#160;&#160;&#160;FY23</b></p>
-            <p class="scanrow s1"><b>Revenue from operations</b><b>4,120.6</b></p>
-            <p class="scanrow s2"><b>Cost of materials</b><b>(2,310.2)</b></p>
-            <p class="scanrow s3"><b>Employee benefits</b><b>(486.9)</b></p>
-            <p class="scanrow s4"><b>Profit before tax</b><b>512.4</b></p>
-          </div>
-        </div>
-        <svg class="arrow" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-          <path d="M3 13h17M14 6l7 7-7 7" stroke="#F2C464" stroke-width="2.5" stroke-linecap="square"></path>
-        </svg>
-        <div class="stage-plate xls-plate">
-          <p class="plate-head"><span class="head-mobile">Scanned page &#8594; </span>statements.xlsx</p>
-          <div class="plate-body out">
-            <p class="xlsrow r1"><b>Revenue from operations</b><b class="num">4,120.6</b></p>
-            <p class="xlsrow r2"><b>Cost of materials</b><b class="num">(2,310.2)</b></p>
-            <p class="xlsrow r3"><b>Employee benefits</b><b class="num">(486.9)</b></p>
-            <p class="xlsrow r4"><b>Profit before tax</b><b class="num">512.4</b></p>
-            <span class="stamp">TABLE REBUILT</span>
+        <div class="stage-plate">
+          <p class="plate-head">No accounts, anywhere in PDFTrail</p>
+          <div class="plate-img">
+            <img src="/assets/screenshots/web/07_no_signup_collage_web.jpg" width="2400" height="1350" alt="A grid of typical sign-up and login screens from other apps, with a PDFTrail card on top reading: No sign-up, no login. Your data is yours, shared with no one except you.">
           </div>
         </div>
       </div>
@@ -610,36 +441,76 @@
       <div class="mq-row mq-row-2" id="mqRow2"></div>
     </div>
 
-    <!-- riveted sheets: cursor-flashlight reveal -->
-    <div class="sheets-pad">
-      <div class="dim" style="margin-bottom: 44px;"><span>Detail views &#183; A&#8211;A &#183; move your cursor to read</span></div>
-      <div class="sheets-grid">
+    <!-- what's new in 1.2 -->
+    <div class="whatsnew-pad">
+      <div class="dim" style="margin-bottom: 24px;"><span>What&#8217;s new in 1.2</span></div>
+      <div class="whatsnew-grid">
+        <div class="whatsnew-item">
+          <p class="tag">Batch view</p>
+          <p class="body">A new shelf animation shows each file move from queued to done, so a batch job is easy to read at a glance.</p>
+        </div>
+        <div class="whatsnew-item">
+          <p class="tag">Scanned tables</p>
+          <p class="body">Excel export for scanned PDFs now rebuilds table structure more accurately, straight from on-device OCR.</p>
+        </div>
+        <div class="whatsnew-item">
+          <p class="tag">Table review</p>
+          <p class="body">Check every table on screen before you export, with row and column counts shown for each one.</p>
+        </div>
+      </div>
+    </div>
 
-        <div class="sheet" style="--tilt: -1.6deg; --pin: #F2C464;">
-          <p class="ref">Detail 01</p>
-          <h3>Tables hold their shape</h3>
-          <div class="bodywrap">
-            <p class="haze">Balance sheets, P&amp;L, cash flow, notes to accounts &#8212; rebuilt as clean rows and columns. Scanned pages included: on-device OCR reads the page and rebuilds the table.</p>
-            <p class="sharp" aria-hidden="true">Balance sheets, P&amp;L, cash flow, notes to accounts &#8212; rebuilt as clean rows and columns. Scanned pages included: on-device OCR reads the page and rebuilds the table.</p>
+    <!-- feature grid: real screenshots, real captions -->
+    <div class="feature-pad">
+      <div class="dim" style="margin-bottom: 44px;"><span>What PDFTrail does &#183; six views</span></div>
+      <div class="feature-grid">
+
+        <div class="feature-card">
+          <p class="plate-head"><span>Detail 01 &#183; Table extraction</span><a class="full-link" href="/assets/screenshots/full/01_table_review.png">Full size</a></p>
+          <div class="plate-img">
+            <img src="/assets/screenshots/web/01_table_review.jpg" width="1400" height="788" loading="lazy" alt="PDFTrail table review window showing two extracted tables with rows, columns, and headers intact.">
           </div>
+          <p class="cap">Rows, columns, and headers stay exactly as printed. Review each table before you export it.</p>
         </div>
 
-        <div class="sheet" style="--tilt: 1.2deg; --pin: #74D2BE;">
-          <p class="ref">Detail 02</p>
-          <h3>Fully offline, by design</h3>
-          <div class="bodywrap">
-            <p class="haze">No network calls to process your files. No account, no analytics, no data collection of any kind. A client&#8217;s annual report or a draft filing stays on your Mac.</p>
-            <p class="sharp" aria-hidden="true">No network calls to process your files. No account, no analytics, no data collection of any kind. A client&#8217;s annual report or a draft filing stays on your Mac.</p>
+        <div class="feature-card">
+          <p class="plate-head"><span>Detail 02 &#183; Conversion graph</span><a class="full-link" href="/assets/screenshots/full/02_conversion_graph.png">Full size</a></p>
+          <div class="plate-img">
+            <img src="/assets/screenshots/web/02_conversion_graph.jpg" width="1400" height="788" loading="lazy" alt="PDFTrail conversion graph showing one source PDF branching to Plain Text, Markdown, Word, Excel, and JSON outputs.">
           </div>
+          <p class="cap">One source file, every output format, no hidden steps. See exactly how your PDF converts.</p>
         </div>
 
-        <div class="sheet" style="--tilt: -1deg; --pin: #E88888;">
-          <p class="ref">Detail 03</p>
-          <h3>Ready for your LLM</h3>
-          <div class="bodywrap">
-            <p class="haze">Clean Markdown your model ingests without cleanup, Excel your analysis can trust, structured JSON blocks. Preview every table on screen before you export anything.</p>
-            <p class="sharp" aria-hidden="true">Clean Markdown your model ingests without cleanup, Excel your analysis can trust, structured JSON blocks. Preview every table on screen before you export anything.</p>
+        <div class="feature-card">
+          <p class="plate-head"><span>Detail 03 &#183; Batch convert</span><a class="full-link" href="/assets/screenshots/full/04_batch_convert.png">Full size</a></p>
+          <div class="plate-img">
+            <img src="/assets/screenshots/web/04_batch_convert.jpg" width="1400" height="788" loading="lazy" alt="PDFTrail batch queue converting five annual reports at once, with per-file progress.">
           </div>
+          <p class="cap">Queue many PDFs and let PDFTrail work through them in one pass.</p>
+        </div>
+
+        <div class="feature-card">
+          <p class="plate-head"><span>Detail 04 &#183; Scanned PDFs</span><a class="full-link" href="/assets/screenshots/full/03_exports_ready.png">Full size</a></p>
+          <div class="plate-img">
+            <img src="/assets/screenshots/web/03_exports_ready.jpg" width="1400" height="788" loading="lazy" alt="PDFTrail export panel listing Plain Text, Markdown, Word, and Excel formats, all built on the Mac with no cloud upload.">
+          </div>
+          <p class="cap">Text, Markdown, Word, and Excel &#8212; all built on your Mac. On-device OCR reads scanned pages and rebuilds the table.</p>
+        </div>
+
+        <div class="feature-card">
+          <p class="plate-head"><span>Detail 05 &#183; No setup</span><a class="full-link" href="/assets/screenshots/full/05_empty_canvas.png">Full size</a></p>
+          <div class="plate-img">
+            <img src="/assets/screenshots/web/05_empty_canvas.jpg" width="1400" height="788" loading="lazy" alt="PDFTrail empty canvas prompting to drop a PDF or open the bundled sample report.">
+          </div>
+          <p class="cap">Drop a PDF, or try the bundled sample report. No account, no configuration screens.</p>
+        </div>
+
+        <div class="feature-card">
+          <p class="plate-head"><span>Detail 06 &#183; Honest pricing</span><a class="full-link" href="/assets/screenshots/full/06_pricing.png">Full size</a></p>
+          <div class="plate-img">
+            <img src="/assets/screenshots/web/06_pricing.jpg" width="1400" height="788" loading="lazy" alt="PDFTrail unlock dialog showing a one-time 24 dollar purchase with no subscription.">
+          </div>
+          <p class="cap">One payment, $24, unlocks the full version for good. No subscription.</p>
         </div>
 
       </div>
@@ -652,10 +523,10 @@
         <div class="price-col free">
           <h4>Free &#183; forever</h4>
           <ul>
-            <li>Unlimited conversions and on-screen table preview</li>
+            <li>Unlimited conversions and on-screen table review</li>
             <li>Unlimited OCR on scanned pages</li>
-            <li>Unlimited plain text (.txt) export</li>
-            <li>One lifetime Markdown export &#183; one lifetime Word export</li>
+            <li>Unlimited plain text (.txt) and JSON export</li>
+            <li>10 free Markdown exports &#183; 10 free Word exports</li>
             <li>Excel export of the first 15 rows of every table</li>
             <li>Bundled sample annual report with no limits at all</li>
           </ul>
@@ -705,9 +576,9 @@
     { text: 'SCANNED EXHIBIT' }, { text: '→ TXT', chip: true }
   ];
   var ROW2 = [
-    { text: 'ON-DEVICE OCR' }, { text: 'NO UPLOADS' }, { text: 'NO ACCOUNT' },
-    { text: 'NO SUBSCRIPTION' }, { text: 'STRUCTURED JSON' }, { text: '→ LLM', chip: true },
-    { text: 'PREVIEW BEFORE EXPORT' }
+    { text: 'ON-DEVICE OCR' }, { text: 'NO SIGN-UP' }, { text: 'NO ACCOUNT' },
+    { text: 'BATCH CONVERT' }, { text: 'TABLE REVIEW' }, { text: '→ LLM', chip: true },
+    { text: '10 FREE MD + WORD' }, { text: 'TXT & JSON FREE FOREVER' }
   ];
 
   /* Each row renders its word list twice, so the -50% translateX loop is seamless. */
@@ -753,22 +624,6 @@
       light(row1El, Math.floor(Math.random() * ROW1.length));
       light(row2El, Math.floor(Math.random() * ROW2.length));
     }, 4000);
-  }
-
-  /* Flashlight reveal. The mobile media query hides .sharp, so these listeners idle there. */
-  var wraps = document.querySelectorAll('.bodywrap');
-  for (var w = 0; w < wraps.length; w++) {
-    (function (wrap) {
-      wrap.addEventListener('mousemove', function (e) {
-        var r = wrap.getBoundingClientRect();
-        wrap.style.setProperty('--mx', Math.round(e.clientX - r.left) + 'px');
-        wrap.style.setProperty('--my', Math.round(e.clientY - r.top) + 'px');
-      });
-      wrap.addEventListener('mouseleave', function () {
-        wrap.style.setProperty('--mx', '-400px');
-        wrap.style.setProperty('--my', '-400px');
-      });
-    })(wraps[w]);
   }
 })();
 </script>
