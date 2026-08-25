@@ -457,7 +457,7 @@
     .sheet, .haze, .sheet h3 { transition: none; }
   }
 
-  /* ---- hero conversion sequence: scan -> DOCX (pop) -> MD/XLSX/JSON/TXT ---- */
+  /* ---- hero conversion machine: conveyor + press (human-approved v4) ---- */
   .anim-stage {
     position: relative; aspect-ratio: 16 / 9; margin: 10px;
     border: 1px solid rgba(255,255,255,0.1); overflow: hidden;
@@ -466,71 +466,63 @@
       repeating-linear-gradient(90deg, rgba(200,217,236,0.05) 0 1px, transparent 1px 48px),
       #23303f;
   }
-  .anim-doc {
-    position: absolute; left: 50%; top: 50%; width: 34%; aspect-ratio: 3 / 4;
-    transform: translate(-50%, -50%);
+  .conv-root { position: absolute; left: 0; top: 0; width: 720px; height: 405px; transform-origin: 0 0; }
+  /* belt */
+  .belt { position: absolute; left: 0; right: 0; top: 275px; height: 5px; background: #171e27;
+    border-top: 1.5px solid rgba(200,217,236,0.35); }
+  .belt .dashes { position: absolute; inset: 8px 0 auto 0; height: 0;
+    border-top: 2px dashed rgba(200,217,236,0.22); }
+  .roller { position: absolute; top: 284px; width: 16px; height: 16px; border-radius: 50%;
+    border: 2px solid rgba(200,217,236,0.35); }
+  /* cards */
+  .card {
+    position: absolute; top: 147px; left: 0; width: 96px; height: 128px;
     background: #F7F6F2; border: 1.5px solid #111;
-    box-shadow: 6px 8px 0 rgba(0,0,0,0.35);
+    box-shadow: 5px 7px 0 rgba(0,0,0,0.35);
+    display: grid; place-items: center; will-change: transform;
   }
-  .anim-doc .fold {
-    position: absolute; top: 0; right: 0; width: 18%; aspect-ratio: 1;
-    background: linear-gradient(225deg, #23303f 0 50%, #d9d6cd 50% 100%);
-  }
-  .anim-doc .dl { position: absolute; left: 12%; right: 14%; height: 4.5%; background: #b9b6ad; }
-  .anim-doc .dl.t { background: #8a8778; }
-  .anim-doc .badge {
-    position: absolute; left: 10%; bottom: 8%; padding: 3% 9%;
-    background: #E8501F; color: #fff; font-family: 'Martian Mono', Menlo, monospace;
-    font-weight: 700; font-size: clamp(11px, 1.05vw, 16px); letter-spacing: 0.08em;
-  }
-  .scanbeam {
-    position: absolute; left: -4%; right: -4%; top: 0; height: 6px;
-    background: #F2C464; box-shadow: 0 0 14px 3px rgba(242,196,100,0.75);
-    opacity: 0; 
-  }
-  .anim-stage.scanning .scanbeam { opacity: 1; animation: beam-sweep 1.2s ease-in-out 2; }
-  .anim-stage.scanning .anim-doc { animation: doc-flash 2.4s step-end; }
-  @keyframes beam-sweep { 0% { top: 2%; } 50% { top: 94%; } 100% { top: 2%; } }
-  @keyframes doc-flash { 0%, 100% { filter: none; } }
-  .anim-fmt {
-    position: absolute; left: 50%; top: 50%; width: 30%; aspect-ratio: 3 / 4;
-    transform: translate(-50%, -50%) scale(0.2); opacity: 0;
-    background: #F7F6F2; border: 1.5px solid #111;
-    box-shadow: 6px 8px 0 rgba(0,0,0,0.35);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .anim-fmt .fold {
-    position: absolute; top: 0; right: 0; width: 18%; aspect-ratio: 1;
-    background: linear-gradient(225deg, #23303f 0 50%, #d9d6cd 50% 100%);
-  }
-  .anim-fmt .fmt-label {
-    font-family: 'Martian Mono', Menlo, monospace; font-weight: 700;
-    font-size: clamp(20px, 2.2vw, 34px); letter-spacing: 0.06em; color: #111;
-    padding: 6px 12px; border: 2.5px solid #111; background: #F2C464;
-  }
-  .anim-fmt.in { animation: fmt-pop-in 0.35s cubic-bezier(0.2, 1.6, 0.4, 1) forwards; }
-  .anim-fmt.out { animation: fmt-pop-out 0.38s ease-in forwards; }
-  @keyframes fmt-pop-in { from { transform: translate(-50%, -50%) scale(0.2); opacity: 0; }
-                          to   { transform: translate(-50%, -50%) scale(1); opacity: 1; } }
-  @keyframes fmt-pop-out { 0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-                           45% { transform: translate(-50%, -50%) scale(1.18); opacity: 1; }
-                           100% { transform: translate(-50%, -50%) scale(0.05); opacity: 0; } }
-  .anim-smoke { position: absolute; left: 50%; top: 50%; width: 0; height: 0; pointer-events: none; }
-  .anim-smoke i {
-    position: absolute; left: 0; top: 0; width: 26px; height: 26px; border-radius: 50%;
-    background: #e6ebf0; opacity: 0; border: 2.5px solid #aab4bf;
-  }
-  .anim-smoke.burst i { animation: puff 0.8s cubic-bezier(0.2, 0.7, 0.4, 1) forwards; }
-  .anim-smoke i:nth-child(1) { --dx: -74px; --dy: -48px; width: 32px; height: 32px; }
-  .anim-smoke i:nth-child(2) { --dx: 66px; --dy: -60px; animation-delay: 0.03s; }
-  .anim-smoke i:nth-child(3) { --dx: -58px; --dy: 44px; width: 20px; height: 20px; animation-delay: 0.06s; }
-  .anim-smoke i:nth-child(4) { --dx: 78px; --dy: 34px; width: 24px; height: 24px; animation-delay: 0.04s; }
-  .anim-smoke i:nth-child(5) { --dx: 0px; --dy: -84px; width: 18px; height: 18px; animation-delay: 0.08s; }
-  .anim-smoke i:nth-child(6) { --dx: -6px; --dy: 70px; width: 22px; height: 22px; animation-delay: 0.05s; }
-  @keyframes puff {
-    0% { transform: translate(-50%, -50%) scale(0.35); opacity: 1; }
-    55% { transform: translate(calc(-50% + var(--dx) * 0.8), calc(-50% + var(--dy) * 0.8)) scale(1.25); opacity: 0.95; }
-    100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.6); opacity: 0; }
+  .card .fold { position: absolute; top: 0; right: 0; width: 18px; height: 18px;
+    background: linear-gradient(225deg, #23303f 0 50%, #d9d6cd 50% 100%); }
+  .card .lbl { font: 700 13px 'Martian Mono', monospace; color: #fff; background: #E8501F;
+    border: 2px solid #111; padding: 3px 7px; transition: none; }
+  .card.fmt .lbl { color: #111; background: #F2C464; }
+  /* ---- the press: mounted machine head over the belt ---- */
+  .press { position: absolute; left: 50%; top: 0; width: 190px; margin-left: -95px; }
+  .press .mount { position: absolute; left: 50%; top: 0; width: 34px; height: 16px; margin-left: -17px;
+    background: #2b2f35; border: 2px solid #111; border-top: 0; }
+  .press .housing { position: absolute; left: 0; right: 0; top: 14px; height: 46px;
+    background: linear-gradient(180deg, #3d424a, #33373e); border: 2px solid #111; border-radius: 4px;
+    box-shadow: 4px 5px 0 rgba(0,0,0,0.35); }
+  .press .housing::before, .press .housing::after { content: ""; position: absolute; top: 50%;
+    width: 7px; height: 7px; margin-top: -3.5px; border-radius: 50%;
+    background: #1d2127; border: 1.5px solid rgba(200,217,236,0.3); }
+  .press .housing::before { left: 10px; } .press .housing::after { right: 10px; }
+  .press .lamp { position: absolute; left: 50%; top: 26px; width: 10px; height: 10px; margin-left: -5px;
+    border-radius: 50%; background: #5c5236; border: 1.5px solid #111; transition: background 0.12s; }
+  .press.armed .lamp { background: #F2C464; box-shadow: 0 0 8px 2px rgba(242,196,100,0.6); }
+  .press .rail { position: absolute; top: 58px; width: 8px; height: 68px;
+    background: #2b2f35; border: 2px solid #111; border-top: 0; }
+  .press .rail.l { left: 34px; } .press .rail.r { right: 34px; }
+  .ram { position: absolute; left: 50%; top: 56px; width: 96px; margin-left: -48px;
+    transform: translateY(0); will-change: transform; }
+  .ram .piston { height: 34px; background: linear-gradient(180deg, #4a4f57, #3a3e46);
+    border: 2px solid #111; border-radius: 0 0 2px 2px; }
+  .ram .face { height: 12px; background: #F2C464; border: 2px solid #111; border-top: 0; }
+  /* ram motion: anticipation lift, slam, retract — all one transition driven by JS */
+  /* shavings burst at the contact point */
+  .shavings { position: absolute; left: 50%; top: 150px; pointer-events: none; }
+  .shavings i { position: absolute; width: 12px; height: 7px; background: #F7F6F2;
+    border: 1.5px solid #111; opacity: 0; }
+  .shavings.burst i { animation: shave 0.85s cubic-bezier(0.15, 0.6, 0.3, 1) forwards; }
+  .shavings i:nth-child(1) { --dx: -64px; --dy: 26px; --rot: -170deg; }
+  .shavings i:nth-child(2) { --dx: 54px; --dy: 12px; --rot: 210deg; animation-delay: 0.04s; }
+  .shavings i:nth-child(3) { --dx: -34px; --dy: 52px; --rot: -290deg; width: 9px; animation-delay: 0.08s; }
+  .shavings i:nth-child(4) { --dx: 70px; --dy: 44px; --rot: 250deg; width: 10px; animation-delay: 0.06s; }
+  .shavings i:nth-child(5) { --dx: 10px; --dy: 62px; --rot: 190deg; animation-delay: 0.1s; }
+  .shavings i:nth-child(6) { --dx: -14px; --dy: -18px; --rot: 120deg; width: 8px; animation-delay: 0.12s; }
+  @keyframes shave {
+    0% { transform: translate(0, 0) rotate(0) scale(0.7); opacity: 1; }
+    100% { transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(1); opacity: 0; }
   }
   .anim-fallback { display: none; }
   @media (prefers-reduced-motion: reduce) {
@@ -577,20 +569,22 @@
       <div class="stage drop-3">
         <div class="stage-plate">
           <p class="plate-head">One PDF in &#183; five formats out</p>
-          <div class="anim-stage" id="animStage" aria-label="Animation: a PDF is scanned, then becomes a DOCX file, then Markdown, Excel, JSON, and plain-text files.">
-            <div class="anim-doc" id="animDoc">
-              <span class="fold"></span>
-              <span class="dl t" style="top:14%"></span>
-              <span class="dl" style="top:24%"></span>
-              <span class="dl" style="top:32%"></span>
-              <span class="dl" style="top:40%; right:30%"></span>
-              <span class="dl" style="top:52%"></span>
-              <span class="dl" style="top:60%; right:22%"></span>
-              <span class="badge">PDF</span>
-              <span class="scanbeam"></span>
+          <div class="anim-stage" id="animStage" aria-label="Animation: PDF file icons ride a conveyor belt through a press that converts each into a DOCX, MD, XLSX, JSON, or TXT file.">
+            <div class="conv-root" id="convRoot">
+              <div class="belt"><div class="dashes"></div></div>
+              <div class="roller" style="left: 40px;"></div>
+              <div class="roller" style="left: 220px;"></div>
+              <div class="roller" style="right: 220px;"></div>
+              <div class="roller" style="right: 40px;"></div>
+              <div class="press" id="press">
+                <div class="mount"></div>
+                <div class="housing"></div>
+                <div class="lamp"></div>
+                <div class="rail l"></div><div class="rail r"></div>
+                <div class="ram" id="ram"><div class="piston"></div><div class="face"></div></div>
+              </div>
+              <div class="shavings" id="shavings"><i></i><i></i><i></i><i></i><i></i><i></i></div>
             </div>
-            <div class="anim-fmt" id="animFmt"><span class="fold"></span><span class="fmt-label" id="animFmtLabel">DOCX</span></div>
-            <div class="anim-smoke" id="animSmoke"><i></i><i></i><i></i><i></i><i></i><i></i></div>
           </div>
           <div class="plate-img anim-fallback">
             <img src="/assets/screenshots/web/07_no_signup_collage_web.jpg" width="2400" height="1350" alt="A grid of typical sign-up and login screens from other apps, with a PDFTrail card on top reading: No sign-up, no login. Your data is yours, shared with no one except you." loading="lazy">
@@ -841,45 +835,111 @@
     })(wraps[w]);
   }
 
-  /* Hero conversion sequence. Idles under prefers-reduced-motion (stage is display:none). */
+  /* Hero conversion machine (conveyor + press). Idles under prefers-reduced-motion. */
   (function () {
-    var stage = document.getElementById('animStage');
-    if (!stage || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var doc = document.getElementById('animDoc');
-    var fmt = document.getElementById('animFmt');
-    var label = document.getElementById('animFmtLabel');
-    var smoke = document.getElementById('animSmoke');
-    var FORMATS = [
-      { name: 'DOCX', hold: 2000 },
-      { name: 'MD', hold: 1400 },
-      { name: 'XLSX', hold: 1400 },
-      { name: 'JSON', hold: 1400 },
-      { name: 'TXT', hold: 1400 }
-    ];
-    function scan(next) {
-      doc.style.display = 'block';
-      stage.classList.add('scanning');
-      setTimeout(function () {
-        stage.classList.remove('scanning');
-        doc.style.display = 'none';
-        next();
-      }, 2450);
+  var shell = document.getElementById('animStage');
+  if (!shell || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var visible = true;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }).observe(shell);
+  }
+  function fit() {
+    var sc = shell.clientWidth / 720;
+    document.getElementById('convRoot').style.transform = 'scale(' + sc + ')';
+  }
+  window.addEventListener('resize', fit); fit();
+  var root = document.getElementById('convRoot');
+  var press = document.getElementById('press');
+  var ram = document.getElementById('ram');
+  var shav = document.getElementById('shavings');
+  var W = 720, SPEED = 85;
+  var SPACING = 3.3;                      /* seconds between spawns */
+  var F = ['DOCX', 'MD', 'XLSX', 'JSON', 'TXT'];
+  /* ram geometry: rest tip at 56+34+12 = 102px; card top at 147px.
+     travel to contact = 46px past rest, anticipation lift = -9px. */
+  var RAM_LIFT = -9, RAM_CONTACT = 46;
+  var cards = [], sinceSpawn = 0, spawnIdx = 0;
+  var pressState = 'idle', pressT = 0, pressTarget = null;
+  var ANT = 0.14, SLAM = 0.13, HOLDC = 0.10, RETRACT = 0.34;  /* seconds per phase */
+  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+  function easeInCubic(t) { return t * t * t; }
+  function spawn() {
+    var el = document.createElement('div');
+    el.className = 'card';
+    el.innerHTML = '<span class="fold"></span><span class="lbl">PDF</span>';
+    root.appendChild(el);
+    cards.push({ el: el, x: -140, fi: (spawnIdx++) % F.length, converted: false,
+                 wob: Math.random() * 6.28, squash: 0 });
+  }
+  var SLOW = 1;
+  var last = performance.now();
+  function tick(now) {
+    var dt = Math.min((now - last) / 1000, 0.05) / SLOW; last = now;
+    if (!visible) { requestAnimationFrame(tick); return; }
+    sinceSpawn += dt;
+    if (sinceSpawn >= SPACING) { sinceSpawn = 0; spawn(); }
+    /* press state machine */
+    var lead = (ANT + SLAM) * SPEED;      /* distance a card covers during anticipation+slam */
+    if (pressState === 'idle') {
+      for (var j = 0; j < cards.length; j++) {
+        var cd = cards[j];
+        if (!cd.converted && cd.x + 48 >= W / 2 - lead) {
+          pressState = 'ant'; pressT = 0; pressTarget = cd; press.classList.add('armed');
+          break;
+        }
+      }
+    } else {
+      pressT += dt;
+      var y = 0;
+      if (pressState === 'ant') {
+        y = RAM_LIFT * easeOutCubic(Math.min(pressT / ANT, 1));
+        if (pressT >= ANT) { pressState = 'slam'; pressT = 0; }
+      } else if (pressState === 'slam') {
+        y = RAM_LIFT + (RAM_CONTACT - RAM_LIFT) * easeInCubic(Math.min(pressT / SLAM, 1));
+        if (pressT >= SLAM) {
+          pressState = 'holdc'; pressT = 0;
+          var t = pressTarget;
+          t.converted = true; t.squash = 1;
+          t.el.classList.add('fmt');
+          t.el.querySelector('.lbl').textContent = F[t.fi];
+          shav.classList.add('burst');
+          setTimeout(function () { shav.classList.remove('burst'); }, 900);
+        }
+      } else if (pressState === 'holdc') {
+        y = RAM_CONTACT;
+        if (pressT >= HOLDC) { pressState = 'retract'; pressT = 0; press.classList.remove('armed'); }
+      } else if (pressState === 'retract') {
+        var t2 = Math.min(pressT / RETRACT, 1);
+        var base = RAM_CONTACT * (1 - easeOutCubic(t2));
+        /* damped settle wave rides the retraction so the release breathes */
+        y = base + Math.sin(t2 * Math.PI * 2.5) * 2.2 * (1 - t2);
+        if (pressT >= RETRACT) { pressState = 'idle'; pressTarget = null; ram.style.transform = 'translateY(0px)'; }
+      }
+      ram.style.transform = 'translateY(' + y.toFixed(2) + 'px)';
     }
-    function showFormat(i) {
-      if (i >= FORMATS.length) { scan(function () { showFormat(0); }); return; }
-      label.textContent = FORMATS[i].name;
-      fmt.classList.remove('out');
-      fmt.classList.add('in');
-      setTimeout(function () {
-        fmt.classList.remove('in');
-        fmt.classList.add('out');
-        smoke.classList.add('burst');
-        setTimeout(function () { smoke.classList.remove('burst'); }, 700);
-        setTimeout(function () { showFormat(i + 1); }, 420);
-      }, FORMATS[i].hold);
+    /* cards */
+    for (var i = cards.length - 1; i >= 0; i--) {
+      var c = cards[i];
+      var target = 1;
+      if (pressTarget === c && (pressState === 'slam' || pressState === 'holdc')) target = 0.22;
+      if (c.mul === undefined) c.mul = 1;
+      c.mul += (target - c.mul) * Math.min(dt * 14, 1);   /* eased, not stepped */
+      c.x += SPEED * c.mul * dt;
+      c.wob += dt * 3.2;
+      if (c.squash > 0) c.squash = Math.max(0, c.squash - dt * 4);
+      var rot = Math.sin(c.wob) * 0.9;
+      var sy = 1 - 0.06 * Math.sin(Math.min(c.squash, 1) * Math.PI);
+      var sx = 1 + 0.035 * Math.sin(Math.min(c.squash, 1) * Math.PI);
+      c.el.style.transform = 'translateX(' + c.x.toFixed(2) + 'px) rotate(' + rot.toFixed(2) +
+        'deg) scale(' + sx.toFixed(3) + ',' + sy.toFixed(3) + ')';
+      c.el.style.transformOrigin = '50% 100%';
+      if (c.x > W + 40) { c.el.remove(); cards.splice(i, 1); }
     }
-    scan(function () { showFormat(0); });
-  })();
+    requestAnimationFrame(tick);
+  }
+  spawn(); cards[0].x = 40;
+  requestAnimationFrame(tick);
+})();
 })();
 </script>
 </body>
