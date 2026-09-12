@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Before and After: Teaching Our Engine to Read Bad Scans — PDFTrail</title>
+<meta name="description" content="We fed our PDF engine the worst scans we could find — faxes, photocopies, phone photos. What it did before, what it does now, and the 26 tables that never existed.">
+<link rel="canonical" href="https://pdftrail.app/blog/teaching-the-engine-to-read-bad-scans/">
+<meta name="theme-color" content="#262626">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PDFTrail">
+<meta property="og:title" content="Before and After: Teaching Our Engine to Read Bad Scans">
+<meta property="og:description" content="Faxes, photocopies, phone photos — what our engine did before, what it does now, and the 26 tables that never existed.">
+<meta property="og:url" content="https://pdftrail.app/blog/teaching-the-engine-to-read-bad-scans/">
+<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/assets/icons/signet.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;900&family=Martian+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Before and After: Teaching Our Engine to Read Bad Scans",
+  "description": "Faxes, photocopies, phone photos — what our engine did before, what it does now, and the 26 tables that never existed.",
+  "author": {"@type": "Person", "name": "Arkya Ghosh"},
+  "publisher": {"@type": "Organization", "name": "PDFTrail", "url": "https://pdftrail.app/"},
+  "datePublished": "2026-09-12",
+  "dateModified": "2026-09-12",
+  "mainEntityOfPage": "https://pdftrail.app/blog/teaching-the-engine-to-read-bad-scans/"
+}
+</script>
+</head>
+<body>
+<div class="page">
+
+  <div class="head-pad">
+    <header class="tb">
+      <a class="tb-brand" href="/">
+        <img src="/assets/icons/signet.svg" alt="PDFTrail signet">
+        <span class="tb-wordmark">PDFTRAIL</span>
+      </a>
+      <div class="tb-meta">
+        <div class="tb-cell"><p class="tb-label">Section</p><p class="tb-value"><a href="/blog/">BLOG</a></p></div>
+        <div class="tb-cell"><p class="tb-label">Get the app</p><p class="tb-value"><a href="https://apps.apple.com/app/id6799649606">MAC APP STORE</a></p></div>
+      </div>
+    </header>
+  </div>
+
+  <article class="article-wrap article">
+    <p class="article-kicker">Engine notes · 2026-09-12</p>
+    <h1>Before and After: Teaching Our Engine to Read Bad Scans</h1>
+
+    <p class="standfirst">Born-digital PDFs are the easy case — the text is in the file, and we read it exactly. The hard case arrives crooked, photocopied, faxed twice, and photographed under a kitchen light. This is the story of what our engine used to do with those documents, and what it does now.</p>
+
+    <div class="byline"><span>By Arkya Ghosh</span><span>PDFTrail</span><span>6 min read</span></div>
+
+    <h2>Before: the confident liar</h2>
+
+    <p>Early this summer we did something uncomfortable: we built a torture corpus. Real faxes with banner noise. Photocopies of photocopies. Statements photographed at an angle. Dot-matrix receipts on thermal paper. Then we ran our own engine on it and wrote down, honestly, everything it did.</p>
+
+    <p>It was worse than we thought — and worse in a specific, dangerous way. The engine wasn't just missing things. It was <em>inventing</em> them. On one run across a noise-heavy test set, it produced <strong>26 tables that did not exist</strong> — neat rows and columns confidently assembled out of smudges, scanner banding, and bleed-through. Digits ran together, so ₹1,240.00 and a quantity of 2 could fuse into one number that meant nothing. A page it couldn't handle would simply vanish from the output, silently, and the export looked cleaner for it.</p>
+
+    <p>If you've ever fed a scan to any extraction tool and gotten back a spreadsheet that looked plausible, that's the failure mode to fear. Not the obvious garbage — the <em>plausible</em> garbage. A fabricated table doesn't look fabricated in Excel. It looks like data. Someone sums the column. Someone makes a decision.</p>
+
+    <h2>The rule that changed everything</h2>
+
+    <p>We adopted one rule and made it law: <strong>fabrication never buys recall</strong>. The engine is not allowed to get "better" at reading by getting braver at guessing. Every change we ship has to pass a permanent tripwire — a corpus of noise pages, blank forms, and table-free documents on which the engine must produce <em>zero</em> tables, forever. If a proposed improvement recovers a hundred real values but invents one fake table on the tripwire, it dies. We have killed a lot of promising-looking changes this way. We do not regret one of them.</p>
+
+    <h2>After: the honest reader</h2>
+
+    <p>Months of measured, adversarial iteration later — every change benchmarked on real faxes, real invoices, real filings before it ships — here's the same engine on the same torture corpus:</p>
+
+    <p><strong>The 26 phantom tables are zero.</strong> The tripwire corpus runs on every single engine change, and it has stayed at zero. When PDFTrail shows you a table from a scan, it's because the page contains structured evidence of one — not because a cluster of noise looked table-ish.</p>
+
+    <p><strong>Glued numbers come apart.</strong> A long campaign against digit-fusion means amounts land in their own columns, aligned the way the page prints them. On scanned pages the spreadsheet is now built from the same table structure you review on screen — what you check is what you get.</p>
+
+    <p><strong>Crooked pages straightened.</strong> The engine now measures and corrects skew on tilted scans before reading them, and it reads embedded images inside otherwise-digital PDFs instead of skipping them.</p>
+
+    <p><strong>Silence replaced by a report.</strong> The last "before" behavior to die was the quiet skip. A Reddit commenter put it perfectly: in a 100-page financial report, a warning with page numbers matters more than a clean-looking spreadsheet that quietly omits a row. So the next update adds a conversion report to every export — each skipped page listed with a reason, each low-confidence cell flagged with its location. A clean document produces no report at all; an ugly one tells you exactly where to look.</p>
+
+    <h2>What we won't tell you</h2>
+
+    <p>We won't tell you it's perfect, because no OCR is, and the ones that claim to be are the confident liars of the first act. Hard scans still produce errors; that's precisely why the review step and the conversion report exist. What we can tell you is the direction of every change: fewer inventions, fewer fusions, fewer silences — measured on real documents before anything ships, with a tripwire that keeps us honest when we're tempted to be clever.</p>
+
+    <p>The work continues. The bar we've set for ourselves is simple to state and brutal to reach: keep going until the engine reads a bad scan as well as the best systems on earth — without ever learning to guess.</p>
+
+    <h2>Try it on your worst document</h2>
+    <p>Don't try PDFTrail on a clean PDF — anything can read those. Feed it the crumpled thing in your scans folder. Everything runs on your Mac: no account, no uploads, free to try.</p>
+    <a class="cta" href="https://apps.apple.com/app/id6799649606"><em>GET PDFTRAIL — MAC APP STORE</em></a>
+  </article>
+
+  <div class="head-pad"><div class="dim"><span>PDFTrail · Blog</span></div></div>
+  <footer class="foot">
+    <span><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/support.html">Support</a> · <a href="/privacy.html">Privacy</a></span>
+    <span>© 2026 PDFTrail</span>
+  </footer>
+
+</div>
+</body>
+</html>

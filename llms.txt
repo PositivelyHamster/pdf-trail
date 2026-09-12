@@ -6,6 +6,11 @@
 
 - [How to Convert a Bank Statement PDF to Excel on Mac](https://pdftrail.app/blog/convert-bank-statement-pdf-to-excel-mac/): The three real options on a Mac (manual, online converters, on-device conversion), why bank statements should never be uploaded to online converters, and a step-by-step on-device walkthrough.
 
+## News and engine notes
+
+- [PDFTrail 1.2: Real Excel Tables from Scanned Pages](https://pdftrail.app/blog/pdftrail-1-2/): Release notes — scanned tables exported with page-true structure, OCR inside embedded images, combined Word export fix, 10 free exports per format.
+- [Before and After: Teaching Our Engine to Read Bad Scans](https://pdftrail.app/blog/teaching-the-engine-to-read-bad-scans/): How the engine went from inventing 26 phantom tables on noise pages to zero, the fabrication-never-buys-recall rule, and the conversion report that replaces silent page skips.
+
 ## Pages
 
 - [Home](https://pdftrail.app/): Product overview.

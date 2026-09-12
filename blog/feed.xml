@@ -7,6 +7,20 @@
   <description>Field guides on getting data out of PDFs on a Mac — without uploading anything anywhere.</description>
   <language>en</language>
   <item>
+    <title>PDFTrail 1.2: Real Excel Tables from Scanned Pages</title>
+    <link>https://pdftrail.app/blog/pdftrail-1-2/</link>
+    <guid>https://pdftrail.app/blog/pdftrail-1-2/</guid>
+    <pubDate>Fri, 12 Sep 2026 18:30:00 +0530</pubDate>
+    <description>What shipped in 1.2 — scanned tables shaped like the page, images inside text PDFs, 10 free exports — and how the r/macapps launch thread shaped it.</description>
+  </item>
+  <item>
+    <title>Before and After: Teaching Our Engine to Read Bad Scans</title>
+    <link>https://pdftrail.app/blog/teaching-the-engine-to-read-bad-scans/</link>
+    <guid>https://pdftrail.app/blog/teaching-the-engine-to-read-bad-scans/</guid>
+    <pubDate>Fri, 12 Sep 2026 18:35:00 +0530</pubDate>
+    <description>We fed our engine the worst scans we could find. It invented 26 tables that didn't exist. Here's how that number became zero, and stays there.</description>
+  </item>
+  <item>
     <title>How to Convert a Bank Statement PDF to Excel on Mac</title>
     <link>https://pdftrail.app/blog/convert-bank-statement-pdf-to-excel-mac/</link>
     <guid>https://pdftrail.app/blog/convert-bank-statement-pdf-to-excel-mac/</guid>
