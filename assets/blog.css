@@ -86,6 +86,14 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .byline span { font-family: 'Martian Mono', Menlo, monospace; font-size: 10px; letter-spacing: 0.1em; color: #999999; text-transform: uppercase; }
 
+/* article figures */
+.article figure { margin: 30px 0; }
+.article figure img { width: 100%; height: auto; display: block;
+  border: 1px solid #4a4a4a; background: #282B33; }
+.article figcaption {
+  font-family: 'Martian Mono', Menlo, monospace; font-size: 11px;
+  color: #999999; padding-top: 9px; letter-spacing: 0.04em; }
+
 /* FAQ plates */
 .faq { margin-top: 8px; }
 .faq details {

@@ -31,6 +31,7 @@
   "publisher": {"@type": "Organization", "name": "PDFTrail", "url": "https://pdftrail.app/"},
   "datePublished": "2026-09-12",
   "dateModified": "2026-09-12",
+  "image": ["https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png", "https://pdftrail.app/assets/blog/phantom-tables-before-after.svg", "https://pdftrail.app/assets/blog/glued-digits-before-after.svg"],
   "mainEntityOfPage": "https://pdftrail.app/blog/teaching-the-engine-to-read-bad-scans/"
 }
 </script>
@@ -67,6 +68,11 @@
 
     <p>If you've ever fed a scan to any extraction tool and gotten back a spreadsheet that looked plausible, that's the failure mode to fear. Not the obvious garbage — the <em>plausible</em> garbage. A fabricated table doesn't look fabricated in Excel. It looks like data. Someone sums the column. Someone makes a decision.</p>
 
+    <figure>
+      <img src="/assets/blog/phantom-tables-before-after.svg" alt="Before and after illustration: on the left, a PDF extraction engine invents a table of meaningless numbers from scanner noise on a blank page; on the right, the same noisy page correctly produces no table, with the page noted in a conversion report instead" width="1200" height="560" loading="lazy">
+      <figcaption>Illustration of the failure mode. Left: a "table" assembled from noise — the before behavior. Right: the same page today — no table, and the gap is reported, not hidden.</figcaption>
+    </figure>
+
     <h2>The rule that changed everything</h2>
 
     <p>We adopted one rule and made it law: <strong>fabrication never buys recall</strong>. The engine is not allowed to get "better" at reading by getting braver at guessing. Every change we ship has to pass a permanent tripwire — a corpus of noise pages, blank forms, and table-free documents on which the engine must produce <em>zero</em> tables, forever. If a proposed improvement recovers a hundred real values but invents one fake table on the tripwire, it dies. We have killed a lot of promising-looking changes this way. We do not regret one of them.</p>
@@ -78,6 +84,11 @@
     <p><strong>The 26 phantom tables are zero.</strong> The tripwire corpus runs on every single engine change, and it has stayed at zero. When PDFTrail shows you a table from a scan, it's because the page contains structured evidence of one — not because a cluster of noise looked table-ish.</p>
 
     <p><strong>Glued numbers come apart.</strong> A long campaign against digit-fusion means amounts land in their own columns, aligned the way the page prints them. On scanned pages the spreadsheet is now built from the same table structure you review on screen — what you check is what you get.</p>
+
+    <figure>
+      <img src="/assets/blog/glued-digits-before-after.svg" alt="Before and after illustration of digit fusion in PDF to Excel conversion: a receipt line reading Masala Dosa, quantity 2, amount 240.00 used to export as one fused cell containing 2240.00; it now exports as three separate columns matching the printed receipt" width="1200" height="400" loading="lazy">
+      <figcaption>Digit fusion, illustrated on a receipt line. Before: quantity welded onto the amount — a number that sums without complaint. After: one value per column, as printed.</figcaption>
+    </figure>
 
     <p><strong>Crooked pages straightened.</strong> The engine now measures and corrects skew on tilted scans before reading them, and it reads embedded images inside otherwise-digital PDFs instead of skipping them.</p>
 

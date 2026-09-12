@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" role="img" aria-labelledby="t2 d2">
+<title id="t2">Before and after: fused digits on a scanned receipt line</title>
+<desc id="d2">Before: an amount and a quantity fuse into one meaningless number in one spreadsheet cell. After: the amount and quantity land in separate columns as printed.</desc>
+<rect width="1200" height="400" fill="#282B33"/>
+<g stroke="#3B587C" stroke-width="0.5" opacity="0.35">
+<path d="M0 100H1200M0 200H1200M0 300H1200M150 0V400M350 0V400M550 0V400M750 0V400M950 0V400"/>
+</g>
+<text x="70" y="58" font-family="Menlo,monospace" font-size="15" font-weight="700" letter-spacing="3" fill="#E8836F">BEFORE</text>
+<text x="640" y="58" font-family="Menlo,monospace" font-size="15" font-weight="700" letter-spacing="3" fill="#8FD49B">AFTER</text>
+<!-- printed receipt line, shared reference -->
+<text x="70" y="108" font-family="Menlo,monospace" font-size="13" fill="#9FC2E2">THE PRINTED LINE:</text>
+<g font-family="Menlo,monospace" font-size="17" fill="#F2EFE9">
+<text x="70" y="140">Masala Dosa      2     240.00</text>
+</g>
+<!-- before: one fused cell -->
+<g>
+<rect x="70" y="190" width="470" height="64" fill="none" stroke="#C33B2F" stroke-width="1.8"/>
+<text x="92" y="230" font-family="Menlo,monospace" font-size="19" fill="#E8836F">Masala Dosa 2240.00</text>
+</g>
+<text x="70" y="296" font-family="Menlo,monospace" font-size="13.5" fill="#E8836F">Quantity welded onto the amount. "2240.00" means nothing —</text>
+<text x="70" y="318" font-family="Menlo,monospace" font-size="13.5" fill="#E8836F">and it sums without complaint.</text>
+<!-- after: three columns -->
+<g stroke="#0F6E56" stroke-width="1.6" fill="none">
+<rect x="640" y="190" width="250" height="64"/>
+<rect x="890" y="190" width="70" height="64"/>
+<rect x="960" y="190" width="150" height="64"/>
+</g>
+<g font-family="Menlo,monospace" font-size="19" fill="#8FD49B">
+<text x="660" y="230">Masala Dosa</text>
+<text x="912" y="230">2</text>
+<text x="982" y="230">240.00</text>
+</g>
+<text x="640" y="296" font-family="Menlo,monospace" font-size="13.5" fill="#8FD49B">One value per column, aligned the way the page prints them.</text>
+<text x="640" y="318" font-family="Menlo,monospace" font-size="13.5" fill="#8FD49B">The sum you compute is the sum on the receipt.</text>
+</svg>
