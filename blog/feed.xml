@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>PDFTrail Blog</title>
+  <link>https://pdftrail.app/blog/</link>
+  <atom:link href="https://pdftrail.app/blog/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Field guides on getting data out of PDFs on a Mac — without uploading anything anywhere.</description>
+  <language>en</language>
+  <item>
+    <title>How to Convert a Bank Statement PDF to Excel on Mac</title>
+    <link>https://pdftrail.app/blog/convert-bank-statement-pdf-to-excel-mac/</link>
+    <guid>https://pdftrail.app/blog/convert-bank-statement-pdf-to-excel-mac/</guid>
+    <pubDate>Fri, 12 Sep 2026 09:00:00 +0530</pubDate>
+    <description>Retyping is slow, copy-paste collapses the columns, and online converters want you to upload the one document you never should. The three real options on a Mac, and a step-by-step walkthrough of the on-device one.</description>
+  </item>
+</channel>
+</rss>
