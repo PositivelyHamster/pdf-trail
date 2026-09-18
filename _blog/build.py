@@ -146,6 +146,11 @@ def inline(text):
     return s
 
 
+def strip_links(text):
+    """Markdown links to their label, for word and sentence counting."""
+    return re.sub(r"\[([^\]]+)\]\([^)\s]+\)", r"\1", text)
+
+
 def blocks_of(body):
     blocks, cur = [], []
     for line in body.split("\n"):
@@ -153,6 +158,11 @@ def blocks_of(body):
             if cur:
                 blocks.append(cur)
                 cur = []
+        elif line.strip() == "{{figure}}":
+            if cur:
+                blocks.append(cur)
+                cur = []
+            blocks.append(["{{figure}}"])
         else:
             cur.append(line.rstrip())
     if cur:
@@ -201,26 +211,29 @@ def convert_body(body, figure_html, errors):
             continue
         if all(re.match(r"^\s*- ", x) or x.startswith("  ") for x in b) and re.match(r"^- ", first):
             items = _list_items(b, r"^- ")
-            plain.extend(items)
+            plain.extend(strip_links(i) for i in items)
             out.append("    <ul>\n" + "\n".join(f"      <li>{inline(i)}</li>" for i in items) + "\n    </ul>")
             continue
         if re.match(r"^\d+\. ", first):
             items = _list_items(b, r"^\d+\. ")
-            plain.extend(items)
+            plain.extend(strip_links(i) for i in items)
             out.append("    <ol>\n" + "\n".join(f"      <li>{inline(i)}</li>" for i in items) + "\n    </ol>")
             continue
         text = " ".join(x.strip() for x in b)
         if standfirst is None:
             standfirst = text
             continue
-        plain.append(text)
+        plain.append(strip_links(text))
         out.append(f"    <p>{inline(text)}</p>")
     if not inserted_auto_figure and figure_count == 0:
         out.append(figure_html)
         figure_count += 1
     joined = "\n\n".join(out)
+    if "{{figure}}" in joined:
+        errors.append("{{figure}} must stand on its own line, not inside a sentence")
+        joined = joined.replace("{{figure}}", "")
     links.extend(re.findall(r'href="([^"]+)"', joined))
-    return standfirst or "", joined, "\n".join(plain), h2s, links, figure_count
+    return strip_links(standfirst or ""), joined, "\n".join(plain), h2s, links, figure_count
 
 
 def _list_items(lines, pat):
@@ -534,9 +547,24 @@ def validate_post(post, everything, live_slugs):
     return errs, warns
 
 
+def facts_grams(k=8):
+    """Every k-word run in FACTS.md: product facts writers must copy verbatim are exempt from the duplicate check."""
+    path = os.path.join(HERE, "FACTS.md")
+    if not os.path.exists(path):
+        return set()
+    grams = set()
+    for line in read(path).lower().split("\n"):
+        w = re.findall(r"\w+", line)
+        for i in range(len(w) - k + 1):
+            grams.add(" ".join(w[i:i + k]))
+    return grams
+
+
 def shingle_check(posts):
-    """Fail when two posts share any run of N words (FAQ excluded)."""
+    """Fail when two posts share any run of N words (FAQ excluded, FACTS.md phrases exempt)."""
     n = CONFIG["shingle_words"]
+    k = 8
+    fg = facts_grams(k)
     seen = {}
     errs = []
     for p in posts:
@@ -547,13 +575,16 @@ def shingle_check(posts):
         words = re.findall(r"\w+", text)
         mine = set()
         for i in range(len(words) - n + 1):
-            sh = " ".join(words[i:i + n])
+            window = words[i:i + n]
+            if any(" ".join(window[j:j + k]) in fg for j in range(n - k + 1)):
+                continue
+            sh = " ".join(window)
             if sh in mine:
                 continue
             mine.add(sh)
             if sh in seen and seen[sh] != p.slug:
-                errs.append(f"{p.slug} shares {n} words with {seen[sh]}: '{sh[:50]}...'")
-                break
+                errs.append(f"{p.slug} shares {n} words with {seen[sh]}: '{sh}'")
+                continue
             seen.setdefault(sh, p.slug)
     return errs
 
