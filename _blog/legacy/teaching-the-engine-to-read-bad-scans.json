@@ -1,0 +1,14 @@
+{
+  "slug": "teaching-the-engine-to-read-bad-scans",
+  "title": "Before and After: Teaching Our Engine to Read Bad Scans",
+  "date": "2026-09-12",
+  "time": "18:35",
+  "sort_key": "2026-09-12 18:35",
+  "kicker": "Engine notes",
+  "pillar": "P6",
+  "primary_keyword": "ocr bad scans phantom tables",
+  "summary": "We fed our engine the worst scans we could find. It invented 26 tables that didn't exist. Here's how we got that number to zero — and kept it there.",
+  "feed_summary": "We fed our engine the worst scans we could find. It invented 26 tables that didn't exist. Here's how that number became zero, and stays there.",
+  "llms_section": "notes",
+  "llms_blurb": "How the engine went from inventing 26 phantom tables on noise pages to zero, the fabrication-never-buys-recall rule, and the conversion report that replaces silent page skips."
+}

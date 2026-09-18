@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>PDFTrail Blog</title>
+  <link>https://pdftrail.app/blog/</link>
+  <atom:link href="https://pdftrail.app/blog/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Field guides on getting data out of PDFs on a Mac — without uploading anything anywhere.</description>
+  <language>en</language>
+{{items}}
+</channel>
+</rss>

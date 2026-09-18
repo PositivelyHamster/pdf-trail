@@ -1,0 +1,14 @@
+{
+  "slug": "pdftrail-1-2",
+  "title": "PDFTrail 1.2: Real Excel Tables from Scanned Pages",
+  "date": "2026-09-12",
+  "time": "18:30",
+  "sort_key": "2026-09-12 18:40",
+  "kicker": "Release notes",
+  "pillar": "P6",
+  "primary_keyword": "pdftrail 1.2",
+  "summary": "What shipped in 1.2 — scanned tables that come out shaped like the page, images inside text PDFs, 10 free exports — and how the r/macapps launch thread shaped it.",
+  "feed_summary": "What shipped in 1.2 — scanned tables shaped like the page, images inside text PDFs, 10 free exports — and how the r/macapps launch thread shaped it.",
+  "llms_section": "notes",
+  "llms_blurb": "Release notes — scanned tables exported with page-true structure, OCR inside embedded images, combined Word export fix, 10 free exports per format."
+}

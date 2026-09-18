@@ -1,0 +1,117 @@
+{
+  "site_url": "https://pdftrail.app",
+  "site_name": "PDFTrail",
+  "author": "Arkya Ghosh",
+  "app_store_url": "https://apps.apple.com/app/id6799649606",
+  "app_analytics_pt": "",
+  "app_analytics_mt": "12",
+  "timezone": "Asia/Kolkata",
+  "default_cta_label": "GET PDFTRAIL — MAC APP STORE",
+  "figure_dir": "assets/screenshots/web",
+  "og_image_dir": "assets/screenshots/full",
+  "default_og_image": "07_no_signup_collage_web.png",
+  "kickers": [
+    "Field guide",
+    "Comparison",
+    "Engine notes",
+    "Release notes"
+  ],
+  "pillars": {
+    "P1": {
+      "name": "PDF to Excel, CSV and Word on Mac",
+      "hub": "pdf-to-excel-mac"
+    },
+    "P2": {
+      "name": "Scanned PDFs and OCR on Mac",
+      "hub": "scanned-pdf-to-excel-mac"
+    },
+    "P3": {
+      "name": "PDF to Markdown and JSON for LLMs",
+      "hub": "pdf-to-markdown-mac"
+    },
+    "P4": {
+      "name": "Annual reports and market filings",
+      "hub": "annual-report-pdf-to-excel"
+    },
+    "P5": {
+      "name": "Comparisons",
+      "hub": "best-pdf-to-excel-converter-mac"
+    },
+    "P6": {
+      "name": "Engine notes, privacy and pricing",
+      "hub": "how-pdf-table-extraction-works"
+    }
+  },
+  "sitemap_before": [
+    "/",
+    "/blog/"
+  ],
+  "sitemap_after": [
+    "/support.html",
+    "/privacy.html"
+  ],
+  "sitemap_static_lastmod": "2026-09-12",
+  "citation_domains": [
+    "learn.microsoft.com",
+    "support.microsoft.com",
+    "support.apple.com",
+    "developer.apple.com",
+    "tabula.technology",
+    "camelot-py.readthedocs.io",
+    "github.com/jsvine/pdfplumber",
+    "github.com/tabulapdf",
+    "helpx.adobe.com",
+    "incometax.gov.in",
+    "gst.gov.in",
+    "sebi.gov.in",
+    "rbi.org.in",
+    "sec.gov",
+    "support.google.com",
+    "help.openai.com",
+    "docs.anthropic.com",
+    "support.anthropic.com",
+    "help.obsidian.md",
+    "nseindia.com",
+    "bseindia.com",
+    "camsonline.com",
+    "kfintech.com",
+    "pdfa.org",
+    "pdfa.org",
+    "iso.org"
+  ],
+  "banned_patterns": [
+    "100%",
+    "developer contract",
+    "pdftrail\\.dev",
+    "coming soon",
+    "\\d+(\\.\\d+)?\\s?%\\s?(accura|correct|precision|recall)",
+    "(accura|correct)\\w*\\s+(of|at|is|was)\\s+\\d+(\\.\\d+)?\\s?%",
+    "apps\\.apple\\.com/(?!app/id6799649606)",
+    "id6799649606\\?",
+    "testflight"
+  ],
+  "word_min": 900,
+  "word_max": 1500,
+  "sentence_warn": 20,
+  "sentence_fail": 35,
+  "shingle_words": 12,
+  "figure_dims": {
+    "default": [
+      1400,
+      875
+    ],
+    "07_no_signup_collage_web.jpg": [
+      1400,
+      787
+    ]
+  },
+  "shingle_exempt": [
+    "the text is read directly from the file, with the position of every character",
+    "read directly from the file, no ocr guessing",
+    "everything runs on your mac. nothing leaves the device",
+    "no account, no sign-up, no cloud uploads",
+    "it is free to try",
+    "24 one-time unlock, no subscription",
+    "pdftrail is my app, so weigh that as you read"
+  ]
+}
