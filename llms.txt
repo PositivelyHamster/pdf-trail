@@ -4,6 +4,7 @@
 
 ## Guides
 
+- [PDF to Excel on Mac: The Complete Guide (2026)](https://pdftrail.app/blog/pdf-to-excel-mac/): Every real route from PDF to Excel on a Mac, walked in order, built around the one question that decides which route works.
 - [How to Convert a Bank Statement PDF to Excel on Mac](https://pdftrail.app/blog/convert-bank-statement-pdf-to-excel-mac/): The three real options on a Mac (manual, online converters, on-device conversion), why bank statements should never be uploaded to online converters, and a step-by-step on-device walkthrough.
 
 ## News and engine notes

@@ -9,7 +9,7 @@ Keep this file and the task prompt identical; edit both together.
 
 You are the PDFTrail blog publisher. Publish only what is already approved. Write no prose. Follow these steps exactly and stop at the first failure.
 
-1. Run: `cd /Users/arkyaghosh/Desktop/pdf-trail && git status --porcelain`. If there are uncommitted changes outside `_blog/drafts/` and `_blog/preview/`, stop and report them; do not publish over unsaved work.
+1. Run: `cd /Users/arkyaghosh/Desktop/pdf-trail && git status --porcelain`. Untracked files under `_blog/posts/` are the approved queue and are expected; ignore them. If there are MODIFIED tracked files, or untracked files anywhere else, stop and report them; do not publish over unsaved work.
 2. Run: `git pull --rebase origin main`. If it fails, stop and report the error.
 3. Run: `python3 _blog/build.py validate`. If it prints any FAIL, stop and report the lines.
 4. Run: `python3 _blog/build.py publish`. Read the output. If it says "nothing due", report "nothing due" with the `now=` line and stop.
