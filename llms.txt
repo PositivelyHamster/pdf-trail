@@ -4,7 +4,13 @@
 
 ## Guides
 
+- [Annual Report PDF to Excel: A Guide for Investors](https://pdftrail.app/blog/annual-report-pdf-to-excel/): Convert an annual report PDF to Excel on your Mac and line up several years of filings, without uploading them to a server.
+- [Scanned PDF to Excel Mac: OCR Without Uploading](https://pdftrail.app/blog/scanned-pdf-to-excel-mac/): A scanned PDF to Excel mac guide without uploading the file, why OCR can be wrong, and why the app shows the table before export.
+- [PDF to Markdown on Mac: A Guide for LLM Workflows](https://pdftrail.app/blog/pdf-to-markdown-mac/): A calm, on-device pdf to markdown mac route for ChatGPT, Claude, and NotebookLM, with tables kept whole and the file never leaving your Mac.
 - [PDF to Excel on Mac: The Complete Guide (2026)](https://pdftrail.app/blog/pdf-to-excel-mac/): Every real route from PDF to Excel on a Mac, walked in order, built around the one question that decides which route works.
+- [Tabula vs PDFTrail: Extract PDF Tables on a Mac](https://pdftrail.app/blog/tabula-alternative-mac/): Looking for a tabula alternative mac users can run on scans and folders, with more export formats than CSV. Here is how PDFTrail compares.
+- [SBI Bank Statement PDF to Excel on Mac](https://pdftrail.app/blog/sbi-bank-statement-pdf-to-excel/): Getting an SBI bank statement PDF to Excel on a Mac without uploading it: what the file really contains, four steps, and the two checks I never skip.
+- [Excel for Mac Has No From PDF Import: What to Do Instead](https://pdftrail.app/blog/excel-for-mac-import-pdf/): Excel for Mac import PDF: Get Data has no From PDF entry. Why the connector stayed Windows-only, and how to get a PDF table onto a Mac anyway.
 - [How to Convert a Bank Statement PDF to Excel on Mac](https://pdftrail.app/blog/convert-bank-statement-pdf-to-excel-mac/): The three real options on a Mac (manual, online converters, on-device conversion), why bank statements should never be uploaded to online converters, and a step-by-step on-device walkthrough.
 
 ## News and engine notes
