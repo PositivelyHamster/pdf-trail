@@ -7,6 +7,13 @@
   <description>Field guides on getting data out of PDFs on a Mac — without uploading anything anywhere.</description>
   <language>en</language>
   <item>
+    <title>Convert a PDF to Markdown for ChatGPT (No Upload)</title>
+    <link>https://pdftrail.app/blog/pdf-to-markdown-chatgpt/</link>
+    <guid>https://pdftrail.app/blog/pdf-to-markdown-chatgpt/</guid>
+    <pubDate>Sun, 27 Sep 2026 18:00:00 +0530</pubDate>
+    <description>Convert a PDF to Markdown for ChatGPT on your Mac, so headings, lists and tables paste cleanly and the file stays off any server.</description>
+  </item>
+  <item>
     <title>Why a PDF Has No Tables (and How We Find Them Anyway)</title>
     <link>https://pdftrail.app/blog/how-pdf-table-extraction-works/</link>
     <guid>https://pdftrail.app/blog/how-pdf-table-extraction-works/</guid>
