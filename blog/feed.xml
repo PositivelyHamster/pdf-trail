@@ -7,6 +7,13 @@
   <description>Field guides on getting data out of PDFs on a Mac — without uploading anything anywhere.</description>
   <language>en</language>
   <item>
+    <title>Why a PDF Has No Tables (and How We Find Them Anyway)</title>
+    <link>https://pdftrail.app/blog/how-pdf-table-extraction-works/</link>
+    <guid>https://pdftrail.app/blog/how-pdf-table-extraction-works/</guid>
+    <pubDate>Sun, 27 Sep 2026 09:00:00 +0530</pubDate>
+    <description>How pdf table extraction works: a PDF stores positioned text and lines, never a table, and the engine rebuilds one before you see it.</description>
+  </item>
+  <item>
     <title>HDFC Bank Statement PDF to Excel on Mac</title>
     <link>https://pdftrail.app/blog/hdfc-bank-statement-pdf-to-excel/</link>
     <guid>https://pdftrail.app/blog/hdfc-bank-statement-pdf-to-excel/</guid>
