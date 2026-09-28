@@ -78,7 +78,8 @@
     "pdfa.org",
     "pdfa.org",
     "iso.org",
-    "adobe.com/acrobat/online"
+    "adobe.com/acrobat/online",
+    "support.claude.com"
   ],
   "banned_patterns": [
     "100%",
