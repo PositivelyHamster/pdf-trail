@@ -47,7 +47,7 @@ PDFTrail is my app, built first for my own folder of filings, so weigh that as y
 
 ## Why the tables hold up over three hundred pages
 
-A PDF stores positioned text fragments, not tables, on page 3 and on page 230 alike. PDFTrail rebuilds each table from the geometry of those fragments: which ones share a row, where the column boundaries fall. Because a born-digital report never goes through OCR, that reconstruction does not get shakier as the file gets longer or the notes get denser. The conversion report lists any page the tool skipped and any cell it flagged, so a schedule buried on page 210 does not go missing without a trace.
+A PDF stores positioned text fragments, not tables, on page 3 and on page 230 alike. PDFTrail rebuilds each table from the geometry of those fragments: which ones share a row, where the column boundaries fall. Because a born-digital report never goes through OCR, that reconstruction does not get shakier as the file gets longer or the notes get denser. The review screen still shows every detected table next to its page before export, so a schedule buried on page 210 does not go missing without a trace.
 
 ## Picking the tables that matter, and lining up five years
 

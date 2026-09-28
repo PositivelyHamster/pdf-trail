@@ -48,7 +48,7 @@ PDFTrail is my app, built first to solve this exact paste problem for myself, an
 
 Open the file and read the headings first, top to bottom. They should line up with the report's own section breaks: a segment result, a note to the accounts, a chairman's letter. If a heading turns up where a caption or a page number should be, the source page likely used an oversized font for something that was not a heading. It is worth a glance back at the PDF.
 
-Then check the tables the way you would check any number you are about to rely on. Count the columns against the printed page. A split row, where one line of figures becomes two, is the most common seam, and it is easiest to spot in a table with a fixed column count, like a balance sheet. The conversion report lists any page the app skipped and any cell it flagged, so a gap in the output comes with a reason attached rather than a silent hole.
+Then check the tables the way you would check any number you are about to rely on. Count the columns against the printed page. A split row, where one line of figures becomes two, is the most common seam, and it is easiest to spot in a table with a fixed column count, like a balance sheet. The review screen already showed you each table next to its page before export. A gap or a split row is something you catch there, by comparing the two, rather than a silent hole in the file.
 
 Scanned pages need one more look. Some annual reports circulate as a photocopy of an older filing, with no text layer under the pixels. PDFTrail runs OCR on the Mac in that case and still shows the detected table before export. OCR is good but not perfect on a dense financial table, so that review step is where a misread digit gets caught, not three questions into a chat about it.
 

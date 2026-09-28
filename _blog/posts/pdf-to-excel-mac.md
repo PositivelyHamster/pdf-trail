@@ -25,7 +25,7 @@ faq:
   - q: How much does PDFTrail cost?
     a: It's free to try, with 10 free exports per format for Excel, Word, and Markdown. The full version is a $24 one-time unlock, no subscription.
 ---
-When PDFTrail first went up on r/macapps, the questions that came back were not about features. People asked what the app does when it fails: an invoice with a layout nobody planned for, a page it can't read at all. One of those questions turned into the conversion report, the list of skipped pages and flagged cells the app now shows after every run.
+When PDFTrail first went up on r/macapps, the questions that came back were not about features. People asked what the app does when it fails: an invoice with a layout nobody planned for, a page it can't read at all. The answer the app gives is the review screen, where the detected table sits beside the page before anything is exported, so a page it struggles with is visible to you rather than hidden.
 
 That is the honest way to think about getting a PDF to Excel on a Mac. Which app has the most buttons matters less than what happens on the page that is hard, and every route you might take answers that differently.
 
@@ -59,12 +59,12 @@ Preview doesn't try. Word tries, for prose. Tabula and the Python tools let a pe
 
 {{figure}}
 
-Skipping the review step costs nothing, right up until it does. It is the one place you catch a misread digit or a table the app got wrong, on screen, before it becomes a number in a spreadsheet someone acts on. DIGITGUARD, the app's numeric audit, flags a digit it is unsure of on a scanned table. It flags it and stops there; it never changes the number for you.
+Skipping the review step costs nothing, right up until it does. It is the one place you catch a misread digit or a table the app got wrong, on screen, before it becomes a number in a spreadsheet someone acts on. You compare the detected rows against the source page yourself.
 
 ## Back to the thread
 
-Nobody on that thread asked for a faster export or a prettier icon. They asked what the app does when a page fights back, and the honest answer used to be that it just failed quietly. Now it names the page it skipped and the cell it isn't sure about, and you decide what to do next. That's a smaller promise than "it works on everything." It's also the one that holds up on the page you actually have trouble with.
+Nobody on that thread asked for a faster export or a prettier icon. They asked what the app does when a page fights back, and the honest answer used to be that it just failed quietly. Now it puts the detected table beside that page in the review screen, before anything exports, and you decide what to do next. That's a smaller promise than "it works on everything." It's also the one that holds up on the page you actually have trouble with.
 
-If your file is a bank statement, the [bank statement guide](/blog/convert-bank-statement-pdf-to-excel-mac/) covers that document specifically, and the [1.2 release notes](/blog/pdftrail-1-2/) cover what changed since the version that first shipped the conversion report. If your files are rough scans rather than clean downloads, [how the engine handles bad scans](/blog/teaching-the-engine-to-read-bad-scans/) goes into what OCR is actually doing behind that review screen.
+If your file is a bank statement, the [bank statement guide](/blog/convert-bank-statement-pdf-to-excel-mac/) covers that document specifically, and the [1.2 release notes](/blog/pdftrail-1-2/) cover what changed in the version on the App Store now. If your files are rough scans rather than clean downloads, [how the engine handles bad scans](/blog/teaching-the-engine-to-read-bad-scans/) goes into what OCR is actually doing behind that review screen.
 
 Try the route that matches your file, and look hard at the page it struggles with. That page is the real answer to the question people keep asking.

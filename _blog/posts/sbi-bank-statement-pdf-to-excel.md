@@ -21,7 +21,7 @@ faq:
   - q: Why not just email the PDF to my accountant?
     a: You can, but that only moves the file. Whoever opens it still needs to pull the transactions into a spreadsheet before they can total or sort them.
   - q: What if the export has fewer rows than my statement?
-    a: Check the conversion report first. It lists any page the app skipped, so you know where to look before you assume a row went missing.
+    a: Go back to the review screen and compare it with the statement page by page. A missing row usually sits at a page break, so start there.
 ---
 Page 15 is the one I keep coming back to. It is a bank statement, printed on a dot-matrix printer, spiral bound, and scanned slightly crooked, and the coil of the binding lies right across the middle of the text. It sat inside a 174-page loan application from an Indian public-sector bank. I wanted the transactions in a spreadsheet. The scan wanted nothing to do with me, and neither did any converter I tried on it.
 
@@ -50,15 +50,15 @@ For twelve months of statements, drop the folder instead of one file. Batch conv
 
 ## The two checks I never skip
 
-The first is the row count. If the statement shows 87 transactions and the sheet has 84, something was missed, and the conversion report will tell you which page. It lists every page the app skipped and every cell it flagged, so you're not hunting.
+The first is the row count. If the statement shows 87 transactions and the sheet has 84, something was missed, and it's usually at a page break. Go back to the review screen and compare the last rows of each page with the statement. Page breaks are where a table most often splits, so a row that straddles two pages is the usual suspect.
 
-The second is the balance column. Walk down it. Each balance should equal the one above it, plus the credit or minus the debit on that row. Where that chain breaks, you've found either a misread digit or a missing row, and you've found it in ten seconds instead of at tax time. On a scanned statement, DIGITGUARD marks digits it isn't sure about so you look there first. It marks them. It doesn't change them.
+The second is the balance column. Walk down it. Each balance should equal the one above it, plus the credit or minus the debit on that row. Where that chain breaks, you've found either a misread digit or a missing row, and you've found it in ten seconds instead of at tax time.
 
 I can't tell you the exact column order of your statement, because SBI's layouts differ by account type and change over time, and I don't have yours in front of me. Date, narration, debit, credit, balance is the usual shape. Some add a reference number. The review screen exists so you check your file, not my description of it.
 
 ## Back to page 15
 
-The coil across the text beat the engine. It found no usable table on that page, and it said so, which is the correct answer. A fabricated table is worse than a missed one, and it took 26 invented tables on pure scanner noise, early on, to make that rule stick. So in the current version you draw the grid yourself on a page like that, drag the column lines to where the coil isn't, and export. The rest of the form went through without me.
+The coil across the text beat the engine. It found no usable table on that page, and it said so, which is the correct answer. A fabricated table is worse than a missed one, and it took 26 invented tables on pure scanner noise, early on, to make that rule stick. The rest of the form went through without me.
 
 Your SBI statement will not have a spiral coil across it. It'll take the four steps, and then the two checks, and then it's a spreadsheet you can pivot by month or hand to whoever asked. If you have statements from other banks in the same folder, the [general bank statement guide](/blog/convert-bank-statement-pdf-to-excel-mac/) covers the differences, and the [PDF to Excel guide](/blog/pdf-to-excel-mac/) is the wider map.
 

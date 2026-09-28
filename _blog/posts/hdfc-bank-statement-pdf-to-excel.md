@@ -51,7 +51,7 @@ A single statement can be wrong in the usual ways: a misread digit, a skipped ro
 
 Every HDFC statement opens with a balance and closes with a balance, and the closing balance on one month's statement is the opening balance on the next month's statement. The bank enforces that identity when it prints the pair. Nothing in a single PDF enforces it once that PDF is converted alone. Walk down the twelve sheets in month order and confirm each opening balance equals the closing balance of the sheet before it. Where that chain holds, the folder is complete between those two points. Where it breaks, a statement is missing, a page inside one PDF did not convert, or a row was misread somewhere in between. Either way, you now know exactly which pair of months to open and compare by hand.
 
-The row count inside each sheet is worth a second look. HDFC statements usually state a transaction count for the period, or let you count entries on the printed page; set that against the row count PDFTrail wrote for the matching month. DIGITGUARD flags digits it read with low confidence on scanned pages, and the conversion report names any page it skipped, so a mismatch has a starting point instead of a blank search across twelve files.
+The row count inside each sheet is worth a second look. HDFC statements usually state a transaction count for the period, or let you count entries on the printed page; set that against the row count PDFTrail wrote for the matching month. The review screen already put that month's table next to its page before export. So a mismatch sends you back to that one pair to compare by eye, instead of a blind search across twelve files.
 
 ## Back to the folder
 

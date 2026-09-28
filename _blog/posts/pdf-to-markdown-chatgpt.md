@@ -54,7 +54,7 @@ A heading survives the same way. PDFTrail marks a statement's section titles, th
 
 Open the exported `.md` file in a text editor once it's ready. You rarely need the whole statement in the chat, only the weeks or the transactions your question is about. Copy that section and paste it in. This keeps the rest of the document off any server, and it gives ChatGPT less text to sort through before it answers. If you have several months to ask about, paste them one at a time and ask your question after each, rather than dropping a year of statements in at once.
 
-For a scanned statement, read the exported text once before you paste it. PDFTrail's Table Review step catches most OCR mistakes, and the conversion report lists any page it skipped or any cell it flagged. The read still takes a minute, and it's worth spending on numbers you're about to ask a model about.
+For a scanned statement, read the exported text once before you paste it. PDFTrail's Table Review step already put that table next to the page before export, so this second read is where you check the totals still match. It still takes a minute, and it's worth spending on numbers you're about to ask a model about.
 
 ## Back to the statement
 

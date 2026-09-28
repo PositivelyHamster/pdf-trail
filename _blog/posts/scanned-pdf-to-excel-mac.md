@@ -21,7 +21,7 @@ faq:
   - q: Do I need to be online to convert a scan?
     a: No. OCR runs on your Mac. The file never leaves the device, and no account is needed.
   - q: How do I know the OCR read a number correctly?
-    a: You check. PDFTrail shows the table it found before export and flags digits it is unsure of, so you know which cells to look at first.
+    a: You check. PDFTrail shows the table next to the source page before export, so you compare the two and check the totals first.
 ---
 One page in our test set holds nothing but scanner noise. No form was ever printed on it, and no tool that turns a scanned PDF into a spreadsheet on a Mac should find one there. Early in the engine's life, ours did anyway. Not once. Twenty-six times, across a batch of pages exactly like it, each one a neat grid of rows and columns built out of noise that never held a number to begin with.
 
@@ -35,7 +35,7 @@ A PDF built by software, a statement downloaded from a bank or an invoice made i
 
 To read a scan, something has to look at those pixels and decide where the letters are: this shape is a 3, this line of shapes ends here, the next column starts there. That is optical character recognition, or OCR, and it is a long chain of decisions, not a lookup table. Any single decision in that chain can be wrong. A blurred digit, a stray mark, or a line of print running into the spiral of a binder can all tip a decision the wrong way.
 
-That is why PDFTrail shows you the table it built before it writes anything to a file, and why it flags digits it is not confident about. You are looking at a draft, not a finished answer, and the app says so before you export it.
+That is why PDFTrail shows you the table it built, next to the source page, before it writes anything to a file. You are looking at a draft, not a finished answer, and the app says so before you export it.
 
 ## The real options for a scanned PDF
 
@@ -55,7 +55,7 @@ That is why PDFTrail shows you the table it built before it writes anything to a
 2. Let the app check the page. A page with no text layer triggers OCR; a page that already stores text is read directly.
 3. Wait for OCR to finish reading the scan. This happens on the Mac, and nothing is sent anywhere during the step.
 4. Look at the review screen. Check that the rows and columns match what the scan actually shows.
-5. Check the conversion report for any page the app skipped or any cell it flagged.
+5. Compare the table against the scan once more and check that the totals add up.
 6. Export to Excel once the table looks right.
 
 {{figure}}
@@ -74,6 +74,6 @@ We wrote at length about the ways a scan can go wrong and what changed in the en
 
 ## Back to the noise page
 
-That page still sits in the test set, and it still produces nothing: no table, no guess, just a line in the conversion report saying the page was skipped. That is the correct answer for a page with nothing on it, and it took twenty-six wrong answers to learn to prefer it.
+That page still sits in the test set, and it still produces nothing: no table, no guess, just an empty review screen for that page. That is the correct answer for a page with nothing on it, and it took twenty-six wrong answers to learn to prefer it.
 
-A real scanned statement or invoice will usually have something on it worth reading, and OCR will usually read most of it well. The review screen is there for the parts it doesn't, and the conversion report is there for the pages it can't read at all. Neither one fixes a bad read for you. Both put it in front of you, on the one page it happened, before it becomes a row you trusted without looking. That costs you one look before you export, and it is a smaller cost than a wrong number two months into a spreadsheet you already forgot to check.
+A real scanned statement or invoice will usually have something on it worth reading, and OCR will usually read most of it well. The review screen is there for the parts it doesn't, page by page. It does not fix a bad read for you. It puts it in front of you, next to the source page, on the one page it happened, before it becomes a row you trusted without looking. That costs you one look before you export, and it is a smaller cost than a wrong number two months into a spreadsheet you already forgot to check.
