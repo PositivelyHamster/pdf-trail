@@ -4,6 +4,7 @@
 
 ## Guides
 
+- [PDF to Excel on Mac: 7 Tools Compared Honestly](https://pdftrail.app/blog/best-pdf-to-excel-converter-mac/): The best pdf to excel converter mac depends on your file and who must never see it. Seven routes compared, mine included.
 - [Annual Report PDF to Excel: A Guide for Investors](https://pdftrail.app/blog/annual-report-pdf-to-excel/): Convert an annual report PDF to Excel on your Mac and line up several years of filings, without uploading them to a server.
 - [Scanned PDF to Excel Mac: OCR Without Uploading](https://pdftrail.app/blog/scanned-pdf-to-excel-mac/): A scanned PDF to Excel mac guide without uploading the file, why OCR can be wrong, and why the app shows the table before export.
 - [PDF to Markdown on Mac: A Guide for LLM Workflows](https://pdftrail.app/blog/pdf-to-markdown-mac/): A calm, on-device pdf to markdown mac route for ChatGPT, Claude, and NotebookLM, with tables kept whole and the file never leaving your Mac.
