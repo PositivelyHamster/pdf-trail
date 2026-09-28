@@ -25,11 +25,22 @@ marker for the reviewer. Never guess.
 - Born-digital PDFs (files that were produced by software, such as a statement downloaded from a bank website): the text is read directly from the file, with the position of every character. No OCR guessing. This is the honest hook; use these words.
 - Scanned PDFs (photocopies, faxes, phone photos saved as PDF, any page with no text layer): the app runs OCR on the Mac. OCR is good but not infallible. The app shows the detected tables in a Table Review step before anything is exported, so you check the numbers first.
 - Tables: the app reconstructs tables from the geometry of the positioned text (which fragments share a row, where the column boundaries fall). Rows and columns come out intact in the export.
-- Conversion report: after a conversion, the app lists pages it skipped and cells it flagged, so nothing is dropped silently.
-- DIGITGUARD: a numeric audit that flags suspicious digits in scanned tables for the reader to check. It flags; it never silently "corrects" a number.
 - Batch conversion: drop a folder of PDFs and convert them in one pass.
 - Images inside text PDFs: OCR also runs on images embedded in an otherwise born-digital PDF (since version 1.2).
-- Version 1.2 shipped on 2026-08-26 and is the current version. Release notes: https://pdftrail.app/blog/pdftrail-1-2/
+- The version on the Mac App Store is 1.2.0, released 2026-08-26. Release notes: https://pdftrail.app/blog/pdftrail-1-2/
+- Describe ONLY what 1.2.0 does. Before each writing batch the reviewer re-checks the live version with:
+  `curl -s "https://itunes.apple.com/lookup?id=6799649606" | python3 -c "import json,sys; print(json.load(sys.stdin)['results'][0]['version'])"`
+
+## BUILT BUT NOT SHIPPED (never describe as available; corrected 2026-09-28)
+
+These exist in the development engine and are NOT in the version people can download. Do not mention them at all, not even as "coming soon" or "the next version". They move up to "What it does" only after a release that contains them is live on the App Store.
+
+- The conversion report (a list of skipped pages and flagged cells after each run).
+- DIGITGUARD, the numeric audit that flags suspicious digits.
+- Drawing or dragging a table grid by hand to fix a table the engine missed.
+- A second OCR engine asked for candidate readings on a doubtful box.
+- Shape checks on identification numbers such as GSTIN, PAN or check characters.
+
 
 ## Facts about other tools (allowed, with the citation)
 
@@ -38,7 +49,8 @@ marker for the reviewer. Never guess.
 - Preview (macOS) copy-paste from a PDF loses column structure because a PDF stores positioned text fragments, not a table.
 - Tabula is a free open-source tool that needs Java. Cite: https://tabula.technology/
 - camelot and pdfplumber are Python libraries; they need a Python setup and code. Cite: https://camelot-py.readthedocs.io/ and https://github.com/jsvine/pdfplumber
-- Adobe Acrobat (paid subscription) can export PDF to Excel; Adobe's cloud services process files on Adobe servers for some features. Cite Adobe's own help page and do not characterise beyond what it says. UNVERIFIED: https://helpx.adobe.com/acrobat/using/convert-pdf-excel.html returned 403 to an automated fetch on 2026-09-18; a writer must open it in a browser and confirm the page before citing it.
+- Adobe Acrobat on the desktop converts a PDF to Excel (XLSX) or XML from its Convert menu. Its settings choose one worksheet per table, per page, or for the whole document, set decimal and thousands separators, and turn on text recognition for scanned text. Cite (verified in a browser 2026-09-28): https://helpx.adobe.com/acrobat/desktop/save-export-documents/convert-to-other-formats/pdf-to-excel.html . Do not state Acrobat prices or plan names.
+- Adobe's free online PDF to Excel converter says on its own page that "Your file will be securely handled by Adobe servers and deleted unless you sign in to save it." Cite (verified 2026-09-28): https://www.adobe.com/acrobat/online/pdf-to-excel.html . Quote that sentence at most once and do not characterise Adobe beyond it.
 - Online converters require you to upload the file to a third-party server. Say this neutrally; name no specific site.
 - Google Sheets has no PDF import. Cite: https://support.google.com/docs/answer/40608
 

@@ -27,7 +27,7 @@ Hubs land in days 1-6. Every spoke links its hub and one sibling. Shift the star
 | 11 | AM | acrobat-export-pdf-to-excel-mac | Adobe Acrobat Export PDF to Excel vs On-Device on Mac | acrobat export pdf to excel mac | P5 | bl-acrobat |
 | 11 | PM | pdf-to-csv-mac | PDF to CSV on Mac: Clean Rows for Any Spreadsheet | pdf to csv mac | P1 | bl-csv |
 | 12 | AM | quarterly-results-pdf-to-excel | Quarterly Results PDF to Excel: NSE/BSE Filings on Mac | quarterly results pdf to excel | P4 | bl-qtr |
-| 12 | PM | digitguard-numeric-audit | DIGITGUARD: How PDFTrail Flags Suspicious Digits | pdf to excel wrong numbers | P6 | bl-digitguard |
+| 12 | PM | why-pdf-to-excel-numbers-go-wrong | Why PDF to Excel Gets Numbers Wrong, and How to Catch It | pdf to excel wrong numbers | P6 | bl-wrongnums |
 | 13 | AM | pdf-to-markdown-notebooklm | PDF to Markdown for NotebookLM: Cleaner Sources | pdf to markdown notebooklm | P3 | bl-mdnlm |
 | 13 | PM | indian-bank-statement-pdf-to-excel | Axis, Kotak, and Other Indian Bank Statements to Excel | bank statement pdf to excel india | P1 | bl-inbank |
 | 14 | AM | copy-table-from-pdf-to-excel-mac | Preview Copy-Paste vs a Real PDF to Excel Converter | copy table from pdf to excel mac | P5 | bl-preview |

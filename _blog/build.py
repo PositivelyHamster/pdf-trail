@@ -497,6 +497,15 @@ def validate_post(post, everything, live_slugs):
         hit = re.search(pat, text_all + "\n" + m["title"] + "\n" + m["description"], re.I)
         if hit:
             errs.append(f"banned phrase: {hit.group(0)!r}")
+    # Features built but not shipped (FACTS.md). Gate every post that is not live yet;
+    # a live post that mentions one is reported as a warning for the human to decide.
+    for pat in CONFIG.get("banned_unshipped", []):
+        hit = re.search(pat, text_all + "\n" + m["title"] + "\n" + m["description"], re.I)
+        if hit:
+            if post.is_live:
+                warns.append(f"LIVE post mentions an unshipped feature: {hit.group(0)!r}")
+            else:
+                errs.append(f"unshipped feature (FACTS.md): {hit.group(0)!r}")
     # links
     internal = [l for l in info["links"] if l.startswith("/")]
     external = [l for l in info["links"] if l.startswith("http")]

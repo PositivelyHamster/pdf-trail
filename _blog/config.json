@@ -77,7 +77,8 @@
     "kfintech.com",
     "pdfa.org",
     "pdfa.org",
-    "iso.org"
+    "iso.org",
+    "adobe.com/acrobat/online"
   ],
   "banned_patterns": [
     "100%",
@@ -113,5 +114,13 @@
     "it is free to try",
     "24 one-time unlock, no subscription",
     "pdftrail is my app, so weigh that as you read"
+  ],
+  "banned_unshipped": [
+    "conversion report",
+    "DIGITGUARD",
+    "draw the grid",
+    "drag the column",
+    "second OCR engine",
+    "candidate reading"
   ]
 }
