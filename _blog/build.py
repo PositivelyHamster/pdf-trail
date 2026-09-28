@@ -542,7 +542,7 @@ def validate_post(post, everything, live_slugs):
     if cited < 1:
         errs.append("no external citation from the allow-list")
     # sentence length
-    sentences = re.split(r"(?<=[.!?])\s+|\n", info["standfirst"] + "\n" + info["plain"])
+    sentences = re.split(r"(?<=[.!?])[\"'\u201d\u2019)]*\s+|\n", info["standfirst"] + "\n" + info["plain"])
     lens = [len(re.findall(r"\w+", s)) for s in sentences if s.strip()]
     if lens:
         avg = sum(lens) / len(lens)
