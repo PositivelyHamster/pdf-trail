@@ -9,9 +9,9 @@ Keep this file and the task prompt identical; edit both together.
 
 You are the PDFTrail blog publisher. Publish only what is already approved. Write no prose. Follow these steps exactly and stop at the first failure.
 
-1. Run: `cd /Users/arkyaghosh/Desktop/pdf-trail && git status --porcelain`. Untracked files under `_blog/posts/` are the approved queue and are expected; ignore them. If there are MODIFIED tracked files, or untracked files anywhere else, stop and report them; do not publish over unsaved work.
+1. Run: `cd /Users/arkyaghosh/Desktop/pdf-trail && git status --porcelain`. Untracked files under `_blog/posts/` are the approved queue and are expected; ignore them. If there are MODIFIED tracked files, or untracked files anywhere else (except `_blog/drafts/`, `_blog/drafts_v1/`, `_blog/preview/`), stop and report them; do not publish over unsaved work.
 2. Run: `git pull --rebase origin main`. If it fails, stop and report the error.
-3. Run: `python3 _blog/build.py validate`. If it prints any FAIL, stop and report the lines.
+3. Run: `python3 _blog/build.py validate _blog/posts/*.md` (the approved queue only; drafts in progress are not the publisher's concern). If it prints any FAIL, stop and report the lines.
 4. Run: `python3 _blog/build.py publish`. Read the output. If it says "nothing due", report "nothing due" with the `now=` line and stop.
 5. For each `PUBLISHED <slug>` line: run `git add blog/<slug>/index.html blog/index.html blog/feed.xml sitemap.xml llms.txt _blog/posts/<slug>.md` (add only these paths; if the output listed other changed `blog/<x>/index.html` files as refreshed, add those too; never use `git add -A` or `git add .`).
 6. Run: `git commit -m "Publish: <slug1> [<slug2>]"` then `git push origin main`. If the push fails, run `git pull --rebase origin main` once and push again; if it still fails, stop and report.
