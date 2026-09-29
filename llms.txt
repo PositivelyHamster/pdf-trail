@@ -20,6 +20,7 @@
 
 ## News and engine notes
 
+- [Extract Tables from PDF Without Uploading: Why It Matters](https://pdftrail.app/blog/extract-pdf-tables-without-uploading/): How to extract tables from PDF without uploading it. What "upload" means, which files are safe to send, and the local routes that skip the server.
 - [Why a PDF Has No Tables (and How We Find Them Anyway)](https://pdftrail.app/blog/how-pdf-table-extraction-works/): How pdf table extraction works: a PDF stores positioned text and lines, never a table, and the engine rebuilds one before you see it.
 - [PDFTrail 1.2: Real Excel Tables from Scanned Pages](https://pdftrail.app/blog/pdftrail-1-2/): Release notes — scanned tables exported with page-true structure, OCR inside embedded images, combined Word export fix, 10 free exports per format.
 - [Before and After: Teaching Our Engine to Read Bad Scans](https://pdftrail.app/blog/teaching-the-engine-to-read-bad-scans/): How the engine went from inventing 26 phantom tables on noise pages to zero, the fabrication-never-buys-recall rule, and the conversion report that replaces silent page skips.
