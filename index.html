@@ -691,7 +691,19 @@
       </div>
     </div>
 
-    <!-- film section: returns after the Royal re-render (human, 2026-10-11) -->
+    <!-- film: 30 seconds, no autoplay, preload none (zero video bytes until play). It shows an earlier interface, so the caption makes no version claim. -->
+    <div class="film-pad">
+      <div class="dim" style="margin-bottom: 44px;"><span>Watch &#183; 30 seconds &#183; with sound</span></div>
+      <figure class="stage-plate film-plate">
+        <p class="plate-head">Field film &#183; PDF in, tables out</p>
+        <div class="film-frame">
+          <video controls preload="none" playsinline poster="/assets/film/pdftrail-film-poster.webp" width="1280" height="720" aria-describedby="filmCap">
+            <source src="/assets/film/pdftrail-film-720p30.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption class="cap" id="filmCap">A short tour of PDFTrail: copy a table out of a PDF, convert a batch of files, read a scanned page on the Mac, check each table, and open the rows and columns in a spreadsheet.</figcaption>
+      </figure>
+    </div>
 
     <!-- feature grid: the six 1.3.0 store screenshots, captions and alt text from SCREENSHOTS.md -->
     <div class="feature-pad">
