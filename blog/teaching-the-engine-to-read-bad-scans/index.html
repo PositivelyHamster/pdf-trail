@@ -69,8 +69,8 @@
     <p>If you've ever fed a scan to any extraction tool and gotten back a spreadsheet that looked plausible, that's the failure mode to fear. Not the obvious garbage — the <em>plausible</em> garbage. A fabricated table doesn't look fabricated in Excel. It looks like data. Someone sums the column. Someone makes a decision.</p>
 
     <figure>
-      <img src="/assets/blog/phantom-tables-before-after.svg" alt="Before and after illustration: on the left, a PDF extraction engine invents a table of meaningless numbers from scanner noise on a blank page; on the right, the same noisy page correctly produces no table, with the page noted in a conversion report instead" width="1200" height="560" loading="lazy">
-      <figcaption>Illustration of the failure mode. Left: a "table" assembled from noise — the before behavior. Right: the same page today — no table, and the gap is reported, not hidden.</figcaption>
+      <img src="/assets/blog/phantom-tables-before-after.svg" alt="Before and after illustration: on the left, a PDF extraction engine invents a table of meaningless numbers from scanner noise on a blank page; on the right, the same noisy page correctly produces no table, with nothing invented" width="1200" height="560" loading="lazy">
+      <figcaption>Illustration of the failure mode. Left: a "table" assembled from noise — the before behavior. Right: the same page today — no table, and nothing invented.</figcaption>
     </figure>
 
     <h2>The rule that changed everything</h2>
@@ -92,11 +92,11 @@
 
     <p><strong>Crooked pages straightened.</strong> The engine now measures and corrects skew on tilted scans before reading them, and it reads embedded images inside otherwise-digital PDFs instead of skipping them.</p>
 
-    <p><strong>Silence replaced by a report.</strong> The last "before" behavior to die was the quiet skip. A Reddit commenter put it perfectly: in a 100-page financial report, a warning with page numbers matters more than a clean-looking spreadsheet that quietly omits a row. So the next update adds a conversion report to every export — each skipped page listed with a reason, each low-confidence cell flagged with its location. A clean document produces no report at all; an ugly one tells you exactly where to look.</p>
+    <p><strong>Silence replaced by a second look.</strong> The last "before" behavior to die was the quiet skip. A Reddit commenter put it perfectly: in a 100-page financial report, a warning with page numbers matters more than a clean-looking spreadsheet that quietly omits a row. In version 1.3, Table Review opens by itself when a page needs a look: a page whose tables were partly read or not read.</p>
 
     <h2>What we won't tell you</h2>
 
-    <p>We won't tell you it's perfect, because no OCR is, and the ones that claim to be are the confident liars of the first act. Hard scans still produce errors; that's precisely why the review step and the conversion report exist. What we can tell you is the direction of every change: fewer inventions, fewer fusions, fewer silences — measured on real documents before anything ships, with a tripwire that keeps us honest when we're tempted to be clever.</p>
+    <p>We won't tell you it's perfect, because no OCR is, and the ones that claim to be are the confident liars of the first act. Hard scans still produce errors; that's precisely why the review step exists. What we can tell you is the direction of every change: fewer inventions, fewer fusions, fewer silences — measured on real documents before anything ships, with a tripwire that keeps us honest when we're tempted to be clever.</p>
 
     <p>The work continues. The bar we've set for ourselves is simple to state and brutal to reach: keep going until the engine reads a bad scan as well as the best systems on earth — without ever learning to guess.</p>
 

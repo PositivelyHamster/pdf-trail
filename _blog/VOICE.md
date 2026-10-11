@@ -48,7 +48,7 @@ The voice is one person: an indie developer who has spent a year staring at bad 
 - A 174-page scanned loan-application form from an Indian public-sector bank that I ran through the engine while building it, converting it to Markdown and Word and then checking the key identification numbers by hand. Tell it as the developer's test, not as a feature claim.
 - A bank statement printed on a dot-matrix printer, scanned skewed, with the spiral binding coil lying across the text on one page (page 15). The engine found no usable table on that page and said so rather than invent one. (Owned by the SBI post; do not retell.)
 - The engine once invented 26 tables on pages that were pure scanner noise. Those 26 became zero, and the rule that came out of it is that a fabricated table is worse than a missed one.
-- The r/macapps launch thread: people asked what the app does when a page fails, rather than asking about features. (Owned by the P1 hub.) Do not say what was built in response; that feature has not shipped.
+- The r/macapps launch thread: people asked what the app does when a page fails, rather than asking about features. (Owned by the P1 hub.) Since 1.3.0 you may say that Table Review now shows the pages that need a look after a conversion (shipped). Never name the conversion report; it has not shipped. (Updated 2026-10-11.)
 - The developer's own reason for building it: reading Indian annual reports into a language model for fundamental analysis, and refusing to upload them.
 
 Every feature a scene implies must be in FACTS.md "What it does". Nothing from FACTS.md "BUILT BUT NOT SHIPPED" may appear, even inside a scene. Use these as scenes when the post's subject fits. Do not stretch them. Do not add numbers to them.

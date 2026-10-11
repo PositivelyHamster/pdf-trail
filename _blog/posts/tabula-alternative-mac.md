@@ -1,14 +1,14 @@
 ---
 title: Tabula vs PDFTrail: Extract PDF Tables on a Mac
-description: Looking for a tabula alternative mac users can run on scans and folders, with more export formats than CSV. Here is how PDFTrail compares.
+description: Looking for a tabula alternative mac users can run on scans and folders, with Word, Markdown and JSON exports too. Here is how PDFTrail compares.
 date: 2026-09-25
 time: 18:00
 kicker: Comparison
 pillar: P5
 primary_keyword: tabula alternative mac
-figure: 04_batch_convert.jpg
-figure_alt: Batch converting a folder of PDFs in PDFTrail, a native tabula alternative mac users run without Java
-figure_caption: A folder going through in one pass, instead of one PDF at a time.
+figure: 08_table_review_130.jpg
+figure_alt: PDFTrail's Table Review grid editor with a table region and grid lines on a page, a native tabula alternative mac users run without Java
+figure_caption: The grid editor in Table Review: a table region on the page, with column and row lines inside it, and the engine's output beside it.
 campaign: bl-tabula
 status: approved
 faq:
@@ -35,13 +35,13 @@ Tabula does that work when you draw a box. You open a page, click and drag a rec
 
 ## Tabula alternative mac: where the two part ways
 
-The split starts with the file itself. Tabula's box-drawing only works because there is text to select, and that is exactly what a scan does not have. A scanned statement, a faxed form, a photo of a printed page saved as a PDF: these carry pixels, not letters, and Tabula says so upfront rather than pretending otherwise. PDFTrail runs OCR on a scan, on your Mac, and shows you the table it found before anything gets exported, because OCR is good but not infallible.
+The split starts with the file itself. Tabula's box-drawing only works because there is text to select, and that is exactly what a scan does not have. A scanned statement, a faxed form, a photo of a printed page saved as a PDF: these carry pixels, not letters, and Tabula says so upfront rather than pretending otherwise. PDFTrail runs OCR on a scan, on your Mac, and shows you the table it found in Table Review, because OCR is good but not infallible.
 
 The next split is volume. Tabula reads one PDF at a time, with a box drawn by hand on every table, on every page. That is fine for one report. It stops feeling fine somewhere around a folder of them. PDFTrail takes that whole folder in a single batch run.
 
-Then there is the interface. Tabula on a Mac still opens through a local browser tab, even with Java bundled in. PDFTrail is a native Mac app: no Java runtime, no browser window standing in for the app, nothing running quietly in the background once you close it.
+Then there is the interface. Tabula on a Mac still opens through a local browser tab, even with Java bundled in. PDFTrail is a native Mac app: no Java runtime, and no browser window standing in for the app.
 
-Last is where the data lands when you are done. Tabula exports to a CSV or an Excel file, which covers most spreadsheet work. PDFTrail exports to Excel, Word, Markdown, CSV, JSON, and plain text, so the same read can feed a report as easily as a spreadsheet.
+Last is where the data lands when you are done. Tabula exports to a CSV or an Excel file, which covers most spreadsheet work. PDFTrail exports to Excel, Word, Markdown, JSON, and plain text, so the same read can feed a report as easily as a spreadsheet.
 
 ## When Tabula is still the right call
 
@@ -49,10 +49,10 @@ Say your PDF is a single downloaded report, it has real text in it, and you are 
 
 ## Converting a PDF in PDFTrail, step by step
 
-1. Drop the PDF in, or a folder of them for a batch run.
+1. Click Open PDF, then choose the PDF in the dialog. For a batch run, choose several PDFs at once, or open a folder in the dialog and select every PDF in it.
 2. Let it read the file. A PDF with a text layer is read straight from the file; a scan goes through OCR on the Mac first.
-3. Check the review screen. Confirm the rows and columns match the source page before anything exports.
-4. Export to Excel, Word, Markdown, CSV, JSON, or plain text.
+3. Check Table Review. Confirm the rows and columns match the source page before you rely on the file. It opens by itself when a page needs a look, and the toolbar button Review tables opens it whenever you want it.
+4. Open the Excel, Word, Markdown, JSON, or plain text file the conversion wrote.
 
 {{figure}}
 

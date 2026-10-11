@@ -1,6 +1,6 @@
 # PDFTrail
 
-> PDFTrail is a macOS app (with an iOS companion) that converts PDFs to Excel (.xlsx), Word (.docx), Markdown, CSV, and JSON entirely on-device. Born-digital PDFs are read directly from the file's text layer — no OCR guessing; scanned PDFs use on-device OCR with a review step before export. No account, no sign-up, no cloud uploads. Free to try; $24 one-time unlock, no subscription. Mac App Store: https://apps.apple.com/app/id6799649606
+> PDFTrail is a Mac app (Apple Silicon, macOS 12 or later) that converts PDFs to Excel (.xlsx), Word (.docx), Markdown, JSON and plain text entirely on-device. Born-digital PDFs are read directly from the file's text layer — no OCR guessing; scanned PDFs use on-device OCR. Version 1.3.0 joins tables that run across pages into one table, and after each conversion Table Review shows the pages that need a look, with a grid editor to fix a table and re-export. No account, no sign-up, no cloud uploads. Free to try (10 free Markdown, Word and Excel exports; plain text and JSON unlimited); $24 one-time unlock, no subscription. Mac App Store: https://apps.apple.com/app/id6799649606
 
 ## Guides
 

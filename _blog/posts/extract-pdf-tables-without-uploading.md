@@ -7,8 +7,8 @@ kicker: Engine notes
 pillar: P6
 primary_keyword: extract tables from pdf without uploading
 figure: 07_no_signup_collage_web.jpg
-figure_alt: Collage showing PDFTrail's no-signup, no-account screen, made for anyone who wants to extract tables from pdf without uploading a file
-figure_caption: No sign-up screen, because there is nowhere to sign in to. The app opens straight onto your file.
+figure_alt: Blurred sign-up and login forms behind a PDFTrail card that reads No sign-up. No login., for anyone who wants to extract tables from pdf without uploading a file
+figure_caption: A wall of sign-up and login forms, and the one card PDFTrail shows instead: no sign-up, no login.
 campaign: bl-noupload
 status: approved
 faq:
@@ -43,18 +43,18 @@ A bank statement is not fine. It carries an account number, a running balance, a
 
 ## The local routes, and the one I built
 
-Tabula has done this job locally for years. It is a free, open-source extractor that needs Java installed, and it talks only to a page in your own browser, never the internet. It suits someone who wants the tool once and doesn't mind the Java install.
+Tabula has done this job locally for years. It is a free, open-source extractor that needs Java, which its Mac version includes, and it talks only to a page in your own browser, never the internet. It suits someone who wants the tool once and doesn't mind a Java-based tool.
 
 [pdfplumber](https://github.com/jsvine/pdfplumber) does the same work from a script. Its own README puts it plainly: it will "plumb a PDF for detailed information about each text character, rectangle, and line," with table extraction built in. It fits anyone comfortable writing a few lines of Python, especially against many files run the same way.
 
-PDFTrail is my app, and it exists for the person who wants neither a Java install nor a script: open the file, get the table, done. It reads the text and its position straight out of the PDF and works out the rows and columns before writing anything.
+PDFTrail is my app, and it exists for the person who wants neither a Java tool nor a script: open the file, get the table, done. It reads the text and its position straight out of the PDF and works out the rows and columns before writing anything.
 
 ## How to extract tables from PDF without uploading, step by step
 
-1. Drop the PDF onto the app window. No sign-up form appears, because there is no account behind it.
+1. Click "Open PDF" and choose the file. No sign-up form appears, because there is no account behind it.
 2. Let the app read the file. A born-digital PDF, the kind produced by software rather than a scanner, gets its text read directly, position by position, with nothing to guess at.
-3. Check the review screen before export. This is where you confirm the rows and columns landed where the printed page says they should.
-4. Export to Excel, Word, Markdown, CSV, or plain text, written straight to your Mac.
+3. Check Table Review after the conversion. When a page needs a look, it is open before you ask; at other moments, click the "Review tables" button. This is where you confirm the rows and columns landed where the printed page says they should.
+4. Open the file in each format you picked, from Excel to plain text. It is written straight to your Mac.
 
 {{figure}}
 

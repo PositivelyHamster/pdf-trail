@@ -13,7 +13,7 @@
 <meta property="og:title" content="Annual Report PDF to Excel: A Guide for Investors">
 <meta property="og:description" content="Convert an annual report PDF to Excel on your Mac and line up several years of filings, without uploading them to a server.">
 <meta property="og:url" content="https://pdftrail.app/blog/annual-report-pdf-to-excel/">
-<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/04_batch_convert.png">
+<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/assets/icons/signet.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
@@ -41,7 +41,7 @@
   "datePublished": "2026-09-26",
   "dateModified": "2026-09-26",
   "image": [
-    "https://pdftrail.app/assets/screenshots/full/04_batch_convert.png"
+    "https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png"
   ],
   "mainEntityOfPage": "https://pdftrail.app/blog/annual-report-pdf-to-excel/"
 }
@@ -56,7 +56,7 @@
       "name": "Can I convert several years of annual reports at once?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Drop the whole folder into PDFTrail and it converts every file in one pass on your Mac, instead of one report at a time."
+        "text": "Yes. Select all the PDFs from the folder in PDFTrail's Open dialog and it converts every file in one pass on your Mac, instead of one report at a time."
       }
     },
     {
@@ -129,30 +129,30 @@
 
     <h2>Annual report PDF to Excel, one folder at a time</h2>
 
-    <p>PDFTrail is my app, built first for my own folder of filings, so weigh that as you read the rest of this. <a href="/blog/pdf-to-excel-mac/">PDF to Excel on Mac</a> covers the single-file case. For a folder of annual reports, the step that matters is batch conversion: point PDFTrail at the whole folder and it works through every file in one run.</p>
+    <p>PDFTrail is my app, built first for my own folder of filings, so weigh that as you read the rest of this. <a href="/blog/pdf-to-excel-mac/">PDF to Excel on Mac</a> covers the single-file case. For a folder of annual reports, the step that matters is batch conversion: select all the PDFs in the Open dialog and PDFTrail works through every file in one run.</p>
 
     <ol>
       <li>Put every year, or every company, you want into one folder.</li>
-      <li>Drop the folder into PDFTrail. Batch conversion reads each file in turn, so you are not opening report after report by hand.</li>
+      <li>Click Open PDF, open the folder in the dialog, and select all the PDFs in it. Batch conversion reads each file in turn, so you are not opening report after report by hand.</li>
       <li>PDFTrail reads the text layer directly, since a born-digital annual report already carries positioned text. There is no OCR step and nothing to guess at.</li>
-      <li>Review the detected tables before anything exports. This is the step to slow down on, on a document this size. Check that a note's column headers sit above the right figures, and that current-year and prior-year have not swapped places.</li>
-      <li>Export to .xlsx. Each report becomes its own spreadsheet, statements and schedules intact.</li>
+      <li>Check the detected tables in Table Review after the conversion. A page that needs a look brings it up unasked. For the others, press the Review tables button. This is the step to slow down on, on a document this size. Check that a note's column headers sit above the right figures, and that current-year and prior-year have not swapped places.</li>
+      <li>Open the .xlsx files. Each report becomes its own spreadsheet, statements and schedules intact. If you fixed a table, click Accept and re-export so the files carry your fix.</li>
     </ol>
 
     <figure>
-      <img src="/assets/screenshots/web/04_batch_convert.jpg" alt="Batch converting a folder of annual report PDFs to Excel on Mac in PDFTrail, the annual report PDF to Excel step" width="1400" height="875" loading="lazy">
-      <figcaption>A folder of annual reports, one batch run, one sheet per report.</figcaption>
+      <img src="/assets/screenshots/web/12_private_on_device_130.jpg" alt="PDFTrail&#x27;s conversion graph on a Mac with a 42-page annual report as the source, labelled Local conversion, no upload, an annual report PDF to Excel run" width="1400" height="875" loading="lazy">
+      <figcaption>One annual report on the conversion graph, read on the Mac, under the label "Local conversion · no upload".</figcaption>
     </figure>
 
     <h2>Why the tables hold up over three hundred pages</h2>
 
-    <p>A PDF stores positioned text fragments, not tables, on page 3 and on page 230 alike. PDFTrail rebuilds each table from the geometry of those fragments: which ones share a row, where the column boundaries fall. Because a born-digital report never goes through OCR, that reconstruction does not get shakier as the file gets longer or the notes get denser. The review screen still shows every detected table next to its page before export, so a schedule buried on page 210 does not go missing without a trace.</p>
+    <p>A PDF stores positioned text fragments, not tables, on page 3 and on page 230 alike. PDFTrail rebuilds each table from the geometry of those fragments: which ones share a row, where the column boundaries fall. Because a born-digital report never goes through OCR, that reconstruction does not get shakier as the file gets longer or the notes get denser. Table Review still shows every detected table next to its page, so a schedule buried on page 210 does not go missing without a trace.</p>
 
     <h2>Picking the tables that matter, and lining up five years</h2>
 
-    <p>A full annual report converts to more sheets than any one model needs. Most investors want four: balance sheet, profit and loss, cash flow, and whichever notes carry the numbers they are tracking, such as segment results or borrowings. In the review step, check each detected table against the page it is meant to come from. Reports often repeat a compressed version of a table in a summary section and again, in full, in the notes, and it is easy to pull the wrong one by habit.</p>
+    <p>A full annual report converts to more tables than any one model needs. Most investors want four: balance sheet, profit and loss, cash flow, and whichever notes carry the numbers they are tracking, such as segment results or borrowings. In the review step, check each detected table against the page it is meant to come from. Reports often repeat a compressed version of a table in a summary section and again, in full, in the notes, and it is easy to pull the wrong one by habit.</p>
 
-    <p>Once each year's report is a spreadsheet, line up the same row, from the same statement, across every file. A revenue line from one year's balance sheet should sit next to the same line from the year before, not next to whatever row happened to land on the same sheet position. I do this by hand, row by row, the first time I build a new company's model. A line item renamed between years is common, and a formula will not catch a rename. After that first pass, the shape repeats and the check gets faster.</p>
+    <p>Once each year's report is a spreadsheet, line up the same row, from the same statement, across every file. A revenue line from one year's profit and loss statement should sit next to the same line from the year before, not next to whatever row happened to land on the same sheet position. I do this by hand, row by row, the first time I build a new company's model. A line item renamed between years is common, and a formula will not catch a rename. After that first pass, the shape repeats and the check gets faster.</p>
 
     <p>The Markdown route is the other path I use for the same reports. When the goal is a model to ask questions of rather than a spreadsheet to sum, <a href="/blog/pdf-to-markdown-mac/">PDF to Markdown on Mac</a> is the route I take instead. It keeps the same table structure in a form a language model reads cleanly, without the sheet layer in between. I use both routes on the same folder, depending on whether I am about to open Excel or a chat window.</p>
 
@@ -163,7 +163,7 @@
     <div class="faq">
       <details>
         <summary>Can I convert several years of annual reports at once?</summary>
-        <p>Yes. Drop the whole folder into PDFTrail and it converts every file in one pass on your Mac, instead of one report at a time.</p>
+        <p>Yes. Select all the PDFs from the folder in PDFTrail's Open dialog and it converts every file in one pass on your Mac, instead of one report at a time.</p>
       </details>
       <details>
         <summary>Does this work for US 10-K filings, not just Indian annual reports?</summary>

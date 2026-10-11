@@ -6,14 +6,14 @@ time: 18:00
 kicker: Comparison
 pillar: P5
 primary_keyword: camelot pdfplumber alternative
-figure: 01_table_review.jpg
-figure_alt: Reviewing a detected table on the PDFTrail review screen, a camelot pdfplumber alternative that needs no Python code
-figure_caption: Camelot hands you a DataFrame to check by hand. This is the same check, before export.
+figure: 08_table_review_130.jpg
+figure_alt: Table Review in PDFTrail on macOS, a camelot pdfplumber alternative that needs no Python code, showing a table's grid lines beside the engine output
+figure_caption: Camelot hands you a DataFrame to check by hand. This is the same check, after conversion.
 campaign: bl-camelot
 status: approved
 faq:
   - q: Do I need to write Python code to use PDFTrail?
-    a: No. Drop the PDF into the app and it reads the file on your Mac. Camelot and pdfplumber both need a script to do the same read.
+    a: No. Click "Open PDF" and choose the file, and the app reads it on your Mac. Camelot and pdfplumber both need a script to do the same read.
   - q: Can camelot or pdfplumber read a scanned PDF?
     a: Camelot's own documentation says it works only with text-based PDFs, not scanned documents. A scan has no text layer to select.
   - q: Does PDFTrail need Python or any other setup?
@@ -37,9 +37,9 @@ PDFTrail is my app. I built it to pull positioned text out of a PDF without open
 
 ## camelot pdfplumber alternative: where the two paths split
 
-The first split is who tunes the read. Camelot asks you to pick Stream or Lattice per document, sometimes per table, then adjust its parameters when a column runs together or a row splits in two. pdfplumber asks you to write that logic yourself, table by table. PDFTrail asks you to look at a review screen instead: the table it found sits next to the source page, and you check it before anything exports. One is a setting you tune once and reuse across a template. The other is a screen you look at on every file.
+The first split is who tunes the read. Camelot asks you to pick Stream or Lattice per document, sometimes per table, then adjust its parameters when a column runs together or a row splits in two. pdfplumber asks you to write that logic yourself, table by table. PDFTrail asks you to look at Table Review instead: after the conversion, the table it found sits next to the source page, and you check it before you rely on the file. One is a setting you tune once and reuse across a template. The other is a screen you open for each file you want to check.
 
-The second split is the file itself. Camelot's documentation says plainly that it works only with text-based PDFs, not scanned documents. It describes a text-based PDF as one where you can click and drag to select the text in a viewer. A scanned statement, a faxed form, a photo saved as a PDF: none of those have a text layer to select. The docs do note further setup for image-based PDFs, beyond the main workflow. A scan gets OCR from PDFTrail instead, running on the Mac, with the detected table put in front of you before export, since OCR is good but not infallible.
+The second split is the file itself. Camelot's documentation says plainly that it works only with text-based PDFs, not scanned documents. It describes a text-based PDF as one where you can click and drag to select the text in a viewer. A scanned statement, a faxed form, a photo saved as a PDF: none of those have a text layer to select. The docs do note further setup for image-based PDFs, beyond the main workflow. A scan gets OCR from PDFTrail instead, running on the Mac, with the detected table available in Table Review after conversion, since OCR is good but not infallible.
 
 The third split is where the tool lives. Camelot and pdfplumber are libraries: you write a script, run it in a terminal, and read the result back as a DataFrame or a CSV. PDFTrail is a native app. Nothing to import, no Python version to keep straight, no terminal window between you and the exported file.
 
@@ -51,14 +51,14 @@ A single born-digital PDF and a Python environment you already have open is came
 
 ## The PDFTrail workflow, four steps
 
-1. Open the app and drop in a PDF, or an entire folder for a batch run.
+1. Open the app, click "Open PDF", and choose a PDF. For a batch run, choose several at once, or open a folder in the dialog and select all the PDFs in it.
 2. PDFTrail reads what is already there: the text layer if the file has one, an OCR pass on the Mac if it does not.
-3. Compare the table on the review screen with the source page before you export anything.
-4. Choose Excel, Word, Markdown, CSV, JSON, or plain text as the export format.
+3. Compare the table in Table Review with the source page before you rely on the file. It comes up unprompted for a page that needs a look, and the "Review tables" button calls it up for any other page.
+4. Open whichever output you chose: Excel, Word, Markdown, JSON or plain text.
 
 {{figure}}
 
-There is no mode to pick before step one, and no parameter to adjust when a column runs together. The review screen is where you catch that instead, on every file, not only the ones you remember to check by hand.
+There is no mode to pick before step one, and no parameter to tune when a column runs together. In Table Review you drag the grid line into place instead. It opens by itself when a page needs a look, and from the "Review tables" button at any other time.
 
 ## Back to camelot's docs
 

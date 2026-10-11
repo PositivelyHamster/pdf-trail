@@ -6,9 +6,9 @@ time: 18:00
 kicker: Field guide
 pillar: P3
 primary_keyword: pdf to markdown claude
-figure: 03_exports_ready.jpg
-figure_alt: Exported Markdown file ready to add to a Claude Project knowledge base, the pdf to markdown claude step before upload
-figure_caption: The exported file, headed for the knowledge base instead of the chat window.
+figure: 12_private_on_device_130.jpg
+figure_alt: PDFTrail's conversion graph with the Markdown output marked Ready and the label Local conversion, no upload, the pdf to markdown claude step on the Mac
+figure_caption: The conversion graph: a PDF read on the Mac, with the Markdown output marked Ready.
 campaign: bl-mdclaude
 status: approved
 faq:
@@ -19,7 +19,7 @@ faq:
   - q: Do tables survive the conversion?
     a: Yes. PDFTrail rebuilds each table from where the text sits on the page and writes it out as a Markdown table, columns still under their headings.
   - q: Does this work on a scanned report with no text layer?
-    a: Yes. PDFTrail runs OCR on your Mac for a scanned page and shows the table it found before you export anything.
+    a: Yes. PDFTrail runs OCR on your Mac for a scanned page, and Table Review shows the table it found, so you can check it before you rely on the file.
   - q: Do I need an account or an internet connection to convert the file?
     a: No. The conversion runs on your Mac, with no sign-up, and the PDF itself never has to leave the device to become a Markdown file.
 ---
@@ -45,10 +45,10 @@ There is a plainer route. PDFTrail is my app, and I built it first to get my own
 
 ## The pdf to markdown claude steps, before anything is uploaded
 
-1. Drop the report PDF into PDFTrail.
+1. Click "Open PDF" and choose the report PDF.
 2. Let it read the file. A report you downloaded carries its own text layer, read straight from the file, no OCR needed. A photocopied or faxed page has no text layer, so the app runs OCR on the Mac before it can find any tables.
-3. Check the review screen. Confirm each table's columns line up before anything is written out.
-4. Export to Markdown.
+3. Check Table Review. Confirm each table's columns line up before you rely on the file. If a page needs a look, Table Review is already open when the run ends; otherwise click "Review tables".
+4. Open the Markdown file. For a wrong table, set its grid in the grid editor and choose "Accept and re-export" before you copy anything.
 
 {{figure}}
 

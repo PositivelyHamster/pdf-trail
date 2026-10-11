@@ -6,9 +6,9 @@ time: 09:00
 kicker: Field guide
 pillar: P1
 primary_keyword: pdf to excel mac
-figure: 01_table_review.jpg
-figure_alt: Reviewing a detected table in PDFTrail before exporting a PDF to Excel on a Mac
-figure_caption: The review step. This is where a hard page gets caught before it reaches the spreadsheet.
+figure: 08_table_review_130.jpg
+figure_alt: Table Review in PDFTrail on a Mac, with a page marked Partly read, shown after a PDF to Excel conversion
+figure_caption: Table Review on a page marked Partly read. This is where a hard page gets caught.
 campaign: bl-p1hub
 status: approved
 faq:
@@ -21,11 +21,11 @@ faq:
   - q: Does PDFTrail need an internet connection?
     a: No. It runs entirely on your Mac. Nothing is uploaded, and there is no sign-up.
   - q: What happens with a scanned PDF that has no text layer?
-    a: PDFTrail runs OCR on your Mac and shows the table it found before export, so you can check it against the source page.
+    a: PDFTrail runs OCR on your Mac, and Table Review shows the table it found next to the source page, so you can check it before you rely on the file.
   - q: How much does PDFTrail cost?
     a: It's free to try, with 10 free exports per format for Excel, Word, and Markdown. The full version is a $24 one-time unlock, no subscription.
 ---
-When PDFTrail first went up on r/macapps, the questions that came back were not about features. People asked what the app does when it fails: an invoice with a layout nobody planned for, a page it can't read at all. The answer the app gives is the review screen, where the detected table sits beside the page before anything is exported, so a page it struggles with is visible to you rather than hidden.
+When PDFTrail first went up on r/macapps, the questions that came back were not about features. People asked what the app does when it fails: an invoice with a layout nobody planned for, a page it can't read at all. The answer the app gives is Table Review, where each detected table sits beside its page after the conversion, so a page it struggles with is visible to you rather than hidden.
 
 That is the honest way to think about getting a PDF to Excel on a Mac. Which app has the most buttons matters less than what happens on the page that is hard, and every route you might take answers that differently.
 
@@ -37,11 +37,11 @@ Word does better on the easy case and worse on the exact page you're worried abo
 
 Excel itself would be the obvious next stop, except the button you're looking for isn't there. On Windows, Power Query has a From PDF import that pulls a table straight out of a file. Excel for Mac does not ship that feature, a gap confirmed on Microsoft's own support forum in response to someone asking exactly this ([learn.microsoft.com](https://learn.microsoft.com/en-us/answers/questions/5116197)). The search for that menu item on a Mac always ends the same way.
 
-Tabula and the Python libraries, camelot and pdfplumber, handle the hard page by asking you to describe it. You mark the table region, or tune the extraction settings, and get a result you can inspect in code before you trust it. That control is real, but it costs a Java install for Tabula, or a Python environment and some scripting for the others. Neither one tells you, on its own, when a page it read is actually wrong.
+Tabula and the Python libraries, camelot and pdfplumber, handle the hard page by asking you to describe it. You mark the table region, or tune the extraction settings, and get a result you can inspect in code before you trust it. That control is real, but it comes with Java for Tabula, or a Python environment and some scripting for the others. Neither one tells you, on its own, when a page it read is actually wrong.
 
 Upload sites answer the hard-page question by moving the problem off your machine. You send the file, a server somewhere does the extraction, and you get a spreadsheet back. That is a fine trade for a document nobody would mind a stranger seeing, a public report or a spec sheet. It is a worse trade for anything with an account number or a client's numbers on it, since the file now sits on infrastructure you can't see.
 
-An on-device app is the last stop, and the one built around the hard-page question directly rather than around avoiding it. PDFTrail is my app, so read the next part knowing that. It converts a PDF to Excel, Word, Markdown, CSV, JSON, or plain text, and it does the read on your Mac. Nothing goes to a server. For a page it cannot read cleanly, it says so before you ever export, which is the same complaint that started the r/macapps thread, answered the way people actually asked for it.
+An on-device app is the last stop, and the one built around the hard-page question directly rather than around avoiding it. PDFTrail is my app, so read the next part knowing that. It converts a PDF to Excel, Word, Markdown, JSON, or plain text, and it does the read on your Mac. Nothing goes to a server. For a page it cannot read cleanly, Table Review opens by itself once the conversion is done. That is the same complaint that started the r/macapps thread, answered the way people actually asked for it.
 
 ## What a PDF contains, and why this all follows from it
 
@@ -51,11 +51,11 @@ Preview doesn't try. Word tries, for prose. Tabula and the Python tools let a pe
 
 ## PDF to Excel on a Mac, step by step
 
-1. Open the PDF in PDFTrail, or open a whole folder for batch conversion.
+1. Click Open PDF and choose the PDF. For a whole folder, open it in the dialog and select all the PDFs in it.
 2. Let it read the file. A born-digital PDF is read directly, character by character, with no OCR involved.
 3. For a scanned page, OCR runs on your Mac before anything else happens.
-4. Review the detected table. Check the row count and that dates and amounts sit in the right columns.
-5. Export to .xlsx.
+4. After the conversion, check the detected tables in Table Review. A page that was partly read or not read opens it by itself; the Review tables button in the toolbar opens it at any other time. Check the row count and that dates and amounts sit in the right columns.
+5. Open the .xlsx file the conversion wrote. If you fixed a table in the grid editor, click Accept and re-export first.
 
 {{figure}}
 
@@ -63,8 +63,8 @@ Skipping the review step costs nothing, right up until it does. It is the one pl
 
 ## Back to the thread
 
-Nobody on that thread asked for a faster export or a prettier icon. They asked what the app does when a page fights back, and the honest answer used to be that it just failed quietly. Now it puts the detected table beside that page in the review screen, before anything exports, and you decide what to do next. That's a smaller promise than "it works on everything." It's also the one that holds up on the page you actually have trouble with.
+Nobody on that thread asked for a faster export or a prettier icon. They asked what the app does when a page fights back, and the honest answer used to be that it just failed quietly. Now Table Review puts the detected table beside that page once the conversion is done, and you decide what to do next. That's a smaller promise than "it works on everything." It's also the one that holds up on the page you actually have trouble with.
 
-If your file is a bank statement, the [bank statement guide](/blog/convert-bank-statement-pdf-to-excel-mac/) covers that document specifically, and the [1.2 release notes](/blog/pdftrail-1-2/) cover what changed in the version on the App Store now. If your files are rough scans rather than clean downloads, [how the engine handles bad scans](/blog/teaching-the-engine-to-read-bad-scans/) goes into what OCR is actually doing behind that review screen.
+If your file is a bank statement, the [bank statement guide](/blog/convert-bank-statement-pdf-to-excel-mac/) covers that document specifically, and the [1.2 release notes](/blog/pdftrail-1-2/) cover what changed in version 1.2. If your files are rough scans rather than clean downloads, [how the engine handles bad scans](/blog/teaching-the-engine-to-read-bad-scans/) goes into what OCR is actually doing behind that review screen.
 
 Try the route that matches your file, and look hard at the page it struggles with. That page is the real answer to the question people keep asking.

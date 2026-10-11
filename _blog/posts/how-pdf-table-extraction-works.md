@@ -6,9 +6,9 @@ time: 09:00
 kicker: Engine notes
 pillar: P6
 primary_keyword: how pdf table extraction works
-figure: 01_table_review.jpg
-figure_alt: Reviewing a detected table in PDFTrail on macOS, showing how pdf table extraction works before export
-figure_caption: The review step. The detected table sits next to the source page before export.
+figure: 08_table_review_130.jpg
+figure_alt: Table Review in PDFTrail on macOS, the source page with its grid beside the engine's output, showing how pdf table extraction works
+figure_caption: Table Review. The page sits on the left with its grid, and the table the engine wrote sits on the right.
 campaign: bl-p6hub
 status: approved
 faq:
@@ -17,15 +17,15 @@ faq:
   - q: Why does a scanned PDF need OCR but a downloaded statement does not?
     a: A downloaded statement already has a text layer, so PDFTrail reads the characters directly. A scan is pixels, so the app runs OCR on your Mac first to find the characters.
   - q: What happens when OCR cannot tell one digit from another?
-    a: The review step shows you the table next to the source page, so a doubtful digit sits in its cell for you to check against the print before export.
-  - q: Why does PDFTrail show a review step instead of exporting right away?
-    a: A rebuilt table can be wrong in either direction, missing a row or inventing one. The review step shows you the detected grid before export, against the source page.
+    a: Table Review shows you the table next to the source page, so a doubtful digit sits in its cell for you to check against the print before you rely on the file.
+  - q: Why does PDFTrail have a review step at all?
+    a: A rebuilt table can be wrong in either direction, missing a row or inventing one. Table Review shows you the detected grid against the source page, so you can fix it before you rely on the file.
   - q: Does any of this happen off my Mac?
     a: No. Reading the file, running OCR, and rebuilding the table all happen on-device. Nothing is uploaded, and no internet connection is needed to convert a file.
 ---
 Somewhere in a set of scanned Indian invoices sits one box with a single printed digit in it, and the reading is not obvious. It could be a 1. It could be a 7, its crossbar worn thin by a bad photocopy and a worse scan. OCR reads the box once and returns one character, and nothing about that character says whether it is right. That stubborn box is where I want to start, because it is the clearest case I have of how PDF table extraction works underneath the screen you see. Reading a page is one job. Deciding what to trust is a separate, harder one.
 
-PDFTrail doesn't pretend to know. It shows the whole table in the review screen, right next to the source page. You are the one looking at the worn crossbar and deciding what it says, before that digit becomes a number in your spreadsheet. What that screen shows you, and why it exists at all, is the whole subject of this post.
+PDFTrail doesn't pretend to know. It shows the whole table in the review screen, right next to the source page. You are the one looking at the worn crossbar and deciding what it says, before you rely on that digit. What that screen shows you, and why it exists at all, is the whole subject of this post.
 
 ## How PDF table extraction works, from a page to a grid
 
@@ -45,13 +45,13 @@ A scan, a photocopy, a fax, or a phone photo saved as a PDF carries none of that
 
 ## The one digit, and why the engine won't guess past it
 
-Back to that box. OCR read it once, the same way it reads every box on the page, and nothing in that single reading says whether it is right. PDFTrail does not pick an answer for you and move on quietly. It shows the table that box sits in beside the source page, so you look at the actual printed invoice before that number reaches your spreadsheet.
+Back to that box. OCR read it once, the same way it reads every box on the page, and nothing in that single reading says whether it is right. PDFTrail writes that reading to the file, but it does not move on quietly. It shows the table that box sits in beside the source page, so you look at the actual printed invoice before you rely on that number.
 
 That same refusal to guess runs wider than one digit. A grid built from scattered fragments on a noisy scan can look table-shaped and still be wrong, columns assembled out of print bleed and scanner banding rather than real rows. I have written before about [what a fabricated table costs](/blog/teaching-the-engine-to-read-bad-scans/) once the engine invents one instead of admitting a page beat it. I will not retell that story here. The rule it left behind holds for a single digit the same way it holds for a whole table. Something the engine is not confident about does not get invented to make the export look complete. A missing value is a real cost. An invented one is worse, because a wrong number sits in a cell looking exactly like a right one.
 
 ## Why the review step exists
 
-A grid, and a doubtful digit inside it, are both reconstructions, not facts stored in the file. So PDFTrail shows you the detected table before it writes anything at all. You see the rows and columns next to the page they came from, and a digit like my 1-or-7 sits in its own cell, unchanged, for you to check against the print. PDFTrail is my app, and I built this step in on purpose, because the alternative is a faster export I would not trust on a document where trust is the entire point. If a header split into two rows, or a column boundary landed one character too far left, you catch it here, not three sheets deep in a spreadsheet you already sent along.
+A grid, and a doubtful digit inside it, are both reconstructions, not facts stored in the file. So PDFTrail shows you the detected table once the conversion is done, in Table Review. It opens by itself when a page needs a look. You see the rows and columns next to the page they came from, and a digit like my 1-or-7 sits in its own cell, unchanged, for you to check against the print. PDFTrail is my app, and I built this step in on purpose, because the alternative is a faster export I would not trust on a document where trust is the entire point. If a header split into two rows, or a column boundary landed one character too far left, you catch it here, not three sheets deep in a spreadsheet you already sent along.
 
 ## Back to the box
 

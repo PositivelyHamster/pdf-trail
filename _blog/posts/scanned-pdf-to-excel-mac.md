@@ -1,14 +1,14 @@
 ---
 title: Scanned PDF to Excel Mac: OCR Without Uploading
-description: A scanned PDF to Excel mac guide without uploading the file, why OCR can be wrong, and why the app shows the table before export.
+description: A scanned PDF to Excel mac guide without uploading the file, why OCR can be wrong, and why the app shows you the table after conversion.
 date: 2026-09-25
 time: 09:00
 kicker: Field guide
 pillar: P2
 primary_keyword: scanned pdf to excel mac
-figure: 01_table_review.jpg
-figure_alt: Reviewing a detected table from a scanned PDF to Excel mac conversion in PDFTrail before export
-figure_caption: The review screen, open on a scanned page, before a single row reaches the spreadsheet.
+figure: 11_scans_clean_text_130.jpg
+figure_alt: Table Review in PDFTrail on macOS, a scanned table page beside the table the engine wrote, the check after a scanned PDF to Excel mac conversion
+figure_caption: Table Review on a scanned page: the page on the left, the engine's output on the right.
 campaign: bl-p2hub
 status: approved
 faq:
@@ -21,7 +21,7 @@ faq:
   - q: Do I need to be online to convert a scan?
     a: No. OCR runs on your Mac. The file never leaves the device, and no account is needed.
   - q: How do I know the OCR read a number correctly?
-    a: You check. PDFTrail shows the table next to the source page before export, so you compare the two and check the totals first.
+    a: You check. Table Review shows the table next to the source page, so you compare the two and check the totals first.
 ---
 One page in our test set holds nothing but scanner noise. No form was ever printed on it, and no tool that turns a scanned PDF into a spreadsheet on a Mac should find one there. Early in the engine's life, ours did anyway. Not once. Twenty-six times, across a batch of pages exactly like it, each one a neat grid of rows and columns built out of noise that never held a number to begin with.
 
@@ -35,7 +35,7 @@ A PDF built by software, a statement downloaded from a bank or an invoice made i
 
 To read a scan, something has to look at those pixels and decide where the letters are: this shape is a 3, this line of shapes ends here, the next column starts there. That is optical character recognition, or OCR, and it is a long chain of decisions, not a lookup table. Any single decision in that chain can be wrong. A blurred digit, a stray mark, or a line of print running into the spiral of a binder can all tip a decision the wrong way.
 
-That is why PDFTrail shows you the table it built, next to the source page, before it writes anything to a file. You are looking at a draft, not a finished answer, and the app says so before you export it.
+That is why PDFTrail shows you the table it built, next to the source page, in Table Review after the conversion. You are looking at a draft, not a finished answer, so check it before you rely on the file.
 
 ## The real options for a scanned PDF
 
@@ -51,12 +51,12 @@ That is why PDFTrail shows you the table it built, next to the source page, befo
 
 ## Converting a scan on your Mac
 
-1. Drop the PDF into PDFTrail.
+1. Click Open PDF and choose the PDF.
 2. Let the app check the page. A page with no text layer triggers OCR; a page that already stores text is read directly.
 3. Wait for OCR to finish reading the scan. This happens on the Mac, and nothing is sent anywhere during the step.
-4. Look at the review screen. Check that the rows and columns match what the scan actually shows.
+4. Look at Table Review. It opens by itself when a page needs a look. At any other time, use the Review tables button in the toolbar. Check that the rows and columns match what the scan actually shows.
 5. Compare the table against the scan once more and check that the totals add up.
-6. Export to Excel once the table looks right.
+6. Open the Excel file once the table looks right. If you fixed the grid on any page, click Accept and re-export first.
 
 {{figure}}
 
@@ -76,4 +76,4 @@ We wrote at length about the ways a scan can go wrong and what changed in the en
 
 That page still sits in the test set, and it still produces nothing: no table, no guess, just an empty review screen for that page. That is the correct answer for a page with nothing on it, and it took twenty-six wrong answers to learn to prefer it.
 
-A real scanned statement or invoice will usually have something on it worth reading, and OCR will usually read most of it well. The review screen is there for the parts it doesn't, page by page. It does not fix a bad read for you. It puts it in front of you, next to the source page, on the one page it happened, before it becomes a row you trusted without looking. That costs you one look before you export, and it is a smaller cost than a wrong number two months into a spreadsheet you already forgot to check.
+A real scanned statement or invoice will usually have something on it worth reading, and OCR will usually read most of it well. The review screen is there for the parts it doesn't, page by page. It does not fix a bad read for you. It puts it in front of you, next to the source page, on the one page it happened, before it becomes a row you trusted without looking. That costs you one look before you rely on the file, and it is a smaller cost than a wrong number two months into a spreadsheet you already forgot to check.

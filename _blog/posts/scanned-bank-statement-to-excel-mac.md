@@ -6,9 +6,9 @@ time: 09:00
 kicker: Field guide
 pillar: P2
 primary_keyword: scanned bank statement to excel
-figure: 01_table_review.jpg
-figure_alt: Reviewing a scanned bank statement to excel table in PDFTrail on macOS before exporting any numbers
-figure_caption: The review step, where a photographed statement's table sits beside the page for a second look before export.
+figure: 11_scans_clean_text_130.jpg
+figure_alt: PDFTrail's Table Review with a scanned page on the left and the engine's table on the right, the check after a scanned bank statement to excel conversion
+figure_caption: A scanned sample page and the table the engine wrote for it, side by side in Table Review.
 campaign: bl-scanbank
 status: approved
 faq:
@@ -17,7 +17,7 @@ faq:
   - q: Is it safe to convert a bank statement online?
     a: An online OCR site needs the file uploaded to a server you do not control. For a document with your account details, keep the conversion on your Mac instead.
   - q: How do I know the numbers are right after conversion?
-    a: Sum a column in the export and compare it with the printed total on the statement. PDFTrail also shows the table beside the page in the review step, so you can check it before you export.
+    a: Sum a column in the export and compare it with the printed total on the statement. PDFTrail also shows each table beside the page in Table Review, so you can check it before you rely on the file.
   - q: What if a photographed page is a bit crooked or shadowed?
     a: PDFTrail still reads it. A flatter, straighter, evenly lit photo gives OCR less to guess at, but a slight tilt or shadow does not stop the conversion.
   - q: Does this work without an internet connection?
@@ -29,19 +29,19 @@ Someone photographed a printed statement on a phone and saved it as a PDF. Open 
 
 A PDF built this way stores a photograph, not text. There is no character behind any digit, no stored "7" waiting to be read off the page. There is only a grid of pixels that happens to look like a 7 to a person. OCR is the step that turns that grid back into characters. It works by guessing at shapes: a rounded blob near a straight line probably reads as a 6, a gap in the loop might make it an 8. Most of the time the guess is right. A curved page bends the shapes it is guessing at. A shadowed corner hides some of them. The guesses get harder exactly where the photo is weakest.
 
-Because a guess can be wrong, the app never writes a spreadsheet straight from that guess. PDFTrail is my app, and it shows the detected table on screen first, beside the page it came from. Every row and column sits the way OCR read them, so you check the shape of the table before anything gets exported. You read it against the photo, row by row, the same way you would check any number a stranger read out to you. Add up a column and see whether it matches the printed total.
+Because a guess can be wrong, the app lets you check it. PDFTrail is my app, and after the conversion Table Review shows each detected table on screen, beside the page it came from. A page that needs a look gets it without a click, and the "Review tables" button reaches it at any other time. Every row and column sits the way OCR read them, so you check the shape of the table before you rely on the file. You read it against the photo, row by row, the same way you would check any number a stranger read out to you. Add up a column and see whether it matches the printed total.
 
 ## Converting a scanned bank statement to Excel, step by step
 
-1. Drop the photographed PDF into PDFTrail.
+1. Click "Open PDF" and choose the photographed PDF.
 2. The app checks for a text layer, finds none, and runs OCR on your Mac.
-3. Look at the detected table. Match dates to the date column, amounts to the amount column, and count the rows against the printed page.
+3. Open Table Review and look at the detected table. Match dates to the date column, amounts to the amount column, and count the rows against the printed page.
 4. Look again at any digit that is hard to read, and check it against the original photo.
-5. Export to .xlsx once the table matches what is on the page.
+5. Rely on the .xlsx file once the table matches what is on the page. If it does not, fix the grid in the editor and choose "Accept and re-export".
 
 {{figure}}
 
-A folder of statements, one photo per month, goes through the same five steps in a batch pass, with a review screen for each file as it comes up.
+A folder of statements, one photo per month, goes through the same five steps in one batch run. In the Open dialog, open the folder and pick every PDF it holds. Table Review opens by itself only when a page needs a look.
 
 ## What makes a phone scan easier to read
 
@@ -59,4 +59,4 @@ This check matters more here than on a downloaded statement, because OCR reads p
 
 ## Back to the photo
 
-That curved page with the shadow in the corner still converts. The curve and the shadow just mean OCR has more guessing to do, and more guessing means more worth checking before you trust the sheet. Flatten the page next time if you can, keep the light even, and fill the frame with the statement rather than the desk around it. Whatever the photo looks like, the table gets shown to you before it becomes a spreadsheet, and the totals get checked before anyone relies on them.
+That curved page with the shadow in the corner still converts. The curve and the shadow just mean OCR has more guessing to do, and more guessing means more worth checking before you trust the sheet. Flatten the page next time if you can, keep the light even, and fill the frame with the statement rather than the desk around it. Whatever the photo looks like, you can see the table beside the page in Table Review, and the totals get checked before anyone relies on them.

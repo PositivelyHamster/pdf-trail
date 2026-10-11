@@ -1,29 +1,29 @@
 ---
 title: ICICI Bank Statement PDF to Excel on Mac
-description: Convert an ICICI bank statement PDF to Excel or CSV on your Mac for GST reconciliation, without uploading the file anywhere.
+description: Convert an ICICI bank statement PDF to Excel on your Mac for GST reconciliation, without uploading the file anywhere.
 date: 2026-09-28
 time: 18:00
 kicker: Field guide
 pillar: P1
 primary_keyword: icici bank statement pdf to excel
-figure: 01_table_review.jpg
-figure_alt: Checking a detected ICICI bank statement PDF to Excel table in PDFTrail on macOS before exporting to CSV or Excel
-figure_caption: The review step, where the narration column gets checked before anything exports.
+figure: 08_table_review_130.jpg
+figure_alt: PDFTrail's Table Review grid editor on macOS, shown with a sample table, the screen for checking an ICICI bank statement PDF to Excel conversion after it runs
+figure_caption: Table Review's grid editor on a sample table, the same check you run on the narration column after conversion.
 campaign: bl-icici
 status: approved
 faq:
-  - q: Should I send my accountant the CSV or the PDF?
-    a: Send the export. A CSV or Excel file drops into ledger software directly, while a PDF makes your accountant redo the extraction you already did.
+  - q: Should I send my accountant the Excel file or the PDF?
+    a: Send the export. An Excel file drops into ledger software directly, while a PDF makes your accountant redo the extraction you already did. If the ledger wants CSV, save the sheet as CSV in Excel first.
   - q: Does PDFTrail separate debits from credits on its own?
-    a: It reconstructs whichever columns the statement already has. Check the review screen before export, since layouts vary between banks and account types.
+    a: It reconstructs whichever columns the statement already has. Check the tables in Table Review after conversion, since layouts vary between banks and account types.
   - q: Does this work with a scanned current-account statement?
-    a: Yes. A scan has no text layer, so PDFTrail runs OCR on your Mac and shows the resulting table for review before export.
+    a: Yes. A scan has no text layer, so PDFTrail runs OCR on your Mac. Table Review then shows each table next to its page, so you can check it before you rely on the file.
   - q: Do I need to upload the statement anywhere?
     a: No. Conversion happens on your Mac, on-device, with no internet connection needed and nothing sent to a server.
   - q: What does PDFTrail cost?
     a: It is free to try, with 10 free Excel exports. The full version is a one-time $24 unlock, with no subscription.
 ---
-Suppose your accountant asks for the quarter's transactions as a file they can import, not a PDF they have to squint at. What they actually want is a CSV or an Excel sheet with the narration text still readable and the debit and credit amounts sitting in the columns they belong in. Converting an ICICI bank statement PDF to Excel is exactly that job, and your current account produces the raw material for it every month, whether you're ready for it or not.
+Suppose your accountant asks for the quarter's transactions as a file they can import, not a PDF they have to squint at. What they actually want is an Excel sheet with the narration text still readable and the debit and credit amounts sitting in the columns they belong in. Converting an ICICI bank statement PDF to Excel is exactly that job, and your current account produces the raw material for it every month, whether you're ready for it or not.
 
 That someone turning the PDF into rows is usually you, and the obvious routes make it worse. Select the statement in Preview, copy, paste into a spreadsheet, and watch the date, the narration, and the amount land in one cell together. A PDF does not store a table. It stores short pieces of text, each one placed at a position on the page, and a table is what your eye sees when those positions line up. Preview cannot recover the columns, because there were never columns to begin with, only coordinates.
 
@@ -33,22 +33,22 @@ Retyping the quarter avoids that failure and invites a different one: a transpos
 
 Layouts differ by bank and by account type, and they change over time, so I won't describe ICICI's columns specifically. What holds across nearly every current-account statement is a narration field, a date, and a pair of amount columns, one for money out and one for money in, next to a running balance. Some statements add a reference number or a value date; some fold the two amount columns into one signed figure. The review screen is where you confirm which shape your own file uses.
 
-PDFTrail reads the text and its position straight out of the file for a downloaded statement, no OCR involved, and works out which fragments share a row and where the column edges fall. A scanned copy has no text to read, so OCR runs on the Mac first, and you get a Table Review step before anything is written to disk. Nothing about the file leaves the machine at any point in that process.
+PDFTrail reads the text and its position straight out of the file for a downloaded statement, no OCR involved, and works out which fragments share a row and where the column edges fall. A scanned copy has no text to read, so OCR runs on the Mac first. After the conversion, Table Review shows each table next to its page, and you can check it before you rely on the file. Nothing about the file leaves the machine at any point in that process.
 
 PDFTrail is my app. I built it after refusing to upload my own financial documents to services I could not vouch for, and a business current account is the same refusal with higher stakes attached. The accountant asking for clean data doesn't need to know how it got clean, only that it did.
 
 ## Converting an ICICI bank statement PDF to Excel, step by step
 
-1. Drop the ICICI PDF into PDFTrail.
+1. Click "Open PDF" and choose the ICICI PDF.
 2. Let it read the file. A downloaded statement has a text layer already; a scan gets OCR on the Mac.
-3. Open the review screen. Confirm the narration text is whole in each row, not cut short, and that debit and credit figures sit in the columns they should.
-4. Pick CSV or Excel and export.
+3. Open Table Review. It opens without a click when a page needs a look; the "Review tables" button covers every other case. Confirm the narration text is whole in each row, not cut short, and that debit and credit figures sit in the columns they should.
+4. Open the Excel file. If a table is wrong, move its grid lines in the grid editor, then choose "Accept and re-export".
 
 {{figure}}
 
-## CSV or Excel, and the narration test
+## The Excel file, and the narration test
 
-CSV suits most accounting and GST-filing software. It is rows and columns with nothing else attached, and import tools rarely complain about it. Excel is worth choosing when you plan to sort the sheet, add a formula, or flag a few rows before anyone else sees it.
+Excel is the file to start from, and it is worth keeping when you plan to sort the sheet, add a formula, or flag a few rows before anyone else sees it. If your accounting or GST-filing software wants CSV, export to Excel first, then [save the sheet as CSV in Excel](https://support.microsoft.com/en-us/office/import-or-export-text-txt-or-csv-files-5250ac4c-663c-47ce-937b-339e391393ba). CSV is rows and columns with nothing else attached, and import tools rarely complain about it.
 
 Whichever format you pick, read the narration column before you trust it. A bank narration line often carries a payee name, a reference number, and a transaction code strung together in one field. A good export keeps that string whole in a single cell, rather than chopping it at some arbitrary width. Open a handful of rows and compare them against the source page. Look especially at the longest narration on the statement, since that's the one most likely to have been truncated somewhere.
 

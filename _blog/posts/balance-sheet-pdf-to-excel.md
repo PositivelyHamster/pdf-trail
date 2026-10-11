@@ -6,9 +6,9 @@ time: 09:00
 kicker: Field guide
 pillar: P4
 primary_keyword: balance sheet pdf to excel
-figure: 03_exports_ready.jpg
-figure_alt: Exported Excel workbook after a balance sheet pdf to excel conversion in PDFTrail, checked against the page
-figure_caption: The exported workbook, notes column and subtotal rows still in place, next to the report it came from.
+figure: 09_cross_page_tables_130.jpg
+figure_alt: A three-page PDF table beside the one Excel table PDFTrail wrote from it, the same route a balance sheet pdf to excel job takes
+figure_caption: A sample table: three PDF pages on the left, one Excel table on the right, rows and columns in place.
 campaign: bl-balsheet
 status: approved
 faq:
@@ -31,16 +31,16 @@ A PDF does not store a table on this page, any more than it does on any other. I
 
 The notes-reference column breaks first. It is a character or two wide, sitting between a line item and a much wider number, and a simple split by space or tab treats it as just another word in the row. The indented subtotal rows are the second problem. A section subtotal sits further right than the rows above it. A tool that reads indentation as a column boundary invents an extra one, and the figure beside it lands under the wrong header.
 
-PDFTrail is my app, and this exact failure is the one it was built to sidestep. It reads the positioned text and its coordinates straight from the file, works out which fragments share a row, and finds where the real column boundaries fall. Then it shows you those rows, notes column and every subtotal in place, on a review screen before it writes anything to a file.
+PDFTrail is my app, and this exact failure is the one it was built to sidestep. It reads the positioned text and its coordinates straight from the file, works out which fragments share a row, and finds where the real column boundaries fall. Then it writes the files, and Table Review shows you those rows, notes column and every subtotal in place, next to the page they came from.
 
 ## Getting a balance sheet pdf to excel without losing the notes column
 
 Four steps get you there.
 
-1. Drop the annual report PDF into PDFTrail.
+1. Click "Open PDF" and choose the annual report PDF.
 2. Wait for the read. A downloaded report carries a text layer, so PDFTrail reads it directly, with no OCR guessing involved. Where the copy is a scan with no text layer at all, the Mac runs OCR before anything else happens.
-3. Open the review screen, and check that the notes column sits where it should, with each subtotal row lined up under the right year.
-4. Export to .xlsx.
+3. Open Table Review, and check that the notes column sits where it should, with each subtotal row lined up under the right year. It is already open if a page needed a look; if not, press "Review tables".
+4. Open the .xlsx file. Where a table came out wrong, set its lines right in the grid editor, then press "Accept and re-export".
 
 {{figure}}
 
@@ -56,7 +56,7 @@ Last, set last year's column beside last year's own report, if you kept a copy. 
 
 ## Lining up several years, and back to that page
 
-Once every year is its own sheet, line up the same row across all of them: the same line item, from the same version of the statement, standalone with standalone and consolidated with consolidated. A line renamed between years, or a note moved to a different section, will not match by row position alone, so the first pass is still a read, not a formula. After that first pass, most years line up on their own, and only the renamed rows need a second look.
+Once every year is its own file, line up the same row across all of them: the same line item, from the same version of the statement, standalone with standalone and consolidated with consolidated. A line renamed between years, or a note moved to a different section, will not match by row position alone, so the first pass is still a read, not a formula. After that first pass, most years line up on their own, and only the renamed rows need a second look.
 
 The [annual report guide](/blog/annual-report-pdf-to-excel/) covers this same job across a whole folder of filings, not one page at a time. When the destination is a model rather than a sheet, [PDF to Markdown on Mac](/blog/pdf-to-markdown-mac/) keeps the same rows, notes and subtotals included, in a form it reads cleanly.
 

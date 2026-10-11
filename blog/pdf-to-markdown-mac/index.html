@@ -13,7 +13,7 @@
 <meta property="og:title" content="PDF to Markdown on Mac: A Guide for LLM Workflows">
 <meta property="og:description" content="A calm, on-device pdf to markdown mac route for ChatGPT, Claude, and NotebookLM, with tables kept whole and the file never leaving your Mac.">
 <meta property="og:url" content="https://pdftrail.app/blog/pdf-to-markdown-mac/">
-<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/03_exports_ready.png">
+<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/assets/icons/signet.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
@@ -41,7 +41,7 @@
   "datePublished": "2026-09-24",
   "dateModified": "2026-09-24",
   "image": [
-    "https://pdftrail.app/assets/screenshots/full/03_exports_ready.png"
+    "https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png"
   ],
   "mainEntityOfPage": "https://pdftrail.app/blog/pdf-to-markdown-mac/"
 }
@@ -80,7 +80,7 @@
       "name": "Will this work on a scanned annual report or a photocopy?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A scanned page has no text layer, so PDFTrail runs OCR on your Mac first and shows you the table it found before anything is exported."
+        "text": "A scanned page has no text layer, so PDFTrail runs OCR on your Mac first, and Table Review shows you the table it found so you can check it before you rely on the file."
       }
     },
     {
@@ -130,15 +130,15 @@
     <h2>The pdf to markdown mac steps</h2>
 
     <ol>
-      <li>Drop the PDF into PDFTrail. There is no account screen and no upload step.</li>
+      <li>Click Open PDF and choose the PDF. There is no account screen and no upload step.</li>
       <li>Let it read the file. A PDF that came out of software rather than a scanner carries its own text, and the app reads it straight from the file, position by position, no OCR involved.</li>
-      <li>Check the review screen. The app shows you the tables it found before writing anything out, so a mangled row is still cheap to catch.</li>
-      <li>Export to Markdown, and you get a <code>.md</code> file with headings, lists, and tables written out in plain text.</li>
+      <li>Check Table Review. When the conversion is done, the app shows you the tables it found next to their pages, so a mangled row is still cheap to catch. It opens by itself for a page that was partly read or not read, and the Review tables button opens it for the rest.</li>
+      <li>Open the <code>.md</code> file the conversion wrote. It has headings, lists, and tables written out in plain text. If you fixed a table, click Accept and re-export first.</li>
     </ol>
 
     <figure>
-      <img src="/assets/screenshots/web/03_exports_ready.jpg" alt="Exported Markdown file from a PDF to Markdown mac conversion in PDFTrail, ready to paste into a chat window" width="1400" height="875" loading="lazy">
-      <figcaption>The .md file next to its source PDF, headings and tables both intact.</figcaption>
+      <img src="/assets/screenshots/web/12_private_on_device_130.jpg" alt="PDFTrail&#x27;s conversion graph on a Mac with the Markdown output marked Ready, labelled Local conversion, no upload, a PDF to Markdown mac run" width="1400" height="875" loading="lazy">
+      <figcaption>The conversion graph: one PDF in, Plain Text and Markdown marked Ready, under the label "Local conversion · no upload".</figcaption>
     </figure>
 
     <p>PDFTrail is my app, built first to solve this exact paste problem for myself, and a born-digital report goes through with no OCR step at all.</p>
@@ -147,9 +147,9 @@
 
     <p>Open the file and read the headings first, top to bottom. They should line up with the report's own section breaks: a segment result, a note to the accounts, a chairman's letter. If a heading turns up where a caption or a page number should be, the source page likely used an oversized font for something that was not a heading. It is worth a glance back at the PDF.</p>
 
-    <p>Then check the tables the way you would check any number you are about to rely on. Count the columns against the printed page. A split row, where one line of figures becomes two, is the most common seam, and it is easiest to spot in a table with a fixed column count, like a balance sheet. The review screen already showed you each table next to its page before export. A gap or a split row is something you catch there, by comparing the two, rather than a silent hole in the file.</p>
+    <p>Then check the tables the way you would check any number you are about to rely on. Count the columns against the printed page. A split row, where one line of figures becomes two, is the most common seam, and it is easiest to spot in a table with a fixed column count, like a balance sheet. Table Review shows each table next to its page. A gap or a split row is something you catch there, by comparing the two, rather than a silent hole in the file.</p>
 
-    <p>Scanned pages need one more look. Some annual reports circulate as a photocopy of an older filing, with no text layer under the pixels. PDFTrail runs OCR on the Mac in that case and still shows the detected table before export. OCR is good but not perfect on a dense financial table, so that review step is where a misread digit gets caught, not three questions into a chat about it.</p>
+    <p>Scanned pages need one more look. Some annual reports circulate as a photocopy of an older filing, with no text layer under the pixels. PDFTrail runs OCR on the Mac in that case, and Table Review still shows the detected table next to its page. OCR is good but not perfect on a dense financial table, so that review step is where a misread digit gets caught, not three questions into a chat about it.</p>
 
     <h2>Back to the annual report</h2>
 
@@ -174,7 +174,7 @@
       </details>
       <details>
         <summary>Will this work on a scanned annual report or a photocopy?</summary>
-        <p>A scanned page has no text layer, so PDFTrail runs OCR on your Mac first and shows you the table it found before anything is exported.</p>
+        <p>A scanned page has no text layer, so PDFTrail runs OCR on your Mac first, and Table Review shows you the table it found so you can check it before you rely on the file.</p>
       </details>
       <details>
         <summary>Does converting need an internet connection?</summary>

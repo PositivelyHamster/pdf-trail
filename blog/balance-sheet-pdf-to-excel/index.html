@@ -13,7 +13,7 @@
 <meta property="og:title" content="Extract Balance Sheet Tables from an Annual Report PDF">
 <meta property="og:description" content="Pull a balance sheet pdf to excel on your Mac, keep the notes column and subtotal rows intact, and check the total before you trust it.">
 <meta property="og:url" content="https://pdftrail.app/blog/balance-sheet-pdf-to-excel/">
-<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/03_exports_ready.png">
+<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/assets/icons/signet.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
@@ -41,7 +41,7 @@
   "datePublished": "2026-10-01",
   "dateModified": "2026-10-01",
   "image": [
-    "https://pdftrail.app/assets/screenshots/full/03_exports_ready.png"
+    "https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png"
   ],
   "mainEntityOfPage": "https://pdftrail.app/blog/balance-sheet-pdf-to-excel/"
 }
@@ -119,22 +119,22 @@
 
     <p>The notes-reference column breaks first. It is a character or two wide, sitting between a line item and a much wider number, and a simple split by space or tab treats it as just another word in the row. The indented subtotal rows are the second problem. A section subtotal sits further right than the rows above it. A tool that reads indentation as a column boundary invents an extra one, and the figure beside it lands under the wrong header.</p>
 
-    <p>PDFTrail is my app, and this exact failure is the one it was built to sidestep. It reads the positioned text and its coordinates straight from the file, works out which fragments share a row, and finds where the real column boundaries fall. Then it shows you those rows, notes column and every subtotal in place, on a review screen before it writes anything to a file.</p>
+    <p>PDFTrail is my app, and this exact failure is the one it was built to sidestep. It reads the positioned text and its coordinates straight from the file, works out which fragments share a row, and finds where the real column boundaries fall. Then it writes the files, and Table Review shows you those rows, notes column and every subtotal in place, next to the page they came from.</p>
 
     <h2>Getting a balance sheet pdf to excel without losing the notes column</h2>
 
     <p>Four steps get you there.</p>
 
     <ol>
-      <li>Drop the annual report PDF into PDFTrail.</li>
+      <li>Click "Open PDF" and choose the annual report PDF.</li>
       <li>Wait for the read. A downloaded report carries a text layer, so PDFTrail reads it directly, with no OCR guessing involved. Where the copy is a scan with no text layer at all, the Mac runs OCR before anything else happens.</li>
-      <li>Open the review screen, and check that the notes column sits where it should, with each subtotal row lined up under the right year.</li>
-      <li>Export to .xlsx.</li>
+      <li>Open Table Review, and check that the notes column sits where it should, with each subtotal row lined up under the right year. It is already open if a page needed a look; if not, press "Review tables".</li>
+      <li>Open the .xlsx file. Where a table came out wrong, set its lines right in the grid editor, then press "Accept and re-export".</li>
     </ol>
 
     <figure>
-      <img src="/assets/screenshots/web/03_exports_ready.jpg" alt="Exported Excel workbook after a balance sheet pdf to excel conversion in PDFTrail, checked against the page" width="1400" height="875" loading="lazy">
-      <figcaption>The exported workbook, notes column and subtotal rows still in place, next to the report it came from.</figcaption>
+      <img src="/assets/screenshots/web/09_cross_page_tables_130.jpg" alt="A three-page PDF table beside the one Excel table PDFTrail wrote from it, the same route a balance sheet pdf to excel job takes" width="1400" height="875" loading="lazy">
+      <figcaption>A sample table: three PDF pages on the left, one Excel table on the right, rows and columns in place.</figcaption>
     </figure>
 
     <p>That is the whole job for one file. For the single-file basics beyond the balance sheet page, <a href="/blog/pdf-to-excel-mac/">PDF to Excel on Mac</a> is the wider guide.</p>
@@ -149,7 +149,7 @@
 
     <h2>Lining up several years, and back to that page</h2>
 
-    <p>Once every year is its own sheet, line up the same row across all of them: the same line item, from the same version of the statement, standalone with standalone and consolidated with consolidated. A line renamed between years, or a note moved to a different section, will not match by row position alone, so the first pass is still a read, not a formula. After that first pass, most years line up on their own, and only the renamed rows need a second look.</p>
+    <p>Once every year is its own file, line up the same row across all of them: the same line item, from the same version of the statement, standalone with standalone and consolidated with consolidated. A line renamed between years, or a note moved to a different section, will not match by row position alone, so the first pass is still a read, not a formula. After that first pass, most years line up on their own, and only the renamed rows need a second look.</p>
 
     <p>The <a href="/blog/annual-report-pdf-to-excel/">annual report guide</a> covers this same job across a whole folder of filings, not one page at a time. When the destination is a model rather than a sheet, <a href="/blog/pdf-to-markdown-mac/">PDF to Markdown on Mac</a> keeps the same rows, notes and subtotals included, in a form it reads cleanly.</p>
 

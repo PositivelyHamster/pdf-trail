@@ -6,9 +6,9 @@ time: 18:00
 kicker: Field guide
 pillar: P3
 primary_keyword: pdf to markdown for chatgpt
-figure: 03_exports_ready.jpg
-figure_alt: Exported Markdown file ready to paste, the on-device route to convert a PDF to Markdown for ChatGPT
-figure_caption: The exported file. Open it, find the part you need, and paste that.
+figure: 12_private_on_device_130.jpg
+figure_alt: PDFTrail's conversion graph with the Markdown output marked Ready, the on-device route to convert a PDF to Markdown for ChatGPT
+figure_caption: Markdown and Plain Text marked Ready on the conversion graph, under the label "Local conversion · no upload".
 campaign: bl-mdgpt
 status: approved
 faq:
@@ -19,7 +19,7 @@ faq:
   - q: Does Markdown really paste better than plain text?
     a: Yes. Markdown marks a heading, a list, and a table row with plain characters, so ChatGPT can tell one from the other instead of guessing from spacing alone.
   - q: Does this work with a scanned PDF?
-    a: Yes. A scanned page has no text layer, so PDFTrail runs OCR on your Mac and shows the detected table for you to check before export.
+    a: Yes. A scanned page has no text layer, so PDFTrail runs OCR on your Mac, and Table Review shows the detected table for you to check before you rely on the file.
   - q: Do I need an internet connection to convert the file?
     a: No. Conversion runs on your Mac, with no account and no sign-up, and the PDF itself is never sent anywhere to produce the Markdown file.
 ---
@@ -37,10 +37,10 @@ There is a third route, and it avoids both problems. PDFTrail is my app, and I b
 
 ## Convert a PDF to Markdown for ChatGPT on the Mac
 
-1. **Open the file.** Drop the statement PDF into PDFTrail.
+1. **Open the file.** Click Open PDF and choose the statement PDF.
 2. **Let it read the file.** A downloaded statement carries a text layer, so the characters are read straight from the file, no OCR guessing. A scanned copy has no text layer, so OCR runs on the Mac instead.
-3. **Check the review screen.** Confirm the dates landed under Date and the amounts under Amount before anything exports.
-4. **Export to Markdown.**
+3. **Check Table Review.** Confirm the dates landed under Date and the amounts under Amount. It opens by itself when a page needs a look. At other times, click Review tables in the toolbar.
+4. **Open the Markdown file.** If you fixed a table, Accept and re-export writes the Markdown again, so copy from that version.
 
 {{figure}}
 
@@ -48,13 +48,13 @@ There is a third route, and it avoids both problems. PDFTrail is my app, and I b
 
 Markdown marks structure with plain characters: a `#` before a heading, a dash before a list item, a pipe between table cells. Those marks are just text, so they survive a copy-paste the way a table built in a spreadsheet does not. PDFTrail works out that structure from the geometry of the positioned text in the PDF. It checks which fragments share a row, and where the column boundaries actually fall, then writes the result as Markdown headings, lists, and pipe-delimited rows. ChatGPT reads pipes and dashes as structure, not as clutter, so the transaction table lands in the reply as a table, with the debit column still a debit column.
 
-A heading survives the same way. PDFTrail marks a statement's section titles, the bank's letterhead line, the account summary, with a `#`, so a long document keeps its shape in the Markdown file. Open it in any text editor and the headings still read as headings, not as a stray line of bold text that lost its formatting on the way out.
+A heading survives the same way. PDFTrail marks a document's section titles with a `#`, so a long document keeps its shape in the Markdown file. Open it in any text editor and the headings still read as headings, not as a stray line of bold text that lost its formatting on the way out.
 
 ## Trim before you paste
 
 Open the exported `.md` file in a text editor once it's ready. You rarely need the whole statement in the chat, only the weeks or the transactions your question is about. Copy that section and paste it in. This keeps the rest of the document off any server, and it gives ChatGPT less text to sort through before it answers. If you have several months to ask about, paste them one at a time and ask your question after each, rather than dropping a year of statements in at once.
 
-For a scanned statement, read the exported text once before you paste it. PDFTrail's Table Review step already put that table next to the page before export, so this second read is where you check the totals still match. It still takes a minute, and it's worth spending on numbers you're about to ask a model about.
+For a scanned statement, read the exported text once before you paste it. PDFTrail's Table Review shows that table next to the page, so this second read is where you check the totals still match. It still takes a minute, and it's worth spending on numbers you're about to ask a model about.
 
 ## Back to the statement
 

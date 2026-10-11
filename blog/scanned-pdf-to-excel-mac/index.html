@@ -5,15 +5,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Scanned PDF to Excel Mac: OCR Without Uploading — PDFTrail</title>
-<meta name="description" content="A scanned PDF to Excel mac guide without uploading the file, why OCR can be wrong, and why the app shows the table before export.">
+<meta name="description" content="A scanned PDF to Excel mac guide without uploading the file, why OCR can be wrong, and why the app shows you the table after conversion.">
 <link rel="canonical" href="https://pdftrail.app/blog/scanned-pdf-to-excel-mac/">
 <meta name="theme-color" content="#262626">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="PDFTrail">
 <meta property="og:title" content="Scanned PDF to Excel Mac: OCR Without Uploading">
-<meta property="og:description" content="A scanned PDF to Excel mac guide without uploading the file, why OCR can be wrong, and why the app shows the table before export.">
+<meta property="og:description" content="A scanned PDF to Excel mac guide without uploading the file, why OCR can be wrong, and why the app shows you the table after conversion.">
 <meta property="og:url" content="https://pdftrail.app/blog/scanned-pdf-to-excel-mac/">
-<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/01_table_review.png">
+<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/assets/icons/signet.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
@@ -28,7 +28,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Scanned PDF to Excel Mac: OCR Without Uploading",
-  "description": "A scanned PDF to Excel mac guide without uploading the file, why OCR can be wrong, and why the app shows the table before export.",
+  "description": "A scanned PDF to Excel mac guide without uploading the file, why OCR can be wrong, and why the app shows you the table after conversion.",
   "author": {
     "@type": "Person",
     "name": "Arkya Ghosh"
@@ -41,7 +41,7 @@
   "datePublished": "2026-09-25",
   "dateModified": "2026-09-25",
   "image": [
-    "https://pdftrail.app/assets/screenshots/full/01_table_review.png"
+    "https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png"
   ],
   "mainEntityOfPage": "https://pdftrail.app/blog/scanned-pdf-to-excel-mac/"
 }
@@ -88,7 +88,7 @@
       "name": "How do I know the OCR read a number correctly?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You check. PDFTrail shows the table next to the source page before export, so you compare the two and check the totals first."
+        "text": "You check. Table Review shows the table next to the source page, so you compare the two and check the totals first."
       }
     }
   ]
@@ -129,7 +129,7 @@
 
     <p>To read a scan, something has to look at those pixels and decide where the letters are: this shape is a 3, this line of shapes ends here, the next column starts there. That is optical character recognition, or OCR, and it is a long chain of decisions, not a lookup table. Any single decision in that chain can be wrong. A blurred digit, a stray mark, or a line of print running into the spiral of a binder can all tip a decision the wrong way.</p>
 
-    <p>That is why PDFTrail shows you the table it built, next to the source page, before it writes anything to a file. You are looking at a draft, not a finished answer, and the app says so before you export it.</p>
+    <p>That is why PDFTrail shows you the table it built, next to the source page, in Table Review after the conversion. You are looking at a draft, not a finished answer, so check it before you rely on the file.</p>
 
     <h2>The real options for a scanned PDF</h2>
 
@@ -146,17 +146,17 @@
     <h2>Converting a scan on your Mac</h2>
 
     <ol>
-      <li>Drop the PDF into PDFTrail.</li>
+      <li>Click Open PDF and choose the PDF.</li>
       <li>Let the app check the page. A page with no text layer triggers OCR; a page that already stores text is read directly.</li>
       <li>Wait for OCR to finish reading the scan. This happens on the Mac, and nothing is sent anywhere during the step.</li>
-      <li>Look at the review screen. Check that the rows and columns match what the scan actually shows.</li>
+      <li>Look at Table Review. It opens by itself when a page needs a look. At any other time, use the Review tables button in the toolbar. Check that the rows and columns match what the scan actually shows.</li>
       <li>Compare the table against the scan once more and check that the totals add up.</li>
-      <li>Export to Excel once the table looks right.</li>
+      <li>Open the Excel file once the table looks right. If you fixed the grid on any page, click Accept and re-export first.</li>
     </ol>
 
     <figure>
-      <img src="/assets/screenshots/web/01_table_review.jpg" alt="Reviewing a detected table from a scanned PDF to Excel mac conversion in PDFTrail before export" width="1400" height="875" loading="lazy">
-      <figcaption>The review screen, open on a scanned page, before a single row reaches the spreadsheet.</figcaption>
+      <img src="/assets/screenshots/web/11_scans_clean_text_130.jpg" alt="Table Review in PDFTrail on macOS, a scanned table page beside the table the engine wrote, the check after a scanned PDF to Excel mac conversion" width="1400" height="875" loading="lazy">
+      <figcaption>Table Review on a scanned page: the page on the left, the engine's output on the right.</figcaption>
     </figure>
 
     <p>Skipping step four is the one shortcut I'd argue against. It is the only point where you, not the software, decide the table is right.</p>
@@ -175,7 +175,7 @@
 
     <p>That page still sits in the test set, and it still produces nothing: no table, no guess, just an empty review screen for that page. That is the correct answer for a page with nothing on it, and it took twenty-six wrong answers to learn to prefer it.</p>
 
-    <p>A real scanned statement or invoice will usually have something on it worth reading, and OCR will usually read most of it well. The review screen is there for the parts it doesn't, page by page. It does not fix a bad read for you. It puts it in front of you, next to the source page, on the one page it happened, before it becomes a row you trusted without looking. That costs you one look before you export, and it is a smaller cost than a wrong number two months into a spreadsheet you already forgot to check.</p>
+    <p>A real scanned statement or invoice will usually have something on it worth reading, and OCR will usually read most of it well. The review screen is there for the parts it doesn't, page by page. It does not fix a bad read for you. It puts it in front of you, next to the source page, on the one page it happened, before it becomes a row you trusted without looking. That costs you one look before you rely on the file, and it is a smaller cost than a wrong number two months into a spreadsheet you already forgot to check.</p>
 
     <h2>FAQ</h2>
 
@@ -198,7 +198,7 @@
       </details>
       <details>
         <summary>How do I know the OCR read a number correctly?</summary>
-        <p>You check. PDFTrail shows the table next to the source page before export, so you compare the two and check the totals first.</p>
+        <p>You check. Table Review shows the table next to the source page, so you compare the two and check the totals first.</p>
       </details>
     </div>
 

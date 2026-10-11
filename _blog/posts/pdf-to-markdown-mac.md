@@ -6,9 +6,9 @@ time: 09:00
 kicker: Field guide
 pillar: P3
 primary_keyword: pdf to markdown mac
-figure: 03_exports_ready.jpg
-figure_alt: Exported Markdown file from a PDF to Markdown mac conversion in PDFTrail, ready to paste into a chat window
-figure_caption: The .md file next to its source PDF, headings and tables both intact.
+figure: 12_private_on_device_130.jpg
+figure_alt: PDFTrail's conversion graph on a Mac with the Markdown output marked Ready, labelled Local conversion, no upload, a PDF to Markdown mac run
+figure_caption: The conversion graph: one PDF in, Plain Text and Markdown marked Ready, under the label "Local conversion · no upload".
 campaign: bl-p3hub
 status: approved
 faq:
@@ -19,7 +19,7 @@ faq:
   - q: Do tables come through intact?
     a: Yes. PDFTrail rebuilds each table from the position of the text on the page and writes it out as a proper Markdown table, columns lined up under their headings.
   - q: Will this work on a scanned annual report or a photocopy?
-    a: A scanned page has no text layer, so PDFTrail runs OCR on your Mac first and shows you the table it found before anything is exported.
+    a: A scanned page has no text layer, so PDFTrail runs OCR on your Mac first, and Table Review shows you the table it found so you can check it before you rely on the file.
   - q: Does converting need an internet connection?
     a: No. The whole conversion runs on your Mac, with no account and no sign-up, and it works with Wi-Fi off.
 ---
@@ -35,10 +35,10 @@ A spreadsheet is not a shortcut around this either, if that crosses your mind as
 
 ## The pdf to markdown mac steps
 
-1. Drop the PDF into PDFTrail. There is no account screen and no upload step.
+1. Click Open PDF and choose the PDF. There is no account screen and no upload step.
 2. Let it read the file. A PDF that came out of software rather than a scanner carries its own text, and the app reads it straight from the file, position by position, no OCR involved.
-3. Check the review screen. The app shows you the tables it found before writing anything out, so a mangled row is still cheap to catch.
-4. Export to Markdown, and you get a `.md` file with headings, lists, and tables written out in plain text.
+3. Check Table Review. When the conversion is done, the app shows you the tables it found next to their pages, so a mangled row is still cheap to catch. It opens by itself for a page that was partly read or not read, and the Review tables button opens it for the rest.
+4. Open the `.md` file the conversion wrote. It has headings, lists, and tables written out in plain text. If you fixed a table, click Accept and re-export first.
 
 {{figure}}
 
@@ -48,9 +48,9 @@ PDFTrail is my app, built first to solve this exact paste problem for myself, an
 
 Open the file and read the headings first, top to bottom. They should line up with the report's own section breaks: a segment result, a note to the accounts, a chairman's letter. If a heading turns up where a caption or a page number should be, the source page likely used an oversized font for something that was not a heading. It is worth a glance back at the PDF.
 
-Then check the tables the way you would check any number you are about to rely on. Count the columns against the printed page. A split row, where one line of figures becomes two, is the most common seam, and it is easiest to spot in a table with a fixed column count, like a balance sheet. The review screen already showed you each table next to its page before export. A gap or a split row is something you catch there, by comparing the two, rather than a silent hole in the file.
+Then check the tables the way you would check any number you are about to rely on. Count the columns against the printed page. A split row, where one line of figures becomes two, is the most common seam, and it is easiest to spot in a table with a fixed column count, like a balance sheet. Table Review shows each table next to its page. A gap or a split row is something you catch there, by comparing the two, rather than a silent hole in the file.
 
-Scanned pages need one more look. Some annual reports circulate as a photocopy of an older filing, with no text layer under the pixels. PDFTrail runs OCR on the Mac in that case and still shows the detected table before export. OCR is good but not perfect on a dense financial table, so that review step is where a misread digit gets caught, not three questions into a chat about it.
+Scanned pages need one more look. Some annual reports circulate as a photocopy of an older filing, with no text layer under the pixels. PDFTrail runs OCR on the Mac in that case, and Table Review still shows the detected table next to its page. OCR is good but not perfect on a dense financial table, so that review step is where a misread digit gets caught, not three questions into a chat about it.
 
 ## Back to the annual report
 

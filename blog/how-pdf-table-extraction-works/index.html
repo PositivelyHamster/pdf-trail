@@ -13,7 +13,7 @@
 <meta property="og:title" content="Why a PDF Has No Tables (and How We Find Them Anyway)">
 <meta property="og:description" content="How pdf table extraction works: a PDF stores positioned text and lines, never a table, and the engine rebuilds one before you see it.">
 <meta property="og:url" content="https://pdftrail.app/blog/how-pdf-table-extraction-works/">
-<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/01_table_review.png">
+<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/assets/icons/signet.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
@@ -41,7 +41,7 @@
   "datePublished": "2026-09-27",
   "dateModified": "2026-09-27",
   "image": [
-    "https://pdftrail.app/assets/screenshots/full/01_table_review.png"
+    "https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png"
   ],
   "mainEntityOfPage": "https://pdftrail.app/blog/how-pdf-table-extraction-works/"
 }
@@ -72,15 +72,15 @@
       "name": "What happens when OCR cannot tell one digit from another?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The review step shows you the table next to the source page, so a doubtful digit sits in its cell for you to check against the print before export."
+        "text": "Table Review shows you the table next to the source page, so a doubtful digit sits in its cell for you to check against the print before you rely on the file."
       }
     },
     {
       "@type": "Question",
-      "name": "Why does PDFTrail show a review step instead of exporting right away?",
+      "name": "Why does PDFTrail have a review step at all?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A rebuilt table can be wrong in either direction, missing a row or inventing one. The review step shows you the detected grid before export, against the source page."
+        "text": "A rebuilt table can be wrong in either direction, missing a row or inventing one. Table Review shows you the detected grid against the source page, so you can fix it before you rely on the file."
       }
     },
     {
@@ -119,7 +119,7 @@
 
     <div class="byline"><span>By Arkya Ghosh</span><span>PDFTrail</span><span>6 min read</span></div>
 
-    <p>PDFTrail doesn't pretend to know. It shows the whole table in the review screen, right next to the source page. You are the one looking at the worn crossbar and deciding what it says, before that digit becomes a number in your spreadsheet. What that screen shows you, and why it exists at all, is the whole subject of this post.</p>
+    <p>PDFTrail doesn't pretend to know. It shows the whole table in the review screen, right next to the source page. You are the one looking at the worn crossbar and deciding what it says, before you rely on that digit. What that screen shows you, and why it exists at all, is the whole subject of this post.</p>
 
     <h2>How PDF table extraction works, from a page to a grid</h2>
 
@@ -130,8 +130,8 @@
     <p>So the engine rebuilds one. It groups text runs whose baselines line up into proposed rows. It looks for runs that repeat in the same horizontal band down the page, which marks where one column ends and the next begins. When the page also draws ruling lines, actual lines under or beside the text, those settle a column boundary more precisely than position alone can. Row grouping plus column grouping gives a grid, and that grid is what turns into the table in your export.</p>
 
     <figure>
-      <img src="/assets/screenshots/web/01_table_review.jpg" alt="Reviewing a detected table in PDFTrail on macOS, showing how pdf table extraction works before export" width="1400" height="875" loading="lazy">
-      <figcaption>The review step. The detected table sits next to the source page before export.</figcaption>
+      <img src="/assets/screenshots/web/08_table_review_130.jpg" alt="Table Review in PDFTrail on macOS, the source page with its grid beside the engine&#x27;s output, showing how pdf table extraction works" width="1400" height="875" loading="lazy">
+      <figcaption>Table Review. The page sits on the left with its grid, and the table the engine wrote sits on the right.</figcaption>
     </figure>
 
     <h2>Why a downloaded file needs no guessing, and a scan does</h2>
@@ -142,13 +142,13 @@
 
     <h2>The one digit, and why the engine won't guess past it</h2>
 
-    <p>Back to that box. OCR read it once, the same way it reads every box on the page, and nothing in that single reading says whether it is right. PDFTrail does not pick an answer for you and move on quietly. It shows the table that box sits in beside the source page, so you look at the actual printed invoice before that number reaches your spreadsheet.</p>
+    <p>Back to that box. OCR read it once, the same way it reads every box on the page, and nothing in that single reading says whether it is right. PDFTrail writes that reading to the file, but it does not move on quietly. It shows the table that box sits in beside the source page, so you look at the actual printed invoice before you rely on that number.</p>
 
     <p>That same refusal to guess runs wider than one digit. A grid built from scattered fragments on a noisy scan can look table-shaped and still be wrong, columns assembled out of print bleed and scanner banding rather than real rows. I have written before about <a href="/blog/teaching-the-engine-to-read-bad-scans/">what a fabricated table costs</a> once the engine invents one instead of admitting a page beat it. I will not retell that story here. The rule it left behind holds for a single digit the same way it holds for a whole table. Something the engine is not confident about does not get invented to make the export look complete. A missing value is a real cost. An invented one is worse, because a wrong number sits in a cell looking exactly like a right one.</p>
 
     <h2>Why the review step exists</h2>
 
-    <p>A grid, and a doubtful digit inside it, are both reconstructions, not facts stored in the file. So PDFTrail shows you the detected table before it writes anything at all. You see the rows and columns next to the page they came from, and a digit like my 1-or-7 sits in its own cell, unchanged, for you to check against the print. PDFTrail is my app, and I built this step in on purpose, because the alternative is a faster export I would not trust on a document where trust is the entire point. If a header split into two rows, or a column boundary landed one character too far left, you catch it here, not three sheets deep in a spreadsheet you already sent along.</p>
+    <p>A grid, and a doubtful digit inside it, are both reconstructions, not facts stored in the file. So PDFTrail shows you the detected table once the conversion is done, in Table Review. It opens by itself when a page needs a look. You see the rows and columns next to the page they came from, and a digit like my 1-or-7 sits in its own cell, unchanged, for you to check against the print. PDFTrail is my app, and I built this step in on purpose, because the alternative is a faster export I would not trust on a document where trust is the entire point. If a header split into two rows, or a column boundary landed one character too far left, you catch it here, not three sheets deep in a spreadsheet you already sent along.</p>
 
     <h2>Back to the box</h2>
 
@@ -169,11 +169,11 @@
       </details>
       <details>
         <summary>What happens when OCR cannot tell one digit from another?</summary>
-        <p>The review step shows you the table next to the source page, so a doubtful digit sits in its cell for you to check against the print before export.</p>
+        <p>Table Review shows you the table next to the source page, so a doubtful digit sits in its cell for you to check against the print before you rely on the file.</p>
       </details>
       <details>
-        <summary>Why does PDFTrail show a review step instead of exporting right away?</summary>
-        <p>A rebuilt table can be wrong in either direction, missing a row or inventing one. The review step shows you the detected grid before export, against the source page.</p>
+        <summary>Why does PDFTrail have a review step at all?</summary>
+        <p>A rebuilt table can be wrong in either direction, missing a row or inventing one. Table Review shows you the detected grid against the source page, so you can fix it before you rely on the file.</p>
       </details>
       <details>
         <summary>Does any of this happen off my Mac?</summary>

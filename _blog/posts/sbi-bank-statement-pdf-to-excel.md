@@ -6,14 +6,14 @@ time: 18:00
 kicker: Field guide
 pillar: P1
 primary_keyword: sbi bank statement pdf to excel
-figure: 01_table_review.jpg
-figure_alt: Reviewing a detected table from an SBI bank statement PDF to Excel conversion in PDFTrail on macOS before export
-figure_caption: The review screen. This is where the statement stops being a picture and becomes rows you can argue with.
+figure: 08_table_review_130.jpg
+figure_alt: Table Review in PDFTrail on macOS, shown on a sample report page, the screen for checking an SBI bank statement PDF to Excel conversion
+figure_caption: Table Review, on a sample report page. This is where a statement stops being a picture and becomes rows you can argue with.
 campaign: bl-sbi
 status: approved
 faq:
   - q: Does this work with a scanned SBI statement?
-    a: Yes. Scanned pages have no text layer, so PDFTrail runs OCR on your Mac and shows the table for review before export.
+    a: Yes. Scanned pages have no text layer, so PDFTrail runs OCR on your Mac, and Table Review shows the table next to the page for you to check.
   - q: Do I need an internet connection?
     a: No. Everything runs on your Mac. Nothing leaves the device.
   - q: How much does it cost?
@@ -21,7 +21,7 @@ faq:
   - q: Why not just email the PDF to my accountant?
     a: You can, but that only moves the file. Whoever opens it still needs to pull the transactions into a spreadsheet before they can total or sort them.
   - q: What if the export has fewer rows than my statement?
-    a: Go back to the review screen and compare it with the statement page by page. A missing row usually sits at a page break, so start there.
+    a: Open Table Review with the Review tables button and compare it with the statement page by page. Start at the page breaks, where PDFTrail joins a table that continues on the next page.
 ---
 Page 15 is the one I keep coming back to. It is a bank statement, printed on a dot-matrix printer, spiral bound, and scanned slightly crooked, and the coil of the binding lies right across the middle of the text. It sat inside a 174-page loan application from an Indian public-sector bank. I wanted the transactions in a spreadsheet. The scan wanted nothing to do with me, and neither did any converter I tried on it.
 
@@ -35,26 +35,26 @@ Retyping avoids that, at the cost of an evening and a transposed digit you find 
 
 The converter sites that top the search results avoid it too, at a different cost. They need the file first. I wouldn't send a document with my account number and a year of my spending to a server I can't name, and I don't think you should either. Excel for Mac can't help, by the way. The "From PDF" import that Windows users get in Power Query was never built for the Mac, as Microsoft's own answers forum [confirms](https://learn.microsoft.com/en-us/answers/questions/5116197). People keep looking for that button anyway.
 
-PDFTrail is my app. I built it to read Indian annual reports into a language model without uploading them, and a bank statement turned out to be the same problem in a smaller envelope. It reads the text runs and their positions straight out of the file, works out which runs sit on one line and where the columns break, and hands you the rows before it writes anything. Nothing leaves the Mac. There's no account, and it works with Wi-Fi off.
+PDFTrail is my app. I built it to read Indian annual reports into a language model without uploading them, and a bank statement turned out to be the same problem in a smaller envelope. It reads the text runs and their positions straight out of the file, works out which runs sit on one line and where the columns break, and writes the rows to your files. Then it shows them to you next to the page. Nothing leaves the Mac. There's no account, and it works with Wi-Fi off.
 
 ## The four steps, SBI bank statement PDF to Excel
 
-1. Drop the statement PDF into PDFTrail.
+1. Click Open PDF and choose the statement PDF.
 2. Wait for the read. A downloaded statement has a text layer, so the text is read directly, no OCR. A scanned one has only pixels, so OCR runs on the Mac first.
-3. Look at the review screen. Check that dates sit in the date column and amounts in the amount column. Count the rows against the printed statement.
-4. Export to .xlsx.
+3. Look at Table Review. It opens by itself if a page needs a look; at any other time, click Review tables in the toolbar. Check that dates sit in the date column and amounts in the amount column. Count the rows against the printed statement.
+4. Open the .xlsx. If you changed a table, click Accept and re-export first.
 
 {{figure}}
 
-For twelve months of statements, drop the folder instead of one file. Batch conversion runs the lot, one sheet per statement, and you review each one as it comes up. The review is the part I'd never automate away, because it's the only moment you're looking at the numbers with the source page next to them.
+For twelve months of statements, select all twelve PDFs in the Open dialog instead of one file. Batch conversion runs the lot, one Excel file per statement, and you check each one in Table Review. For one workbook instead, turn on "Combine into one file per format" before you convert. The review is the part I'd never automate away, because it's the only moment you're looking at the numbers with the source page next to them.
 
 ## The two checks I never skip
 
-The first is the row count. If the statement shows 87 transactions and the sheet has 84, something was missed, and it's usually at a page break. Go back to the review screen and compare the last rows of each page with the statement. Page breaks are where a table most often splits, so a row that straddles two pages is the usual suspect.
+The first is the row count. If the statement shows 87 transactions and the sheet has 84, something was missed. Start at the page breaks. Open Table Review and compare the last rows of each page with the statement. PDFTrail joins a table that continues on the next page, and a row cut by the page break becomes one row again, so that join is where to look.
 
 The second is the balance column. Walk down it. Each balance should equal the one above it, plus the credit or minus the debit on that row. Where that chain breaks, you've found either a misread digit or a missing row, and you've found it in ten seconds instead of at tax time.
 
-I can't tell you the exact column order of your statement, because SBI's layouts differ by account type and change over time, and I don't have yours in front of me. Date, narration, debit, credit, balance is the usual shape. Some add a reference number. The review screen exists so you check your file, not my description of it.
+I can't tell you the exact column order of your statement, because layouts differ, and I don't have yours in front of me. Date, narration, debit, credit, balance is the usual shape. Some add a reference number. The review screen exists so you check your file, not my description of it.
 
 ## Back to page 15
 

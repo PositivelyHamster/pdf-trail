@@ -6,20 +6,20 @@ time: 09:00
 kicker: Field guide
 pillar: P1
 primary_keyword: form 16 pdf to excel
-figure: 01_table_review.jpg
-figure_alt: Reviewing a detected Form 16 PDF to Excel salary and tax table in PDFTrail on macOS before export
-figure_caption: The review step, where the certificate's numbers become rows you can check against your own records.
+figure: 08_table_review_130.jpg
+figure_alt: PDFTrail's Table Review grid editor on macOS, shown with a sample table, the screen for checking a Form 16 PDF to Excel salary and tax table after conversion
+figure_caption: Table Review's grid editor on a sample table, where the certificate's numbers become rows you can check against your own records.
 campaign: bl-form16
 status: approved
 faq:
   - q: Does this work with a scanned Form 16?
-    a: Yes. A scanned copy has no text layer, so PDFTrail runs OCR on your Mac and shows the table for review before export.
+    a: Yes. A scanned copy has no text layer, so PDFTrail runs OCR on your Mac. After the conversion, Table Review shows the table, so you can check it before you rely on the file.
   - q: Do I need to upload my Form 16 anywhere?
     a: No. The conversion runs on your Mac. Nothing about your salary or PAN leaves the device.
   - q: How much does it cost?
     a: It is free to try, with 10 free Excel exports. The full version is a $24 one-time unlock, no subscription.
   - q: What if I have a Form 16 from two employers in the same year?
-    a: Drop both PDFs into PDFTrail and convert them in one pass, then check each sheet against its own certificate before you combine the figures.
+    a: Choose both PDFs together in the Open dialog and convert them in one pass, then check each file against its own certificate before you combine the figures.
 ---
 A Form 16 lands in your inbox or on the company HR portal once a year: one PDF from your employer, stating exactly what you were paid and what tax was deducted from it. Before you file, you want those figures in a spreadsheet, next to your own numbers, not a certificate you take on faith.
 
@@ -39,18 +39,18 @@ Yours may be born-digital: generated straight from payroll software and download
 
 ## Form 16 PDF to Excel on Mac: the walkthrough
 
-1. Drop the Form 16 PDF into PDFTrail.
+1. Click "Open PDF" and choose the Form 16 PDF.
 2. Wait for the read. A born-digital certificate has a text layer, so PDFTrail reads it directly from the file, with the position of every character. No OCR guessing. A scan holds only pixels, and OCR handles those on the Mac before anything else happens.
-3. Open the review screen and confirm income sits under income, and tax deducted sits under tax deducted, not merged into one column.
-4. Export to .xlsx.
+3. Open Table Review and confirm income sits under income, and tax deducted sits under tax deducted, not merged into one column. Pages that need a look open it on their own; for every other page, use the "Review tables" button.
+4. Open the .xlsx file. To correct a wrong table, open the grid editor on its page, then choose "Accept and re-export".
 
 {{figure}}
 
-If you changed jobs mid-year and have a Form 16 from each employer, drop both PDFs in together. Batch conversion runs the folder in one pass, one sheet per certificate, and you still review each one before it exports.
+If you changed jobs mid-year and have a Form 16 from each employer, choose both PDFs together in the Open dialog. Batch conversion runs them in one pass, one Excel file per certificate, and you still check each one in Table Review before you rely on it. For one workbook, turn on "Combine into one file per format"; its Index sheet shows which certificate each table came from.
 
 ## Why it works
 
-A Form 16 gives the same PDF the same treatment as any other file: nothing in it is a table. Each piece of text sits at its own coordinate, and a row is only several of those pieces lining up by eye. For a born-digital certificate, PDFTrail reads those positions directly, no OCR guessing, and works out which runs share a row and where the columns break. For a scanned certificate, it runs OCR on the Mac first, then shows you the table it found before anything is written to a spreadsheet.
+A Form 16 gives the same PDF the same treatment as any other file: nothing in it is a table. Each piece of text sits at its own coordinate, and a row is only several of those pieces lining up by eye. For a born-digital certificate, PDFTrail reads those positions directly, no OCR guessing, and works out which runs share a row and where the columns break. For a scanned certificate, it runs OCR on the Mac first, and Table Review then shows you the table it found, so you can check it before you rely on the spreadsheet.
 
 That holds whether the page in front of you is a one-page summary or a full salary breakup spread over three. The engine does not need to know what a Form 16 is for. It only needs to know where each character sits on the page, and, for a scan, what each character looks like.
 

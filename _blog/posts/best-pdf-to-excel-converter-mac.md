@@ -6,9 +6,9 @@ time: 09:00
 kicker: Comparison
 pillar: P5
 primary_keyword: best pdf to excel converter mac
-figure: 03_exports_ready.jpg
-figure_alt: Exported spreadsheet files ready to open, one result of testing the best PDF to Excel converter mac options
-figure_caption: Seven routes end here, at a spreadsheet you still have to check against the page.
+figure: 09_cross_page_tables_130.jpg
+figure_alt: A three-page PDF table and the one Excel table PDFTrail wrote from it, one result of testing the best PDF to Excel converter mac options
+figure_caption: Three PDF pages on the left, and the one Excel table PDFTrail wrote from them on the right.
 campaign: bl-p5hub
 status: approved
 faq:
@@ -17,7 +17,7 @@ faq:
   - q: Does Excel for Mac import PDF tables on its own?
     a: No. The Power Query "From PDF" connector only ships on Windows, so Excel for Mac has no built-in way to pull a table from a PDF.
   - q: Is Tabula still worth installing?
-    a: Yes, if your PDFs carry a text layer and you don't mind installing Java first. It has nothing to offer a scanned page.
+    a: Yes, if your PDFs carry a text layer. It runs on Java, which the Mac version includes. It has nothing to offer a scanned page.
   - q: Do I have to upload my file to convert it?
     a: No. Preview, Word, Tabula, camelot, pdfplumber, and PDFTrail all run on your Mac. Only the upload sites send the file anywhere.
   - q: What does PDFTrail cost, and is it worth it over the free routes?
@@ -39,7 +39,7 @@ A price list on a company's public site is a different problem from a payslip or
 
 **Word's "open PDF" import** goes further: it rebuilds the page as an editable document you can revise. Word was built for paragraphs, so a table usually comes out as merged cells or a string of broken lines. If the prose around the table is what you actually want, this is the shorter path.
 
-Neither route asks whether the page is a scan. Neither runs OCR. Open a scanned page in Preview or Word and you get an image with no text underneath it at all, which is where both stop being candidates.
+Neither route rebuilds a table from a scan. Preview can recognize the words on a scanned page, but it gives you text, not rows and columns, which is where both stop being candidates.
 
 Neither tool checks its own work either. Whatever lands in your document is what you get, with no step in between that shows you which line came from which part of the page.
 
@@ -49,7 +49,7 @@ If the page is born-digital and the table is plain, the obvious move is to let E
 
 ## Tabula and Python: free, but they ask something of you first
 
-**Tabula** is a free, open-source table extractor, and a serious option once your file is text-based. It needs Java installed before it runs, and it reads only PDFs that carry an actual text layer; a scan gives it nothing to work with. Comfortable with one extra install, and your statements aren't scanned? It's worth the half hour. The [Tabula piece](/blog/tabula-alternative-mac/) goes deeper on where it fits.
+**Tabula** is a free, open-source table extractor, and a serious option once your file is text-based. It runs on Java, which the Mac version includes, and it reads only PDFs that carry an actual text layer; a scan gives it nothing to work with. Comfortable with one extra install, and your statements aren't scanned? It's worth the half hour. The [Tabula piece](/blog/tabula-alternative-mac/) goes deeper on where it fits.
 
 **camelot and pdfplumber** ask for more: a Python environment and a short script aimed at the file. Neither reads a scanned page unassisted either; both expect the same positioned text a born-digital PDF already carries. Already running Python for something else? Folding a PDF table into that pipeline is a small step. Starting Python from nothing just for this is a bigger ask than one table deserves.
 
@@ -57,11 +57,11 @@ Both libraries stay on your machine once installed, so the privacy question that
 
 ## The question none of these tools can script around
 
-**Online converters** solve the scanned-page problem that Preview, Word, Tabula, and the Python libraries can't touch: upload the file, wait, download a spreadsheet. For a public document with nothing private on it, that trade is reasonable. For a bank statement, a payroll sheet, or anything carrying a client's name, the file has to sit on a server you don't control before you see a result. I wouldn't send that kind of page to a site I can't name, and I'd want you to weigh it before you do.
+**Online converters** solve the scanned-table problem that Preview, Word, Tabula, and the Python libraries can't touch: upload the file, wait, download a spreadsheet. For a public document with nothing private on it, that trade is reasonable. For a bank statement, a payroll sheet, or anything carrying a client's name, the file has to sit on a server you don't control before you see a result. I wouldn't send that kind of page to a site I can't name, and I'd want you to weigh it before you do.
 
 **PDFTrail** answers that question by removing it. It runs entirely on your Mac, so a statement or invoice never leaves the device at any point in the conversion. PDFTrail is my app, and here's the case against it before the case for it. A single simple table, on a page you don't mind anyone seeing, goes faster and for nothing through Preview or an online converter.
 
-Where the $24 one-time unlock earns its place is the harder file. A born-digital PDF gets its text read straight out of the file, position by position, with no OCR guessing involved. A scanned page gets OCR on your Mac, and the table it finds sits in a review screen before anything exports, so a misread digit is something you catch rather than something that ships. A folder of a year's invoices runs through in one batch pass instead of one file at a time.
+Where the $24 one-time unlock earns its place is the harder file. A born-digital PDF gets its text read straight out of the file, position by position, with no OCR guessing involved. A scanned page gets OCR on your Mac. Afterwards, Table Review shows each table next to its page, so you can catch a misread digit before you rely on the file. A folder of a year's invoices runs through in one batch pass instead of one file at a time.
 
 {{figure}}
 

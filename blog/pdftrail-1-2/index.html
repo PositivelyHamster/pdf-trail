@@ -31,7 +31,7 @@
   "publisher": {"@type": "Organization", "name": "PDFTrail", "url": "https://pdftrail.app/"},
   "datePublished": "2026-09-12",
   "dateModified": "2026-09-12",
-  "image": ["https://pdftrail.app/assets/screenshots/full/01_table_review.png", "https://pdftrail.app/assets/screenshots/full/04_batch_convert.png"],
+  "image": ["https://pdftrail.app/assets/screenshots/full/02_conversion_graph.png"],
   "mainEntityOfPage": "https://pdftrail.app/blog/pdftrail-1-2/"
 }
 </script>
@@ -56,7 +56,7 @@
     <p class="article-kicker">Release notes · 2026-09-12</p>
     <h1>PDFTrail 1.2: Real Excel Tables from Scanned Pages</h1>
 
-    <p class="standfirst">Version 1.2 is live on the Mac App Store. It's the release where scanned tables started coming out of Excel export looking like the tables on the page — and the release your feedback built.</p>
+    <p class="standfirst">Version 1.2 went live on the Mac App Store. It's the release where scanned tables started coming out of Excel export looking like the tables on the page — and the release your feedback built.</p>
 
     <div class="byline"><span>By Arkya Ghosh</span><span>PDFTrail</span><span>4 min read</span></div>
 
@@ -67,8 +67,8 @@
     <p><strong>Real Excel tables from scanned pages.</strong> When you export a scanned PDF to Excel, PDFTrail now builds the spreadsheet from the same table structure it shows you on screen, with columns lined up the way they appear on the page. Numbers that used to run together in one cell now land in separate columns.</p>
 
     <figure>
-      <img src="/assets/screenshots/web/01_table_review.jpg" alt="PDFTrail's table review screen on macOS showing a table detected in a PDF, with rows and columns laid out for checking before export to Excel" width="1400" height="875" loading="lazy">
-      <figcaption>The table review screen. What you check here is now exactly what the Excel export builds — same structure, same columns.</figcaption>
+      <img src="/assets/screenshots/web/11_scans_clean_text_130.jpg" alt="PDFTrail's Table Review on macOS in version 1.3.0, a scanned page with its table beside the table the engine wrote" width="1400" height="875" loading="lazy">
+      <figcaption>Table Review as it looks in version 1.3.0: a scanned page on the left, the table the engine wrote on the right.</figcaption>
     </figure>
 
     <p><strong>Fewer empty cells in scanned tables.</strong> PDFTrail now fills in a table cell the page recognizer left blank, using text it already found in that same spot. Row and column structure never changes — this only adds text PDFTrail already read. No guessing, ever.</p>
@@ -82,19 +82,19 @@
     <p><strong>Smaller things:</strong> batch conversions now animate each file into place as it finishes so you can watch progress; there's a sharper new app icon; and a set of under-the-hood fixes to how table headers and row structure are read on scanned pages.</p>
 
     <figure>
-      <img src="/assets/screenshots/web/04_batch_convert.jpg" alt="PDFTrail converting a batch of PDF files at once on macOS, with each finished file shown on the conversion graph" width="1400" height="875" loading="lazy">
-      <figcaption>Batch conversion in 1.2 — each file animates into place as it finishes.</figcaption>
+      <img src="/assets/screenshots/web/02_conversion_graph.jpg" alt="PDFTrail 1.2's conversion graph on macOS, one source PDF with Plain Text and Markdown outputs ready" width="1400" height="875" loading="lazy">
+      <figcaption>The conversion graph in version 1.2: one source PDF, and the output formats chosen for it.</figcaption>
     </figure>
 
     <h2>What the launch thread taught us</h2>
 
-    <p>The most useful comments were the critical ones. One user tried an invoice and told us the formatting didn't survive the trip to Word — that report kicked off a deep rework of how the engine associates rows on invoice-style documents. Another asked whether a 100-page financial report that quietly skips an unreadable page would at least <em>tell you</em> which pages were skipped — it didn't, and that was the right complaint: a clean-looking spreadsheet that silently omits a row is worse than an honest warning. A conversion report that lists every skipped page and every low-confidence cell is built and ships in the next update.</p>
+    <p>The most useful comments were the critical ones. One user tried an invoice and told us the formatting didn't survive the trip to Word — that report kicked off a deep rework of how the engine associates rows on invoice-style documents. Another asked whether a 100-page financial report that quietly skips an unreadable page would at least <em>tell you</em> which pages were skipped — it didn't, and that was the right complaint: a clean-looking spreadsheet that silently omits a row is worse than an honest warning. The 1.3 release notes cover what changed after that.</p>
 
     <p>That's the standing philosophy, stated plainly: when a page is too damaged to read reliably, PDFTrail skips it and says so, rather than inventing plausible-looking data. Numbers you can't trust are worse than gaps you can see.</p>
 
     <h2>Get it</h2>
-    <p>PDFTrail 1.2 is free to try on the Mac App Store — unlimited conversions, full table review, and 10 free exports each for Markdown, Word, and full Excel. One-time $24 unlock for unlimited everything. No account, no uploads, nothing leaves your Mac.</p>
-    <a class="cta" href="https://apps.apple.com/app/id6799649606"><em>GET PDFTRAIL 1.2 — MAC APP STORE</em></a>
+    <p>PDFTrail is free to try on the Mac App Store — unlimited conversions, full table review, and 10 free exports each for Markdown, Word, and full Excel. One-time $24 unlock for unlimited everything. No account, no uploads, nothing leaves your Mac.</p>
+    <a class="cta" href="https://apps.apple.com/app/id6799649606"><em>GET PDFTRAIL — MAC APP STORE</em></a>
   </article>
 
   <div class="head-pad"><div class="dim"><span>PDFTrail · Blog</span></div></div>

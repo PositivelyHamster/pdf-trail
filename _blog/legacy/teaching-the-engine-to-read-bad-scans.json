@@ -10,5 +10,5 @@
   "summary": "We fed our engine the worst scans we could find. It invented 26 tables that didn't exist. Here's how we got that number to zero — and kept it there.",
   "feed_summary": "We fed our engine the worst scans we could find. It invented 26 tables that didn't exist. Here's how that number became zero, and stays there.",
   "llms_section": "notes",
-  "llms_blurb": "How the engine went from inventing 26 phantom tables on noise pages to zero, the fabrication-never-buys-recall rule, and the conversion report that replaces silent page skips."
+  "llms_blurb": "How the engine went from inventing 26 phantom tables on noise pages to zero, the fabrication-never-buys-recall rule, and how Table Review now opens by itself on a page that was partly read or not read."
 }

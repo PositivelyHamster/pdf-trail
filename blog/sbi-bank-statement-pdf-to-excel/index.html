@@ -13,7 +13,7 @@
 <meta property="og:title" content="SBI Bank Statement PDF to Excel on Mac">
 <meta property="og:description" content="Getting an SBI bank statement PDF to Excel on a Mac without uploading it: what the file really contains, four steps, and the two checks I never skip.">
 <meta property="og:url" content="https://pdftrail.app/blog/sbi-bank-statement-pdf-to-excel/">
-<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/01_table_review.png">
+<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/assets/icons/signet.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
@@ -41,7 +41,7 @@
   "datePublished": "2026-09-24",
   "dateModified": "2026-09-24",
   "image": [
-    "https://pdftrail.app/assets/screenshots/full/01_table_review.png"
+    "https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png"
   ],
   "mainEntityOfPage": "https://pdftrail.app/blog/sbi-bank-statement-pdf-to-excel/"
 }
@@ -56,7 +56,7 @@
       "name": "Does this work with a scanned SBI statement?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Scanned pages have no text layer, so PDFTrail runs OCR on your Mac and shows the table for review before export."
+        "text": "Yes. Scanned pages have no text layer, so PDFTrail runs OCR on your Mac, and Table Review shows the table next to the page for you to check."
       }
     },
     {
@@ -88,7 +88,7 @@
       "name": "What if the export has fewer rows than my statement?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Go back to the review screen and compare it with the statement page by page. A missing row usually sits at a page break, so start there."
+        "text": "Open Table Review with the Review tables button and compare it with the statement page by page. Start at the page breaks, where PDFTrail joins a table that continues on the next page."
       }
     }
   ]
@@ -129,31 +129,31 @@
 
     <p>The converter sites that top the search results avoid it too, at a different cost. They need the file first. I wouldn't send a document with my account number and a year of my spending to a server I can't name, and I don't think you should either. Excel for Mac can't help, by the way. The "From PDF" import that Windows users get in Power Query was never built for the Mac, as Microsoft's own answers forum <a href="https://learn.microsoft.com/en-us/answers/questions/5116197" rel="noopener">confirms</a>. People keep looking for that button anyway.</p>
 
-    <p>PDFTrail is my app. I built it to read Indian annual reports into a language model without uploading them, and a bank statement turned out to be the same problem in a smaller envelope. It reads the text runs and their positions straight out of the file, works out which runs sit on one line and where the columns break, and hands you the rows before it writes anything. Nothing leaves the Mac. There's no account, and it works with Wi-Fi off.</p>
+    <p>PDFTrail is my app. I built it to read Indian annual reports into a language model without uploading them, and a bank statement turned out to be the same problem in a smaller envelope. It reads the text runs and their positions straight out of the file, works out which runs sit on one line and where the columns break, and writes the rows to your files. Then it shows them to you next to the page. Nothing leaves the Mac. There's no account, and it works with Wi-Fi off.</p>
 
     <h2>The four steps, SBI bank statement PDF to Excel</h2>
 
     <ol>
-      <li>Drop the statement PDF into PDFTrail.</li>
+      <li>Click Open PDF and choose the statement PDF.</li>
       <li>Wait for the read. A downloaded statement has a text layer, so the text is read directly, no OCR. A scanned one has only pixels, so OCR runs on the Mac first.</li>
-      <li>Look at the review screen. Check that dates sit in the date column and amounts in the amount column. Count the rows against the printed statement.</li>
-      <li>Export to .xlsx.</li>
+      <li>Look at Table Review. It opens by itself if a page needs a look; at any other time, click Review tables in the toolbar. Check that dates sit in the date column and amounts in the amount column. Count the rows against the printed statement.</li>
+      <li>Open the .xlsx. If you changed a table, click Accept and re-export first.</li>
     </ol>
 
     <figure>
-      <img src="/assets/screenshots/web/01_table_review.jpg" alt="Reviewing a detected table from an SBI bank statement PDF to Excel conversion in PDFTrail on macOS before export" width="1400" height="875" loading="lazy">
-      <figcaption>The review screen. This is where the statement stops being a picture and becomes rows you can argue with.</figcaption>
+      <img src="/assets/screenshots/web/08_table_review_130.jpg" alt="Table Review in PDFTrail on macOS, shown on a sample report page, the screen for checking an SBI bank statement PDF to Excel conversion" width="1400" height="875" loading="lazy">
+      <figcaption>Table Review, on a sample report page. This is where a statement stops being a picture and becomes rows you can argue with.</figcaption>
     </figure>
 
-    <p>For twelve months of statements, drop the folder instead of one file. Batch conversion runs the lot, one sheet per statement, and you review each one as it comes up. The review is the part I'd never automate away, because it's the only moment you're looking at the numbers with the source page next to them.</p>
+    <p>For twelve months of statements, select all twelve PDFs in the Open dialog instead of one file. Batch conversion runs the lot, one Excel file per statement, and you check each one in Table Review. For one workbook instead, turn on "Combine into one file per format" before you convert. The review is the part I'd never automate away, because it's the only moment you're looking at the numbers with the source page next to them.</p>
 
     <h2>The two checks I never skip</h2>
 
-    <p>The first is the row count. If the statement shows 87 transactions and the sheet has 84, something was missed, and it's usually at a page break. Go back to the review screen and compare the last rows of each page with the statement. Page breaks are where a table most often splits, so a row that straddles two pages is the usual suspect.</p>
+    <p>The first is the row count. If the statement shows 87 transactions and the sheet has 84, something was missed. Start at the page breaks. Open Table Review and compare the last rows of each page with the statement. PDFTrail joins a table that continues on the next page, and a row cut by the page break becomes one row again, so that join is where to look.</p>
 
     <p>The second is the balance column. Walk down it. Each balance should equal the one above it, plus the credit or minus the debit on that row. Where that chain breaks, you've found either a misread digit or a missing row, and you've found it in ten seconds instead of at tax time.</p>
 
-    <p>I can't tell you the exact column order of your statement, because SBI's layouts differ by account type and change over time, and I don't have yours in front of me. Date, narration, debit, credit, balance is the usual shape. Some add a reference number. The review screen exists so you check your file, not my description of it.</p>
+    <p>I can't tell you the exact column order of your statement, because layouts differ, and I don't have yours in front of me. Date, narration, debit, credit, balance is the usual shape. Some add a reference number. The review screen exists so you check your file, not my description of it.</p>
 
     <h2>Back to page 15</h2>
 
@@ -168,7 +168,7 @@
     <div class="faq">
       <details>
         <summary>Does this work with a scanned SBI statement?</summary>
-        <p>Yes. Scanned pages have no text layer, so PDFTrail runs OCR on your Mac and shows the table for review before export.</p>
+        <p>Yes. Scanned pages have no text layer, so PDFTrail runs OCR on your Mac, and Table Review shows the table next to the page for you to check.</p>
       </details>
       <details>
         <summary>Do I need an internet connection?</summary>
@@ -184,7 +184,7 @@
       </details>
       <details>
         <summary>What if the export has fewer rows than my statement?</summary>
-        <p>Go back to the review screen and compare it with the statement page by page. A missing row usually sits at a page break, so start there.</p>
+        <p>Open Table Review with the Review tables button and compare it with the statement page by page. Start at the page breaks, where PDFTrail joins a table that continues on the next page.</p>
       </details>
     </div>
 

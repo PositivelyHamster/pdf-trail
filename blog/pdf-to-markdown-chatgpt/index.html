@@ -13,7 +13,7 @@
 <meta property="og:title" content="Convert a PDF to Markdown for ChatGPT (No Upload)">
 <meta property="og:description" content="Convert a PDF to Markdown for ChatGPT on your Mac, so headings, lists and tables paste cleanly and the file stays off any server.">
 <meta property="og:url" content="https://pdftrail.app/blog/pdf-to-markdown-chatgpt/">
-<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/03_exports_ready.png">
+<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/assets/icons/signet.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
@@ -41,7 +41,7 @@
   "datePublished": "2026-09-27",
   "dateModified": "2026-09-27",
   "image": [
-    "https://pdftrail.app/assets/screenshots/full/03_exports_ready.png"
+    "https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png"
   ],
   "mainEntityOfPage": "https://pdftrail.app/blog/pdf-to-markdown-chatgpt/"
 }
@@ -80,7 +80,7 @@
       "name": "Does this work with a scanned PDF?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. A scanned page has no text layer, so PDFTrail runs OCR on your Mac and shows the detected table for you to check before export."
+        "text": "Yes. A scanned page has no text layer, so PDFTrail runs OCR on your Mac, and Table Review shows the detected table for you to check before you rely on the file."
       }
     },
     {
@@ -132,28 +132,28 @@
     <h2>Convert a PDF to Markdown for ChatGPT on the Mac</h2>
 
     <ol>
-      <li><strong>Open the file.</strong> Drop the statement PDF into PDFTrail.</li>
+      <li><strong>Open the file.</strong> Click Open PDF and choose the statement PDF.</li>
       <li><strong>Let it read the file.</strong> A downloaded statement carries a text layer, so the characters are read straight from the file, no OCR guessing. A scanned copy has no text layer, so OCR runs on the Mac instead.</li>
-      <li><strong>Check the review screen.</strong> Confirm the dates landed under Date and the amounts under Amount before anything exports.</li>
-      <li><strong>Export to Markdown.</strong></li>
+      <li><strong>Check Table Review.</strong> Confirm the dates landed under Date and the amounts under Amount. It opens by itself when a page needs a look. At other times, click Review tables in the toolbar.</li>
+      <li><strong>Open the Markdown file.</strong> If you fixed a table, Accept and re-export writes the Markdown again, so copy from that version.</li>
     </ol>
 
     <figure>
-      <img src="/assets/screenshots/web/03_exports_ready.jpg" alt="Exported Markdown file ready to paste, the on-device route to convert a PDF to Markdown for ChatGPT" width="1400" height="875" loading="lazy">
-      <figcaption>The exported file. Open it, find the part you need, and paste that.</figcaption>
+      <img src="/assets/screenshots/web/12_private_on_device_130.jpg" alt="PDFTrail&#x27;s conversion graph with the Markdown output marked Ready, the on-device route to convert a PDF to Markdown for ChatGPT" width="1400" height="875" loading="lazy">
+      <figcaption>Markdown and Plain Text marked Ready on the conversion graph, under the label "Local conversion · no upload".</figcaption>
     </figure>
 
     <h2>Why Markdown carries the table through</h2>
 
     <p>Markdown marks structure with plain characters: a <code>#</code> before a heading, a dash before a list item, a pipe between table cells. Those marks are just text, so they survive a copy-paste the way a table built in a spreadsheet does not. PDFTrail works out that structure from the geometry of the positioned text in the PDF. It checks which fragments share a row, and where the column boundaries actually fall, then writes the result as Markdown headings, lists, and pipe-delimited rows. ChatGPT reads pipes and dashes as structure, not as clutter, so the transaction table lands in the reply as a table, with the debit column still a debit column.</p>
 
-    <p>A heading survives the same way. PDFTrail marks a statement's section titles, the bank's letterhead line, the account summary, with a <code>#</code>, so a long document keeps its shape in the Markdown file. Open it in any text editor and the headings still read as headings, not as a stray line of bold text that lost its formatting on the way out.</p>
+    <p>A heading survives the same way. PDFTrail marks a document's section titles with a <code>#</code>, so a long document keeps its shape in the Markdown file. Open it in any text editor and the headings still read as headings, not as a stray line of bold text that lost its formatting on the way out.</p>
 
     <h2>Trim before you paste</h2>
 
     <p>Open the exported <code>.md</code> file in a text editor once it's ready. You rarely need the whole statement in the chat, only the weeks or the transactions your question is about. Copy that section and paste it in. This keeps the rest of the document off any server, and it gives ChatGPT less text to sort through before it answers. If you have several months to ask about, paste them one at a time and ask your question after each, rather than dropping a year of statements in at once.</p>
 
-    <p>For a scanned statement, read the exported text once before you paste it. PDFTrail's Table Review step already put that table next to the page before export, so this second read is where you check the totals still match. It still takes a minute, and it's worth spending on numbers you're about to ask a model about.</p>
+    <p>For a scanned statement, read the exported text once before you paste it. PDFTrail's Table Review shows that table next to the page, so this second read is where you check the totals still match. It still takes a minute, and it's worth spending on numbers you're about to ask a model about.</p>
 
     <h2>Back to the statement</h2>
 
@@ -180,7 +180,7 @@
       </details>
       <details>
         <summary>Does this work with a scanned PDF?</summary>
-        <p>Yes. A scanned page has no text layer, so PDFTrail runs OCR on your Mac and shows the detected table for you to check before export.</p>
+        <p>Yes. A scanned page has no text layer, so PDFTrail runs OCR on your Mac, and Table Review shows the detected table for you to check before you rely on the file.</p>
       </details>
       <details>
         <summary>Do I need an internet connection to convert the file?</summary>
@@ -191,6 +191,7 @@
     <h2>Related guides</h2>
     <ul>
       <li><a href="/blog/pdf-to-markdown-mac/">PDF to Markdown on Mac: A Guide for LLM Workflows</a></li>
+      <li><a href="/blog/pdf-to-markdown-claude/">PDF to Markdown for Claude Projects</a></li>
     </ul>
 
     <h2>Get PDFTrail</h2>

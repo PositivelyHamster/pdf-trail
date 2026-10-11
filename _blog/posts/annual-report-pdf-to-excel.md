@@ -6,14 +6,14 @@ time: 09:00
 kicker: Field guide
 pillar: P4
 primary_keyword: annual report pdf to excel
-figure: 04_batch_convert.jpg
-figure_alt: Batch converting a folder of annual report PDFs to Excel on Mac in PDFTrail, the annual report PDF to Excel step
-figure_caption: A folder of annual reports, one batch run, one sheet per report.
+figure: 12_private_on_device_130.jpg
+figure_alt: PDFTrail's conversion graph on a Mac with a 42-page annual report as the source, labelled Local conversion, no upload, an annual report PDF to Excel run
+figure_caption: One annual report on the conversion graph, read on the Mac, under the label "Local conversion · no upload".
 campaign: bl-p4hub
 status: approved
 faq:
   - q: Can I convert several years of annual reports at once?
-    a: Yes. Drop the whole folder into PDFTrail and it converts every file in one pass on your Mac, instead of one report at a time.
+    a: Yes. Select all the PDFs from the folder in PDFTrail's Open dialog and it converts every file in one pass on your Mac, instead of one report at a time.
   - q: Does this work for US 10-K filings, not just Indian annual reports?
     a: Yes. A 10-K is a born-digital PDF like any other, so PDFTrail reads its text layer directly and rebuilds the tables the same way.
   - q: Is it safe to upload an annual report to an online converter?
@@ -35,25 +35,25 @@ Uploading carries less weight here than it does for a bank statement. A listed c
 
 ## Annual report PDF to Excel, one folder at a time
 
-PDFTrail is my app, built first for my own folder of filings, so weigh that as you read the rest of this. [PDF to Excel on Mac](/blog/pdf-to-excel-mac/) covers the single-file case. For a folder of annual reports, the step that matters is batch conversion: point PDFTrail at the whole folder and it works through every file in one run.
+PDFTrail is my app, built first for my own folder of filings, so weigh that as you read the rest of this. [PDF to Excel on Mac](/blog/pdf-to-excel-mac/) covers the single-file case. For a folder of annual reports, the step that matters is batch conversion: select all the PDFs in the Open dialog and PDFTrail works through every file in one run.
 
 1. Put every year, or every company, you want into one folder.
-2. Drop the folder into PDFTrail. Batch conversion reads each file in turn, so you are not opening report after report by hand.
+2. Click Open PDF, open the folder in the dialog, and select all the PDFs in it. Batch conversion reads each file in turn, so you are not opening report after report by hand.
 3. PDFTrail reads the text layer directly, since a born-digital annual report already carries positioned text. There is no OCR step and nothing to guess at.
-4. Review the detected tables before anything exports. This is the step to slow down on, on a document this size. Check that a note's column headers sit above the right figures, and that current-year and prior-year have not swapped places.
-5. Export to .xlsx. Each report becomes its own spreadsheet, statements and schedules intact.
+4. Check the detected tables in Table Review after the conversion. A page that needs a look brings it up unasked. For the others, press the Review tables button. This is the step to slow down on, on a document this size. Check that a note's column headers sit above the right figures, and that current-year and prior-year have not swapped places.
+5. Open the .xlsx files. Each report becomes its own spreadsheet, statements and schedules intact. If you fixed a table, click Accept and re-export so the files carry your fix.
 
 {{figure}}
 
 ## Why the tables hold up over three hundred pages
 
-A PDF stores positioned text fragments, not tables, on page 3 and on page 230 alike. PDFTrail rebuilds each table from the geometry of those fragments: which ones share a row, where the column boundaries fall. Because a born-digital report never goes through OCR, that reconstruction does not get shakier as the file gets longer or the notes get denser. The review screen still shows every detected table next to its page before export, so a schedule buried on page 210 does not go missing without a trace.
+A PDF stores positioned text fragments, not tables, on page 3 and on page 230 alike. PDFTrail rebuilds each table from the geometry of those fragments: which ones share a row, where the column boundaries fall. Because a born-digital report never goes through OCR, that reconstruction does not get shakier as the file gets longer or the notes get denser. Table Review still shows every detected table next to its page, so a schedule buried on page 210 does not go missing without a trace.
 
 ## Picking the tables that matter, and lining up five years
 
-A full annual report converts to more sheets than any one model needs. Most investors want four: balance sheet, profit and loss, cash flow, and whichever notes carry the numbers they are tracking, such as segment results or borrowings. In the review step, check each detected table against the page it is meant to come from. Reports often repeat a compressed version of a table in a summary section and again, in full, in the notes, and it is easy to pull the wrong one by habit.
+A full annual report converts to more tables than any one model needs. Most investors want four: balance sheet, profit and loss, cash flow, and whichever notes carry the numbers they are tracking, such as segment results or borrowings. In the review step, check each detected table against the page it is meant to come from. Reports often repeat a compressed version of a table in a summary section and again, in full, in the notes, and it is easy to pull the wrong one by habit.
 
-Once each year's report is a spreadsheet, line up the same row, from the same statement, across every file. A revenue line from one year's balance sheet should sit next to the same line from the year before, not next to whatever row happened to land on the same sheet position. I do this by hand, row by row, the first time I build a new company's model. A line item renamed between years is common, and a formula will not catch a rename. After that first pass, the shape repeats and the check gets faster.
+Once each year's report is a spreadsheet, line up the same row, from the same statement, across every file. A revenue line from one year's profit and loss statement should sit next to the same line from the year before, not next to whatever row happened to land on the same sheet position. I do this by hand, row by row, the first time I build a new company's model. A line item renamed between years is common, and a formula will not catch a rename. After that first pass, the shape repeats and the check gets faster.
 
 The Markdown route is the other path I use for the same reports. When the goal is a model to ask questions of rather than a spreadsheet to sum, [PDF to Markdown on Mac](/blog/pdf-to-markdown-mac/) is the route I take instead. It keeps the same table structure in a form a language model reads cleanly, without the sheet layer in between. I use both routes on the same folder, depending on whether I am about to open Excel or a chat window.
 

@@ -6,9 +6,9 @@ time: 18:00
 kicker: Comparison
 pillar: P5
 primary_keyword: excel for mac import pdf
-figure: 03_exports_ready.jpg
-figure_alt: Exported spreadsheet files, the result of an Excel for Mac import PDF workflow done with PDFTrail
-figure_caption: What the Data tab never gave you: a spreadsheet made from the PDF, sitting next to it, ready to open.
+figure: 09_cross_page_tables_130.jpg
+figure_alt: A three-page PDF table beside the one Excel table PDFTrail wrote from it, an Excel for Mac import PDF workaround done on the Mac
+figure_caption: What the Data tab never gave you: three PDF pages on the left, one Excel table on the right.
 campaign: bl-xlmacpq
 status: approved
 faq:
@@ -29,9 +29,9 @@ Microsoft's own page on Power Query data sources lists every connector against e
 
 ## Why the connector stopped at Windows
 
-On Windows, From PDF opens the file, scans the pages, and offers up the tables it can find inside the Power Query editor, ready to load into a sheet. That only works because Windows Excel carries a long list of Power Query connectors built up over years, each written once for that codebase. Excel for Mac runs on a separate codebase with a shorter connector list, and PDF is one of the entries that codebase never received.
+On Windows, From PDF opens the file, scans the pages, and offers up the tables it can find inside the Power Query editor, ready to load into a sheet. Microsoft's table marks the PDF row as needing .NET Framework 4.5 or later, which is Windows software. The table for Excel for Mac has no PDF row.
 
-Nobody pulled the feature out. It sits on one side of a platform line that was drawn when the connector was first written, and nothing since has moved it.
+Nobody pulled the feature out. It sits on the Windows side of a platform line, and nothing since has moved it.
 
 A PDF itself explains why the import is hard work in the first place. It is not a spreadsheet stored under a different name. A PDF holds short runs of text, each one anchored to a position on the page, with nothing inside the file that labels a row or a column. From PDF has to look at where those runs sit and infer which ones line up. Any tool on any platform that claims to pull a table out of a PDF is doing that same inference, not reading a table that was already there.
 
@@ -45,24 +45,24 @@ Ask an AI assistant instead, and some will describe the very menu path Windows u
 
 ## The excel for mac import pdf workflow I built
 
-PDFTrail is my app, and it exists because getting a PDF's text onto a Mac spreadsheet needed a tool that assumed macOS from the start rather than porting a Windows habit late. It reads a PDF's own text and the position of each character, then works out which runs share a row and where the column lines fall. It shows you the result before anything is written to disk.
+PDFTrail is my app, and it exists because getting a PDF's text onto a Mac spreadsheet needed a tool that assumed macOS from the start rather than porting a Windows habit late. It reads a PDF's own text and the position of each character, then works out which runs share a row and where the column lines fall. Once the conversion is done, it shows you the result next to the page.
 
 The steps for an excel for mac import pdf task, once you are inside the app, stay short.
 
-1. Drop the PDF into PDFTrail. No upload screen, no account to create first.
+1. Click Open PDF and choose the PDF in the Open dialog. No upload screen, no account to create first.
 2. Let it read the file. A born-digital PDF, one made by software rather than a scanner, already carries its text and the position of every character, so the app reads that directly. No OCR guessing.
-3. Check the review screen. Before any file is written, the app shows the rows and columns it found, so you can confirm dates sit under the date heading and totals sit under the totals heading.
-4. Export to .xlsx and open it straight in Excel for Mac.
+3. Check Table Review. Once the conversion is done, the app shows the rows and columns it found, so you can confirm dates sit under the date heading and totals sit under the totals heading. It opens on its own if a page needs a look, and the toolbar's Review tables button opens it at any other time.
+4. Open the .xlsx in Excel for Mac. If you fixed a table, click Accept and re-export before you open it.
 
 {{figure}}
 
-If the source is a scan instead of a downloaded file, a photocopy or a faxed page with no text layer, the app runs OCR on the Mac first, before it can find any rows. OCR reads an image of a character, not the character itself, and it can misjudge one, which is exactly why the review step comes before export rather than after.
+If the source is a scan instead of a downloaded file, a photocopy or a faxed page with no text layer, the app runs OCR on the Mac first, before it can find any rows. OCR reads an image of a character, not the character itself, and it can misjudge one, which is exactly why Table Review exists.
 
 ## What to check once the sheet is open
 
-Compare the row count in the exported sheet against what you can count on the source page. The review screen already showed you this table next to the page before export, so a second count now confirms what you checked once already. On a scanned file, look at the numbers against the page again and check that the totals still add up, since that review step is where a misread digit gets caught.
+Compare the row count in the exported sheet against what you can count on the source page. Table Review shows this table next to the page, so a second count now confirms what you checked there. On a scanned file, look at the numbers against the page again and check that the totals still add up, since that review step is where a misread digit gets caught.
 
-For a folder of statements or invoices rather than one file, batch conversion runs the whole folder in a single pass, and you still review each result before export. That review step is the one place I would not want to automate away, because it is the only moment the numbers and the source page sit next to each other.
+For a folder of statements or invoices rather than one file, open it in the dialog and select all the PDFs in it. Batch conversion runs them in a single pass, and you still check each result in Table Review. That review step is the one place I would not want to automate away, because it is the only moment the numbers and the source page sit next to each other.
 
 The [pillar guide to PDF to Excel on a Mac](/blog/pdf-to-excel-mac/) covers other document types this same way, and the [bank statement walkthrough](/blog/convert-bank-statement-pdf-to-excel-mac/) goes through a financial document end to end.
 

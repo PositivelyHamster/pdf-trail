@@ -26,6 +26,7 @@ marker for the reviewer. Never guess.
 - Scanned PDFs (photocopies, faxes, phone photos saved as PDF, any page with no text layer): the app runs OCR on the Mac. OCR is good but not infallible, which is why Table Review exists (below).
 - Opening files: click "Open PDF" and choose the PDF in the Open dialog. You can choose several PDFs at once in that dialog. After the first file, the button reads "Add PDFs". There is NO drag-and-drop and NO folder picker. Never tell the reader to drop or drag a file or a folder into, onto, or in the app. To convert a folder, open it in the dialog and select all the PDFs in it.
 - Batch conversion: every PDF in the queue converts in one run. The queue has no fixed limit.
+- Page range: the sidebar has a "Page Range" choice, "All pages" or "Custom range" (from page X to page Y), so you can convert only part of a long PDF.
 - Output files: by default each PDF gets its own output file per format (for example `statement.xlsx`). When two or more PDFs are queued, the option "Combine into one file per format" writes one combined file per format for the whole batch instead.
 - Excel layout: an Excel export has an "Index" sheet (one row per table: source file, page, table, size) and an "Extracted" sheet that holds the tables with their labels. It is NOT one sheet per table or one sheet per document. With "Combine into one file per format", every table from every PDF lands in that one workbook, and the Index shows which file each table came from.
 - Tables: the app reconstructs tables from the geometry of the positioned text (which fragments share a row, where the column boundaries fall). Rows and columns come out intact in the export.
@@ -34,7 +35,7 @@ marker for the reviewer. Never guess.
   1. You convert. PDFTrail writes the export files.
   2. After the conversion, Table Review opens by itself when a page needs a look (a page whose tables were partly read or not read). At any other time you open it with the "Review tables" button in the toolbar.
   3. Table Review shows each table PDFTrail found, page by page, next to the page it came from.
-  4. If a table is wrong, open the grid editor on that page. Drag the grid lines into place, add column or row lines, or draw a table region. Try the new grid, then save the fix.
+  4. If a table is wrong, open the grid editor on that page. Drag the grid lines into place, add column or row lines, or draw a table region. Try the new grid, then save the fix. The grid editor changes lines and regions only; it does not retype the text in a cell. A single wrong character is fixed in the spreadsheet afterwards.
   5. "Accept and re-export" writes the changed files again with your fixes. A re-export uses no free export credits.
   6. You can also open the files as they are, without fixing anything.
   7. Fixes are saved for that PDF and apply again the next time you convert it. You can tell the app to ignore them.
@@ -63,7 +64,8 @@ These do not exist in the version people can download. Do not mention them at al
 - Excel for Mac has no "From PDF" (Power Query) connector. That connector is Windows-only. Cite: https://learn.microsoft.com/en-us/answers/questions/5116197 and https://support.microsoft.com/en-us/office/power-query-data-sources-in-excel-versions-e9332067-8e49-46fc-97ff-f2e1bfa0cb16
 - Excel and Numbers cannot open a PDF as a table. Word can open a PDF and tries to convert it; it is built for prose and usually mangles tables.
 - Preview (macOS) copy-paste from a PDF loses column structure because a PDF stores positioned text fragments, not a table.
-- Tabula is a free open-source tool that needs Java. Cite: https://tabula.technology/
+- Preview can recognize text in an image-based PDF and embed it ("Embed text in a PDF"; the option appears only when the document has no recognized text yet). It makes the words selectable in any PDF viewer. Apple's page says nothing about tables, so do not claim what it does to them. Cite (fetched 2026-10-11): https://support.apple.com/guide/preview/prvw1ddb1cdf/mac
+- Tabula is a free open-source tool that runs on Java; the Mac version includes Java. It works only on text-based PDFs, not scanned documents. Cite (fetched 2026-10-11): https://tabula.technology/
 - camelot and pdfplumber are Python libraries; they need a Python setup and code. Cite: https://camelot-py.readthedocs.io/ and https://github.com/jsvine/pdfplumber
 - Adobe Acrobat on the desktop converts a PDF to Excel (XLSX) or XML from its Convert menu. Its settings choose one worksheet per table, per page, or for the whole document, set decimal and thousands separators, and turn on text recognition for scanned text. Cite (verified in a browser 2026-09-28): https://helpx.adobe.com/acrobat/desktop/save-export-documents/convert-to-other-formats/pdf-to-excel.html . Do not state Acrobat prices or plan names.
 - Adobe's free online PDF to Excel converter says on its own page that "Your file will be securely handled by Adobe servers and deleted unless you sign in to save it." Cite (verified 2026-09-28): https://www.adobe.com/acrobat/online/pdf-to-excel.html . Quote that sentence at most once and do not characterise Adobe beyond it.

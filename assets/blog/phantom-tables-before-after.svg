@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="t d">
 <title id="t">Before and after: phantom tables on a noisy scan</title>
-<desc id="d">Before: the engine invents a table out of scanner noise. After: the same noisy page produces no table; the page is reported instead of guessed.</desc>
+<desc id="d">Before: the engine invents a table out of scanner noise. After: the same noisy page produces no table; the page is left empty instead of guessed.</desc>
 <rect width="1200" height="560" fill="#282B33"/>
 <g stroke="#3B587C" stroke-width="0.5" opacity="0.35">
 <path d="M0 80H1200M0 200H1200M0 320H1200M0 440H1200M120 0V560M300 0V560M480 0V560M660 0V560M840 0V560M1020 0V560"/>
@@ -36,7 +36,7 @@
 <g font-family="Menlo,monospace" font-size="14" fill="#0F6E56">
 <rect x="690" y="250" width="320" height="66" fill="none" stroke="#0F6E56" stroke-width="1.4" stroke-dasharray="6 4"/>
 <text x="710" y="278">NO TABLE ON THIS PAGE</text>
-<text x="710" y="300">Conversion report: page noted.</text>
+<text x="710" y="300">Nothing was invented.</text>
 </g>
 <text x="640" y="516" font-family="Menlo,monospace" font-size="13.5" fill="#8FD49B">Same page. Zero inventions. The gap is visible, not hidden.</text>
 </svg>
