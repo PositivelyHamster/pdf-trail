@@ -119,9 +119,12 @@
   "banned_unshipped": [
     "conversion report",
     "DIGITGUARD",
-    "draw the grid",
-    "drag the column",
     "second OCR engine",
-    "candidate reading"
+    "candidate reading",
+    "\\bdrop\\b[^.\\n]{0,80}\\b(pdftrail|the app|app window)\\b",
+    "\\bdrop (in )?(the |a )?(whole |entire )?(\\w+ )?folder\\b",
+    "\\bdrop in a pdf\\b",
+    "before (any |the |you )?export|before anything (is )?export|before exporting|nothing (is|gets) exported until|nothing has been written to disk",
+    "\\bskip (that|the|a) table\\b"
   ]
 }
