@@ -8,6 +8,8 @@ Commands (run from the repo root or anywhere; paths resolve from this file):
   build.py publish [--now ISO] [--dry-run]
                                       render approved posts whose slot has passed, refresh index/feed/sitemap/llms.txt
   build.py status                     one line per post: slug, slot, state
+  build.py indexnow <slug ...>|--all [--dry-run]
+                                      tell IndexNow (Bing and others) that pages changed
 
 State model: a post is a Markdown file with front matter. It lives in
 _blog/drafts/ (unapproved, gitignored), _blog/posts/ (approved, status: approved),
@@ -785,6 +787,77 @@ def cmd_status(args):
     return 0
 
 
+INDEXNOW_ENDPOINT = "https://api.indexnow.org/IndexNow"
+# Meanings from https://www.indexnow.org/documentation (fetched 2026-10-11).
+INDEXNOW_CODES = {
+    200: "OK, URLs received",
+    202: "accepted, key check pending",
+    400: "bad request (format)",
+    403: "key not valid (key file missing or wrong)",
+    422: "URLs not on this host, or key not valid",
+    429: "too many requests",
+}
+
+
+def cmd_indexnow(args):
+    """Tell IndexNow engines (Bing and others) that pages changed.
+
+    build.py indexnow <slug|url> ...   the named posts plus /blog/
+    build.py indexnow --all            every <loc> in sitemap.xml
+    --dry-run prints the request body and sends nothing.
+    A 200 or 202 means the engine received the list, not that it indexed it.
+    """
+    import urllib.error
+    import urllib.request
+
+    site = CONFIG["site_url"].rstrip("/")
+    host = site.split("://", 1)[1]
+    key = CONFIG.get("indexnow_key", "")
+    if not re.fullmatch(r"[A-Za-z0-9-]{8,128}", key):
+        print("FAIL  indexnow: no valid indexnow_key in _blog/config.json")
+        return 1
+    key_path = os.path.join(ROOT, f"{key}.txt")
+    if not os.path.exists(key_path) or read(key_path).strip() != key:
+        print(f"FAIL  indexnow: key file {key}.txt is missing or does not hold the key")
+        return 1
+    names = [a for a in args if not a.startswith("--")]
+    urls = []
+    if "--all" in args:
+        urls += re.findall(r"<loc>([^<]+)</loc>", read(os.path.join(ROOT, "sitemap.xml")))
+    for n in names:
+        urls.append(n if n.startswith("http") else f"{site}/blog/{n}/")
+    if names:
+        urls.append(f"{site}/blog/")  # the index page changes with every publish
+    urls = list(dict.fromkeys(urls))
+    if not urls:
+        print(cmd_indexnow.__doc__)
+        return 2
+    outside = [u for u in urls if not u.startswith(site + "/")]
+    if outside:
+        print("FAIL  indexnow: URLs not on " + host + ": " + ", ".join(outside))
+        return 1
+    body = {"host": host, "key": key, "keyLocation": f"{site}/{key}.txt", "urlList": urls}
+    if "--dry-run" in args:
+        print(json.dumps(body, indent=2))
+        return 0
+    req = urllib.request.Request(
+        INDEXNOW_ENDPOINT,
+        data=json.dumps(body).encode("utf-8"),
+        headers={"Content-Type": "application/json; charset=utf-8"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            code = resp.status
+    except urllib.error.HTTPError as e:
+        code = e.code
+    except urllib.error.URLError as e:
+        print(f"FAIL  indexnow: no answer from {INDEXNOW_ENDPOINT}: {e.reason}")
+        return 1
+    print(f"indexnow {code} {INDEXNOW_CODES.get(code, 'unexpected code')} urls={len(urls)}")
+    return 0 if code in (200, 202) else 1
+
+
 def main(argv):
     if len(argv) < 2:
         print(__doc__)
@@ -798,6 +871,8 @@ def main(argv):
         return cmd_publish(args)
     if cmd == "status":
         return cmd_status(args)
+    if cmd == "indexnow":
+        return cmd_indexnow(args)
     print(__doc__)
     return 2
 
