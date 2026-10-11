@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
-  <rect width="1024" height="1024" fill="#E8501F"/>
+  <rect width="1024" height="1024" fill="#2747D6"/>
 
   <rect x="170" y="210" width="744" height="664" fill="#111111"
         transform="rotate(-4 512 512)"/>
@@ -36,11 +36,11 @@
         <text x="512" y="645">DOCX</text>
       </g>
 
-      <rect x="186" y="218" width="356" height="126" rx="32" fill="#E8501F"/>
+      <rect x="186" y="218" width="356" height="126" rx="32" fill="#2747D6"/>
       <text x="364" y="312" font-size="104" fill="#FFFFFF" text-anchor="middle"
             letter-spacing="6">PDF</text>
 
-      <rect x="686" y="238" width="152" height="92" rx="24" fill="#E8501F"/>
+      <rect x="686" y="238" width="152" height="92" rx="24" fill="#2747D6"/>
       <text x="762" y="304" font-size="62" fill="#FFFFFF" text-anchor="middle">1.2</text>
 
       <rect x="470" y="820" width="452" height="118" rx="30" fill="#FFFFFF"/>
