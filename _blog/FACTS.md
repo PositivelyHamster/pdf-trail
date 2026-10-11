@@ -15,7 +15,7 @@ marker for the reviewer. Never guess.
 ## Price
 
 - Free to download and try.
-- Free tier: 10 free exports per format for Markdown, Word (.docx), and Excel (.xlsx). Plain text (.txt) and JSON export are free with no limit. After the 10 free Excel exports, Excel export keeps working with the first 15 rows of each table. Conversions and on-screen Table Review are unlimited. The sidebar shows how many free exports are left for each format.
+- Free tier: 10 free exports per format for Markdown, Word (.docx), and Excel (.xlsx). Plain text (.txt) and JSON export are free with no limit. After the 10 free Excel exports, Excel export keeps working with the first 15 rows of each table. After the 10 free Markdown or Word exports, that format stops until you unlock the full version. Conversions and on-screen Table Review are unlimited. The sidebar shows how many free exports are left for each format.
 - Full version: $24, one-time in-app purchase, "Unlock Full Version". No subscription. No account.
 
 ## What it does (version 1.3.0; checked against the app code 2026-10-11)
@@ -26,6 +26,8 @@ marker for the reviewer. Never guess.
 - Scanned PDFs (photocopies, faxes, phone photos saved as PDF, any page with no text layer): the app runs OCR on the Mac. OCR is good but not infallible, which is why Table Review exists (below).
 - Opening files: click "Open PDF" and choose the PDF in the Open dialog. You can choose several PDFs at once in that dialog. After the first file, the button reads "Add PDFs". There is NO drag-and-drop and NO folder picker. Never tell the reader to drop or drag a file or a folder into, onto, or in the app. To convert a folder, open it in the dialog and select all the PDFs in it.
 - Batch conversion: every PDF in the queue converts in one run. The queue has no fixed limit.
+- Output files: by default each PDF gets its own output file per format (for example `statement.xlsx`). When two or more PDFs are queued, the option "Combine into one file per format" writes one combined file per format for the whole batch instead.
+- Excel layout: an Excel export has an "Index" sheet (one row per table: source file, page, table, size) and an "Extracted" sheet that holds the tables with their labels. It is NOT one sheet per table or one sheet per document. With "Combine into one file per format", every table from every PDF lands in that one workbook, and the Index shows which file each table came from.
 - Tables: the app reconstructs tables from the geometry of the positioned text (which fragments share a row, where the column boundaries fall). Rows and columns come out intact in the export.
 - Tables across pages (new in 1.3.0): when a table continues on the next page, PDFTrail joins the pieces into one table in Excel, Word and Markdown, with one header row. A row cut by the page break becomes one row again.
 - Table Review (new in 1.3.0). The order is exactly this:
@@ -79,3 +81,10 @@ These do not exist in the version people can download. Do not mention them at al
 - Handwriting recognition. PDFTrail does not do handwriting.
 - Windows or Linux versions. There are none.
 - Testimonials, star ratings, download counts, or "thousands of users".
+
+## Figures (checked 2026-10-11)
+
+- Use the 1.3.0 figures: 08_table_review_130.jpg (grid editor), 09_cross_page_tables_130.jpg (3-page PDF to one Excel table), 10_three_themes_130.jpg, 11_scans_clean_text_130.jpg, 12_private_on_device_130.jpg ("Local conversion · no upload"), 13_pricing_130.jpg (unlock dialog, no price shown).
+- Never use 01_table_review.jpg (shows a "dual-engine" label, not shipped), 03_exports_ready.jpg and 06_pricing.jpg (show "Drop a PDF"), 04_batch_convert.jpg (1.2 screen with options not in this file), or 05_empty_canvas.jpg (headline "Drop a PDF. That's the whole workflow." is false).
+- 02_conversion_graph.jpg is a 1.2 screen; use it only when no 1.3.0 figure fits.
+- figure_alt and figure_caption must describe what the image shows, nothing more.
