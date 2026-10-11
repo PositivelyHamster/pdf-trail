@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PDFTrail — Pull the data out of your PDF without sending it anywhere.</title>
-<meta name="description" content="PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown, JSON, or plain text on your Mac. No sign-up, no account, no cloud uploads. Batch convert, review every table before export. $24 one-time unlock.">
+<meta name="description" content="PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown, JSON, or plain text on your Mac. No sign-up, no account, no cloud uploads. Review and fix every table before export, even tables that run across pages. $24 one-time unlock.">
 <link rel="canonical" href="https://pdftrail.app/">
 <meta name="theme-color" content="#262626">
 <meta property="og:type" content="website">
@@ -12,13 +12,14 @@
 <meta property="og:title" content="PDFTrail — Pull the data out of your PDF without sending it anywhere.">
 <meta property="og:description" content="PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown, JSON, or plain text on your Mac. No sign-up, no account, no cloud uploads. $24 one-time unlock, no subscription.">
 <meta property="og:url" content="https://pdftrail.app/">
-<meta property="og:image" content="https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png">
-<meta property="og:image:width" content="2400">
-<meta property="og:image:height" content="1350">
+<meta property="og:image" content="https://pdftrail.app/assets/screenshots/130/og-1200x630.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Your PDFs never leave your Mac. The PDFTrail conversion graph turns one PDF into Plain Text, Markdown and Word on the Mac, with no upload.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="PDFTrail — No sign-up. Tables extracted, structure intact.">
 <meta name="twitter:description" content="PDFTrail converts born-digital and scanned PDFs to Excel, Word, Markdown, JSON, or plain text on your Mac. No sign-up, no account, no cloud uploads.">
-<meta name="twitter:image" content="https://pdftrail.app/assets/screenshots/full/07_no_signup_collage_web.png">
+<meta name="twitter:image" content="https://pdftrail.app/assets/screenshots/130/og-1200x630.jpg">
 <link rel="icon" type="image/svg+xml" href="/assets/icons/signet.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="48x48" href="/assets/icons/favicon-48.png">
@@ -163,7 +164,7 @@
     animation: slide 34s infinite linear;
   }
   .mq-row + .mq-row { margin-top: 10px; }
-  .mq:hover .mq-row { animation-play-state: paused; }
+  .mq:hover .mq-row, .mq.mq-off .mq-row { animation-play-state: paused; }
   .mq-seg {
     white-space: nowrap; padding-right: 56px; display: inline-flex; align-items: center; flex: 1 0 auto;
     font-family: 'Martian Mono', Menlo, monospace; font-size: 12px;
@@ -179,7 +180,7 @@
 
   /* ---- what's new strip ---- */
   .whatsnew-pad { padding: 44px 64px 8px 64px; }
-  .whatsnew-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .whatsnew-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
   .whatsnew-item {
     border: 1.5px solid #5a5a5a; background: linear-gradient(180deg, #3a3a3a, #303030);
     padding: 18px 20px; position: relative;
@@ -189,6 +190,38 @@
     letter-spacing: 0.14em; text-transform: uppercase; color: #F2C464; margin: 0 0 8px 0;
   }
   .whatsnew-item p.body { margin: 0; font-size: 13.5px; line-height: 1.5; color: #ADADAD; }
+  .whatsnew-also { margin: 18px 0 0 0; font-size: 13px; line-height: 1.55; color: #999999; max-width: 72ch; }
+
+  /* ---- hero mark: the Royal signet builds itself once on load (CSS only) ---- */
+  .hero-mark { display: flex; align-items: center; gap: 16px; margin: 0 0 22px 0; }
+  .hero-mark .eyebrow { margin: 0; line-height: 1.8; }
+  .eyebrow .ver { display: block; color: #F2C464; }
+  .sig { display: block; flex: none; width: 56px; height: 56px; }
+  .sig [class] { transform-box: fill-box; transform-origin: center; }
+  @media (prefers-reduced-motion: no-preference) {
+    .s-cd{animation:sCd .45s .15s cubic-bezier(.2,.9,.3,1) both}
+    .s-bk{animation:sBk .3s .5s ease-out both}
+    .s-ln{stroke-dasharray:var(--l);animation:sLn .45s var(--t) ease-in-out both}
+    .s-dc{animation:sDc .5s 1.35s ease-out both}
+    .s-pop{animation:sPop .32s var(--t) cubic-bezier(.3,1.5,.5,1) both}
+    .s-tr{animation:sTr .45s 2.3s cubic-bezier(.2,.9,.3,1) both}
+  }
+  @keyframes sCd{from{opacity:0;transform:translateY(-60px) rotate(-5deg) scale(1.1)}}
+  @keyframes sBk{from{opacity:0;transform:translate(-30px,-30px)}}
+  @keyframes sLn{from{stroke-dashoffset:var(--l)}to{stroke-dashoffset:0}}
+  @keyframes sDc{from{opacity:0;transform:rotate(-120deg)}}
+  @keyframes sPop{from{opacity:0;transform:scale(.4)}}
+  @keyframes sTr{from{opacity:0;transform:translateX(140px)}}
+
+  /* ---- film: one short section, zero video bytes until the visitor presses play ---- */
+  .film-pad { padding: 64px 64px 20px 64px; }
+  .film-plate { max-width: 960px; margin: 0 auto; }
+  .film-frame { padding: 10px; }
+  .film-frame video {
+    display: block; width: 100%; height: auto; aspect-ratio: 16 / 9;
+    background: #111111; border: 1px solid rgba(255,255,255,0.1);
+  }
+  .film-plate .cap { margin: 0; padding: 6px 20px 20px 20px; font-size: 13.5px; line-height: 1.55; color: #ADADAD; max-width: 72ch; }
 
   /* ---- feature grid: real screenshots in steel frames ---- */
   .feature-pad { padding: 64px 64px 20px 64px; }
@@ -251,6 +284,8 @@
     .hero h1 { font-size: 44px; }
     .hero-sub { font-size: 15.5px; }
     .whatsnew-pad { padding: 36px 36px 8px 36px; }
+    .whatsnew-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .film-pad { padding: 48px 36px 20px 36px; }
     .feature-pad { padding: 48px 36px 20px 36px; }
     .feature-grid { gap: 22px; }
     .price-pad { padding: 36px 36px 24px 36px; }
@@ -276,6 +311,8 @@
     }
     .hero-copy, .hero-cta, .stage { width: 100%; }
     .eyebrow { font-size: 9.5px; letter-spacing: 0.18em; margin: 0 0 12px 0; }
+    .hero-mark { gap: 12px; margin: 0 0 16px 0; }
+    .sig { width: 48px; height: 48px; }
     .hero h1 { font-size: 34px; line-height: 1.04; margin: 0 0 14px 0; }
     .hero-sub { font-size: 14.5px; line-height: 1.55; margin: 0 0 22px 0; max-width: none; }
     .stage { margin-bottom: 22px; }
@@ -291,6 +328,11 @@
 
     .whatsnew-pad { padding: 26px 20px 4px 20px; }
     .whatsnew-grid { grid-template-columns: 1fr; gap: 14px; }
+    .whatsnew-also { font-size: 12.5px; }
+
+    .film-pad { padding: 30px 20px 6px 20px; }
+    .film-frame { padding: 8px; }
+    .film-plate .cap { font-size: 13px; padding: 6px 16px 18px 16px; }
 
     .feature-pad { padding: 30px 20px 6px 20px; }
     .feature-grid { grid-template-columns: 1fr; gap: 26px; }
@@ -331,6 +373,8 @@
       column-gap: clamp(48px, 3.4vw, 68px);
     }
     .eyebrow { font-size: 12.5px; margin: 0 0 22px 0; }
+    .hero-mark { gap: 20px; margin: 0 0 26px 0; }
+    .sig { width: 64px; height: 64px; }
     .hero h1 { font-size: clamp(46px, 3.2vw, 62px); margin: 0 0 26px 0; }
     .hero-sub {
       font-size: clamp(18px, 1.05vw, 21px); line-height: 1.6;
@@ -357,6 +401,11 @@
     .whatsnew-item { padding: clamp(20px, 1.4vw, 26px) clamp(22px, 1.5vw, 28px); }
     .whatsnew-item .tag { font-size: 10px; }
     .whatsnew-item p.body { font-size: clamp(14px, 0.85vw, 15.5px); }
+    .whatsnew-also { font-size: clamp(13.5px, 0.8vw, 15px); margin-top: 22px; }
+
+    .film-pad { padding: 80px var(--gut) 24px var(--gut); }
+    .film-plate { max-width: 1080px; }
+    .film-plate .cap { font-size: clamp(14px, 0.85vw, 15.5px); padding: 8px 24px 24px 24px; }
 
     .feature-pad { padding: 80px var(--gut) 24px var(--gut); }
     .feature-grid { gap: clamp(34px, 2.4vw, 48px); }
@@ -486,7 +535,7 @@
   }
   .card .fold { position: absolute; top: 0; right: 0; width: 18px; height: 18px;
     background: linear-gradient(225deg, #23303f 0 50%, #d9d6cd 50% 100%); }
-  .card .lbl { font: 700 13px 'Martian Mono', monospace; color: #fff; background: #E8501F;
+  .card .lbl { font: 700 13px 'Martian Mono', monospace; color: #fff; background: #2747D6;
     border: 2px solid #111; padding: 3px 7px; transition: none; }
   .card.fmt .lbl { color: #111; background: #F2C464; }
   /* ---- the press: mounted machine head over the belt ---- */
@@ -547,10 +596,10 @@
       </div>
       <div class="tb-meta">
         <div class="tb-cell"><p class="tb-label">Field guides</p><p class="tb-value"><a href="/blog/">BLOG</a></p></div>
-        <div class="tb-cell"><p class="tb-label">Dwg No</p><p class="tb-value">PT-1.2.0</p></div>
+        <div class="tb-cell"><p class="tb-label">Dwg No</p><p class="tb-value">PT-1.3.0</p></div>
         <div class="tb-cell"><p class="tb-label">Rev</p><p class="tb-value">STEEL</p></div>
         <div class="tb-cell"><p class="tb-label">Scale</p><p class="tb-value">1:1</p></div>
-        <div class="tb-cell"><p class="tb-label">Date</p><p class="tb-value">2026-08-24</p></div>
+        <div class="tb-cell"><p class="tb-label">Date</p><p class="tb-value">2026-10-10</p></div>
       </div>
     </div>
   </header>
@@ -560,7 +609,10 @@
     <!-- hero: the no-signup message -->
     <div class="hero">
       <div class="hero-copy drop-2">
-        <p class="mono eyebrow">For macOS &#183; Apple Silicon &#183; Works offline</p>
+        <div class="hero-mark">
+          <svg class="sig" viewBox="0 0 1024 1024" role="img" aria-label="PDFTrail signet"><rect width="1024" height="1024" rx="96" fill="#2747D6"/><g transform="rotate(-4 512 512)"><rect class="s-bk" x="170" y="210" width="744" height="664" fill="#111"/><rect class="s-cd" x="140" y="180" width="744" height="664" fill="#fff"/><g fill="none" stroke="#111" stroke-width="8"><line class="s-ln" style="--l:624;--t:.75s" x1="200" y1="512" x2="824" y2="512"/><circle class="s-ln" style="--l:974;--t:.95s" cx="415" cy="512" r="155"/><circle class="s-ln" style="--l:974;--t:1.15s" cx="609" cy="512" r="155"/><circle class="s-dc" cx="512" cy="512" r="205" stroke-dasharray="26 20"/></g><g fill="#111" font-family="Helvetica,Arial,sans-serif" font-weight="700" text-anchor="middle"><rect class="s-pop" style="--t:1.5s" x="501" y="501" width="22" height="22"/><rect class="s-pop" style="--t:1.5s" x="708" y="503" width="18" height="18"/><g font-size="34" letter-spacing="1.5"><g class="s-pop" style="--t:1.6s"><rect x="269" y="486" width="76" height="52" rx="6"/><text x="307" y="524" fill="#fff">MD</text></g><g class="s-pop" style="--t:1.68s"><rect x="370" y="486" width="90" height="52" rx="6"/><text x="415" y="524" fill="#fff">TXT</text></g><g class="s-pop" style="--t:1.76s"><rect x="551" y="486" width="116" height="52" rx="6"/><text x="609" y="524" fill="#fff">XLSX</text></g><g class="s-pop" style="--t:1.84s"><rect x="456" y="365" width="112" height="52" rx="6"/><text x="512" y="403" fill="#fff">JSON</text></g><g class="s-pop" style="--t:1.92s"><rect x="453" y="607" width="118" height="52" rx="6"/><text x="512" y="645" fill="#fff">DOCX</text></g></g><g class="s-pop" style="--t:2.05s"><rect x="186" y="218" width="356" height="126" rx="32" fill="#2747D6"/><text x="364" y="312" font-size="104" fill="#fff" letter-spacing="6">PDF</text></g><g class="s-pop" style="--t:2.2s"><rect x="686" y="238" width="152" height="92" rx="24" fill="#2747D6"/><text x="762" y="304" font-size="62" fill="#fff">1.3</text></g><g class="s-tr"><rect x="470" y="820" width="452" height="118" rx="30" fill="#fff"/><text x="696" y="904" font-size="80" letter-spacing="8">TRAIL</text></g></g></g></svg>
+          <p class="mono eyebrow">For macOS &#183; Apple Silicon &#183; Works offline<span class="ver">Version 1.3.0 &#183; 2026-10-10</span></p>
+        </div>
         <h1>Pull the data out of your PDF without sending it anywhere.</h1>
         <p class="hero-sub">PDFTrail extracts tables and text on-device &#8212; no upload, no account &#8212; into Excel, Word, Markdown, or JSON, with structure kept intact. Buy once for $24. No subscription, ever.</p>
       </div>
@@ -592,7 +644,7 @@
             </div>
           </div>
           <div class="plate-img anim-fallback">
-            <img src="/assets/screenshots/web/07_no_signup_collage_web.jpg" width="2400" height="1350" alt="A grid of typical sign-up and login screens from other apps, with a PDFTrail card on top reading: No sign-up, no login. Your data is yours, shared with no one except you." loading="lazy">
+            <img src="/assets/screenshots/130/04_private_on_device-1600.webp" srcset="/assets/screenshots/130/04_private_on_device-800.webp 800w, /assets/screenshots/130/04_private_on_device-1600.webp 1600w" sizes="(max-width: 760px) calc(100vw - 60px), 45vw" width="1600" height="1000" loading="lazy" decoding="async" alt="Your PDFs never leave your Mac. The PDFTrail conversion graph sends one source PDF to Plain Text, Markdown and Word cards, with the flag: Local conversion, no upload.">
           </div>
         </div>
       </div>
@@ -639,79 +691,86 @@
       </div>
     </div>
 
-    <!-- feature grid: real screenshots, real captions -->
+    <!-- film section: returns after the Royal re-render (human, 2026-10-11) -->
+
+    <!-- feature grid: the six 1.3.0 store screenshots, captions and alt text from SCREENSHOTS.md -->
     <div class="feature-pad">
       <div class="dim" style="margin-bottom: 44px;"><span>What PDFTrail does &#183; six views</span></div>
       <div class="feature-grid">
 
         <div class="feature-card">
-          <p class="plate-head"><span>Detail 01 &#183; Table extraction</span><a class="full-link" href="/assets/screenshots/full/01_table_review.png">Full size</a></p>
+          <p class="plate-head"><span>Detail 01 &#183; Scanned tables</span><a class="full-link" href="/assets/screenshots/130/01_scans_clean_text-full.webp">Full size</a></p>
           <div class="plate-img">
-            <img src="/assets/screenshots/web/01_table_review.jpg" width="1400" height="788" loading="lazy" alt="PDFTrail table review window showing two extracted tables with rows, columns, and headers intact.">
+            <img src="/assets/screenshots/130/01_scans_clean_text-1600.webp" srcset="/assets/screenshots/130/01_scans_clean_text-800.webp 800w, /assets/screenshots/130/01_scans_clean_text-1600.webp 1600w" sizes="(max-width: 760px) calc(100vw - 40px), 45vw" width="1600" height="1000" loading="lazy" decoding="async" alt="Scanned pages come out clean. PDFTrail Table Review shows a scanned page of a sales table next to the engine output, with the same rows, columns and text in every cell.">
           </div>
-          <p class="cap">Rows, columns, and headers stay exactly as printed. Review each table before you export it.</p>
+          <p class="cap">Tables on clean scans keep their rows, columns and the text in every cell.</p>
         </div>
 
         <div class="feature-card">
-          <p class="plate-head"><span>Detail 02 &#183; Conversion graph</span><a class="full-link" href="/assets/screenshots/full/02_conversion_graph.png">Full size</a></p>
+          <p class="plate-head"><span>Detail 02 &#183; Table review</span><a class="full-link" href="/assets/screenshots/130/02_table_review-full.webp">Full size</a></p>
           <div class="plate-img">
-            <img src="/assets/screenshots/web/02_conversion_graph.jpg" width="1400" height="788" loading="lazy" alt="PDFTrail conversion graph showing one source PDF branching to Plain Text, Markdown, Word, Excel, and JSON outputs.">
+            <img src="/assets/screenshots/130/02_table_review-1600.webp" srcset="/assets/screenshots/130/02_table_review-800.webp 800w, /assets/screenshots/130/02_table_review-1600.webp 1600w" sizes="(max-width: 760px) calc(100vw - 40px), 45vw" width="1600" height="1000" loading="lazy" decoding="async" alt="Review every table. Fix what is wrong. The PDFTrail grid editor shows a page with a new column line and the result of Try this grid: 12 cells changed.">
           </div>
-          <p class="cap">One source file, every output format, no hidden steps. See exactly how your PDF converts.</p>
+          <p class="cap">Drag a grid line in the editor, try it, then accept and re-export.</p>
         </div>
 
         <div class="feature-card">
-          <p class="plate-head"><span>Detail 03 &#183; Batch convert</span><a class="full-link" href="/assets/screenshots/full/04_batch_convert.png">Full size</a></p>
+          <p class="plate-head"><span>Detail 03 &#183; Cross-page tables</span><a class="full-link" href="/assets/screenshots/130/03_cross_page_tables-full.webp">Full size</a></p>
           <div class="plate-img">
-            <img src="/assets/screenshots/web/04_batch_convert.jpg" width="1400" height="788" loading="lazy" alt="PDFTrail batch queue converting five annual reports at once, with per-file progress.">
+            <img src="/assets/screenshots/130/03_cross_page_tables-1600.webp" srcset="/assets/screenshots/130/03_cross_page_tables-800.webp 800w, /assets/screenshots/130/03_cross_page_tables-1600.webp 1600w" sizes="(max-width: 760px) calc(100vw - 40px), 45vw" width="1600" height="1000" loading="lazy" decoding="async" alt="One table, even across pages. A three-page source PDF beside the Excel output, which holds one table with one header row.">
           </div>
-          <p class="cap">Queue many PDFs and let PDFTrail work through them in one pass.</p>
+          <p class="cap">Tables that continue on the next page export as one table in Excel, Word and Markdown.</p>
         </div>
 
         <div class="feature-card">
-          <p class="plate-head"><span>Detail 04 &#183; Scanned PDFs</span><a class="full-link" href="/assets/screenshots/full/03_exports_ready.png">Full size</a></p>
+          <p class="plate-head"><span>Detail 04 &#183; Private by design</span><a class="full-link" href="/assets/screenshots/130/04_private_on_device-full.webp">Full size</a></p>
           <div class="plate-img">
-            <img src="/assets/screenshots/web/03_exports_ready.jpg?v=5f" width="1400" height="788" loading="lazy" alt="PDFTrail export panel listing Plain Text, Markdown, Word, Excel, and JSON formats, all built on the Mac with no cloud upload.">
+            <img src="/assets/screenshots/130/04_private_on_device-1600.webp" srcset="/assets/screenshots/130/04_private_on_device-800.webp 800w, /assets/screenshots/130/04_private_on_device-1600.webp 1600w" sizes="(max-width: 760px) calc(100vw - 40px), 45vw" width="1600" height="1000" loading="lazy" decoding="async" alt="Your PDFs never leave your Mac. The PDFTrail conversion graph sends one source PDF to Plain Text, Markdown and Word cards, with the flag: Local conversion, no upload.">
           </div>
-          <p class="cap">Text, Markdown, Word, Excel, and JSON &#8212; all built on your Mac. On-device OCR reads scanned pages and rebuilds the table.</p>
+          <p class="cap">No upload, no account, no sign-in. Every page is read on this Mac.</p>
         </div>
 
         <div class="feature-card">
-          <p class="plate-head"><span>Detail 05 &#183; No setup</span><a class="full-link" href="/assets/screenshots/full/05_empty_canvas.png">Full size</a></p>
+          <p class="plate-head"><span>Detail 05 &#183; Three themes</span><a class="full-link" href="/assets/screenshots/130/05_three_themes-full.webp">Full size</a></p>
           <div class="plate-img">
-            <img src="/assets/screenshots/web/05_empty_canvas.jpg" width="1400" height="788" loading="lazy" alt="PDFTrail empty canvas prompting to drop a PDF or open the bundled sample report.">
+            <img src="/assets/screenshots/130/05_three_themes-1600.webp" srcset="/assets/screenshots/130/05_three_themes-800.webp 800w, /assets/screenshots/130/05_three_themes-1600.webp 1600w" sizes="(max-width: 760px) calc(100vw - 40px), 45vw" width="1600" height="1000" loading="lazy" decoding="async" alt="Three looks. Pick yours. The same PDFTrail window, with one document ready to convert, in the Blueprint, Terminal and Field Unit themes.">
           </div>
-          <p class="cap">Drop a PDF, or try the bundled sample report. No account, no configuration screens.</p>
+          <p class="cap">Blueprint, Terminal or Field Unit. Change it at any time in the sidebar.</p>
         </div>
 
         <div class="feature-card">
-          <p class="plate-head"><span>Detail 06 &#183; Honest pricing</span><a class="full-link" href="/assets/screenshots/full/06_pricing.png">Full size</a></p>
+          <p class="plate-head"><span>Detail 06 &#183; Honest pricing</span><a class="full-link" href="/assets/screenshots/130/06_pricing-full.webp">Full size</a></p>
           <div class="plate-img">
-            <img src="/assets/screenshots/web/06_pricing.jpg" width="1400" height="788" loading="lazy" alt="PDFTrail unlock dialog showing a one-time 24 dollar purchase with no subscription.">
+            <img src="/assets/screenshots/130/06_pricing-1600.webp" srcset="/assets/screenshots/130/06_pricing-800.webp 800w, /assets/screenshots/130/06_pricing-1600.webp 1600w" sizes="(max-width: 760px) calc(100vw - 40px), 45vw" width="1600" height="1000" loading="lazy" decoding="async" alt="One-time purchase. Never a subscription. The PDFTrail Unlock Full Version dialog with its list of benefits.">
           </div>
-          <p class="cap">One payment, $24, unlocks the full version for good. No subscription.</p>
+          <p class="cap">Pay once and keep every future update.</p>
         </div>
 
       </div>
     </div>
 
-    <!-- what's new in 1.2 -->
+    <!-- what's new in 1.3.0 (from RELEASE_NOTES_1.3.md) -->
     <div class="whatsnew-pad">
-      <div class="dim" style="margin-bottom: 24px;"><span>What&#8217;s new in 1.2</span></div>
+      <div class="dim" style="margin-bottom: 24px;"><span>What&#8217;s new in 1.3.0 &#183; 2026-10-10</span></div>
       <div class="whatsnew-grid">
         <div class="whatsnew-item">
-          <p class="tag">Batch view</p>
-          <p class="body">A new shelf animation shows each file move from queued to done, so a batch job is easy to read at a glance.</p>
+          <p class="tag">One table across pages</p>
+          <p class="body">When a table continues on the next page, PDFTrail joins the pieces into one table in Excel, Word and Markdown. A row cut by the page break becomes one row again.</p>
         </div>
         <div class="whatsnew-item">
-          <p class="tag">Scanned tables</p>
-          <p class="body">Excel export for scanned PDFs now rebuilds table structure more accurately, straight from on-device OCR.</p>
+          <p class="tag">Table Review &#183; grid editor</p>
+          <p class="body">After a conversion, Table Review shows each table found. If a table is wrong, drag its grid lines into place, then accept it. Or open the file as it is.</p>
         </div>
         <div class="whatsnew-item">
-          <p class="tag">Table review</p>
-          <p class="body">Check every table on screen before you export, with row and column counts shown for each one.</p>
+          <p class="tag">Cleaner scan text</p>
+          <p class="body">PDFTrail keeps far more of the words on a scanned page and drops repeated ones. Tables on clean scans keep their rows, columns and cell text.</p>
+        </div>
+        <div class="whatsnew-item">
+          <p class="tag">Three themes</p>
+          <p class="body">Choose Blueprint, Terminal or Field Unit. Change the look at any time in the sidebar.</p>
         </div>
       </div>
+      <p class="whatsnew-also">Also in 1.3.0: older fax PDFs open, watermarked downloads are read, and the sidebar shows how many free exports you have left for each format.</p>
     </div>
 
     <!-- pricing -->
@@ -724,8 +783,8 @@
             <li>Unlimited conversions and on-screen table review</li>
             <li>Unlimited OCR on scanned pages</li>
             <li>Unlimited plain text (.txt) and JSON export</li>
-            <li>10 free Markdown exports &#183; 10 free Word exports</li>
-            <li>Excel export of the first 15 rows of every table</li>
+            <li>10 full exports each for Markdown, Word and Excel</li>
+            <li>After that, Excel export keeps the first 15 rows of each table</li>
             <li>Bundled sample annual report with no limits at all</li>
           </ul>
         </div>
@@ -735,7 +794,7 @@
           <p class="mono price-note">One payment &#183; no subscription</p>
           <ul>
             <li>Full Excel export, no row limit, every table</li>
-            <li>Unlimited Markdown and Word exports</li>
+            <li>Unlimited full Markdown and Word exports</li>
           </ul>
           <div class="price-cta">
             <a class="cta" href="https://apps.apple.com/app/id6799649606"><em>Get PDFTrail</em></a>
@@ -775,8 +834,9 @@
   ];
   var ROW2 = [
     { text: 'ON-DEVICE OCR' }, { text: 'NO SIGN-UP' }, { text: 'NO ACCOUNT' },
-    { text: 'BATCH CONVERT' }, { text: 'TABLE REVIEW' }, { text: '→ LLM', chip: true },
-    { text: '10 FREE MD + WORD' }, { text: 'TXT & JSON FREE FOREVER' }
+    { text: 'BATCH CONVERT' }, { text: 'TABLE REVIEW' }, { text: 'GRID EDITOR' },
+    { text: 'ONE TABLE ACROSS PAGES' }, { text: '→ LLM', chip: true },
+    { text: '10 FREE MD · WORD · XLSX' }, { text: 'TXT & JSON FREE FOREVER' }
   ];
 
   /* Each row renders its word list twice, so the -50% translateX loop is seamless. */
@@ -816,9 +876,20 @@
   light(row1El, 0);
   light(row2El, 1);
 
+  /* Off screen, the marquee pauses (.mq-off) and the light-up timer skips its work. */
+  var mqEl = document.querySelector('.mq');
+  var mqOn = true;
+  if (mqEl && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      mqOn = es[0].isIntersecting;
+      mqEl.classList.toggle('mq-off', !mqOn);
+    }).observe(mqEl);
+  }
+
   var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!calm) {
     setInterval(function () {
+      if (!mqOn || document.hidden) { return; }
       light(row1El, Math.floor(Math.random() * ROW1.length));
       light(row2El, Math.floor(Math.random() * ROW2.length));
     }, 4000);
@@ -844,9 +915,13 @@
   (function () {
   var shell = document.getElementById('animStage');
   if (!shell || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var visible = true;
+  /* The loop stops while the stage is off screen and starts again when it returns. */
+  var visible = true, running = false;
   if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }).observe(shell);
+    new IntersectionObserver(function (es) {
+      visible = es[0].isIntersecting;
+      if (visible) { start(); }
+    }).observe(shell);
   }
   function fit() {
     var sc = shell.clientWidth / 720;
@@ -879,8 +954,8 @@
   var SLOW = 1;
   var last = performance.now();
   function tick(now) {
+    if (!visible) { running = false; return; }
     var dt = Math.min((now - last) / 1000, 0.05) / SLOW; last = now;
-    if (!visible) { requestAnimationFrame(tick); return; }
     sinceSpawn += dt;
     if (sinceSpawn >= SPACING) { sinceSpawn = 0; spawn(); }
     /* press state machine */
@@ -942,8 +1017,13 @@
     }
     requestAnimationFrame(tick);
   }
+  function start() {
+    if (running) { return; }
+    running = true; last = performance.now();
+    requestAnimationFrame(tick);
+  }
   spawn(); cards[0].x = 40;
-  requestAnimationFrame(tick);
+  start();
 })();
 })();
 </script>
