@@ -7,6 +7,20 @@
   <description>Field guides on getting data out of PDFs on a Mac — without uploading anything anywhere.</description>
   <language>en</language>
   <item>
+    <title>PDF to CSV on Mac: Clean Rows for Any Spreadsheet</title>
+    <link>https://pdftrail.app/blog/pdf-to-csv-mac/</link>
+    <guid>https://pdftrail.app/blog/pdf-to-csv-mac/</guid>
+    <pubDate>Wed, 14 Oct 2026 09:00:00 +0530</pubDate>
+    <description>A plain PDF to CSV Mac workflow, on-device: convert to Excel with PDFTrail, save the sheet as CSV, then check the file before a script reads it.</description>
+  </item>
+  <item>
+    <title>Adobe Acrobat Export PDF to Excel vs On-Device on Mac</title>
+    <link>https://pdftrail.app/blog/acrobat-export-pdf-to-excel-mac/</link>
+    <guid>https://pdftrail.app/blog/acrobat-export-pdf-to-excel-mac/</guid>
+    <pubDate>Tue, 13 Oct 2026 18:00:00 +0530</pubDate>
+    <description>Comparing Acrobat export PDF to Excel Mac settings with an on-device alternative, what each tool needs, and what to check after the export.</description>
+  </item>
+  <item>
     <title>PDF Table Across Multiple Pages to Excel on Mac</title>
     <link>https://pdftrail.app/blog/pdf-table-across-pages-to-excel/</link>
     <guid>https://pdftrail.app/blog/pdf-table-across-pages-to-excel/</guid>
