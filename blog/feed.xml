@@ -7,6 +7,13 @@
   <description>Field guides on getting data out of PDFs on a Mac — without uploading anything anywhere.</description>
   <language>en</language>
   <item>
+    <title>PDF to JSON on Mac for Scripts and RAG Pipelines</title>
+    <link>https://pdftrail.app/blog/pdf-to-json-mac/</link>
+    <guid>https://pdftrail.app/blog/pdf-to-json-mac/</guid>
+    <pubDate>Tue, 20 Oct 2026 09:00:00 +0530</pubDate>
+    <description>A pdf to json mac guide for scripts and RAG pipelines: convert on-device, read the file before you code against it, and check values against the page.</description>
+  </item>
+  <item>
     <title>Preview Live Text vs OCR for PDF Tables on Mac</title>
     <link>https://pdftrail.app/blog/live-text-vs-ocr-pdf-tables/</link>
     <guid>https://pdftrail.app/blog/live-text-vs-ocr-pdf-tables/</guid>
