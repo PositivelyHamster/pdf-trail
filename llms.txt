@@ -42,6 +42,7 @@
 
 ## News and engine notes
 
+- [Born-Digital vs Scanned PDFs: Why It Changes Everything](https://pdftrail.app/blog/born-digital-vs-scanned-pdf/): Born digital PDF vs scanned: what each file stores, why OCR needs a second look and a text layer does not, and how to tell which one you have.
 - [Why PDF to Excel Gets Numbers Wrong, and How to Catch It](https://pdftrail.app/blog/why-pdf-to-excel-numbers-go-wrong/): A pdf to excel wrong numbers slip can hide in a clean column of amounts. Why it happens, and the checks that catch it fast.
 - [PDFTrail 1.3: One Table Across Pages and Table Review](https://pdftrail.app/blog/pdftrail-1-3/): PDFTrail 1.3 is on the Mac App Store: tables join across pages, Table Review has a grid editor, scan text is cleaner, and there are three themes.
 - [Extract Tables from PDF Without Uploading: Why It Matters](https://pdftrail.app/blog/extract-pdf-tables-without-uploading/): How to extract tables from PDF without uploading it. What "upload" means, which files are safe to send, and the local routes that skip the server.
