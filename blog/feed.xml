@@ -7,6 +7,13 @@
   <description>Field guides on getting data out of PDFs on a Mac — without uploading anything anywhere.</description>
   <language>en</language>
   <item>
+    <title>Multi-Year Financials from Annual Report PDFs</title>
+    <link>https://pdftrail.app/blog/multi-year-financials-annual-reports/</link>
+    <guid>https://pdftrail.app/blog/multi-year-financials-annual-reports/</guid>
+    <pubDate>Tue, 20 Oct 2026 18:00:00 +0530</pubDate>
+    <description>Annual report data extraction for several years: convert each report on your Mac, check the tables, then line the years up row by row in Excel.</description>
+  </item>
+  <item>
     <title>PDF to JSON on Mac for Scripts and RAG Pipelines</title>
     <link>https://pdftrail.app/blog/pdf-to-json-mac/</link>
     <guid>https://pdftrail.app/blog/pdf-to-json-mac/</guid>
