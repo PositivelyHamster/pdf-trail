@@ -7,6 +7,20 @@
   <description>Field guides on getting data out of PDFs on a Mac — without uploading anything anywhere.</description>
   <language>en</language>
   <item>
+    <title>Scanned Invoice PDF to Excel on Mac</title>
+    <link>https://pdftrail.app/blog/scanned-invoice-pdf-to-excel-mac/</link>
+    <guid>https://pdftrail.app/blog/scanned-invoice-pdf-to-excel-mac/</guid>
+    <pubDate>Thu, 22 Oct 2026 18:00:00 +0530</pubDate>
+    <description>Turn a scanned invoice to Excel on your Mac with OCR that runs on-device, then check line items, tax and total against the page.</description>
+  </item>
+  <item>
+    <title>Google Sheets Can't Import PDF Tables: Mac Workaround</title>
+    <link>https://pdftrail.app/blog/import-pdf-to-google-sheets-mac/</link>
+    <guid>https://pdftrail.app/blog/import-pdf-to-google-sheets-mac/</guid>
+    <pubDate>Thu, 22 Oct 2026 09:00:00 +0530</pubDate>
+    <description>How to import PDF to Google Sheets from a Mac: Sheets has no PDF import, so convert to .xlsx on-device first, then import that file.</description>
+  </item>
+  <item>
     <title>Born-Digital vs Scanned PDFs: Why It Changes Everything</title>
     <link>https://pdftrail.app/blog/born-digital-vs-scanned-pdf/</link>
     <guid>https://pdftrail.app/blog/born-digital-vs-scanned-pdf/</guid>
